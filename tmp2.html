@@ -36,16 +36,16 @@
             }
         }
 
-        var s1 = slider(), s2 = slider(), s3 = slider();
+        var s1 = slider(55,67), s2 = slider(0,999), s3 = slider(0,99);
         s1.value(1.);
 
         s1.callback(function(){Constr(s1,s2,s3);})
         s2.callback(function(){Constr(s2,s1,s3);})
         s3.callback(function(){Constr(s3,s1,s2);})
 
-        d3.select("#x1").append("svg").call(s1);
-        d3.select("#x2").append("svg").call(s2);
-        d3.select("#x3").append("svg").call(s3);
+        var slider1 = d3.select("#x1").append("svg").call(s1);
+        var slider2 = d3.select("#x2").append("svg").call(s2);
+        var slider3 = d3.select("#x3").append("svg").call(s3);
 
     </script>
 

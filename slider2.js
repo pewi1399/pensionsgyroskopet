@@ -1,4 +1,4 @@
-function slider()
+function slider(d1,d2)
 {
     var margin = {top: 40, left: 40, right: 10, bottom: 5},
         width  = 600 - margin.left - margin.right,
@@ -10,7 +10,7 @@ function slider()
         cback  = function(d){};
 
     var x = d3.scale.linear()
-        .domain([-1,1])
+        .domain([d1,d2])
         .range ([0,width])
         .clamp(true);
 
