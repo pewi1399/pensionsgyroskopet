@@ -16,6 +16,7 @@
 
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="slider2.js"></script>
+    <script src="src/jquery-3.1.1.min.js"></script>
     <script>
 
 
@@ -28,6 +29,7 @@ var beta = 600000
         {
           // maxvärde 67 år
           // minvärde 55 år
+            var locked = $('input[name=choice]:checked').val()
             var pensionsar = src.value();
 
             if(pensionsar > 67)
@@ -49,6 +51,8 @@ var beta = 600000
         function behallning(src,d1,d2)
         {
           // maxvärde nuvarande ink /12
+
+            var locked = $('input[name=choice]:checked').val()
             var s_sq = Math.pow(src.value(),2),
                 d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
             if(d_sq > 0)
@@ -69,6 +73,7 @@ var beta = 600000
 
         function sparande(src,d1,d2)
         {
+            var locked = $('input[name=choice]:checked').val()
             var s_sq = Math.pow(src.value(),2),
                 d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
             if(d_sq > 0)
