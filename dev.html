@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+    .axis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
+    .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
+    .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
+</style>
+
+<body>
+
+    <div id="x1">X<sub>1</sub></div><br>
+    <div id="x2">X<sub>2</sub></div><br>
+    <div id="x3">X<sub>3</sub></div><br>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="slider2.js"></script>
+    <script>
+
+
+var alpha = 25
+var beta = 600000
+
+//------------------------------------------------------------------------------
+
+        function pension(src,d1,d2)
+        {
+          // maxvärde 67 år
+          // minvärde 55 år
+            var pensionsar = src.value();
+
+            if(pensionsar > 67)
+            {
+                var a = 0
+                d1.value(a);
+                d2.value(a);
+            }
+            else
+            {
+                var a =  src.value()///100;
+                d1.value((d2.value()*(a-alpha))/10);
+                //d2.value(a);
+            }
+        }
+
+//------------------------------------------------------------------------------
+
+        function behallning(src,d1,d2)
+        {
+          // maxvärde nuvarande ink /12
+            var s_sq = Math.pow(src.value(),2),
+                d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
+            if(d_sq > 0)
+            {
+                var a =  Math.sqrt((1-s_sq)/d_sq);
+                d1.value(a*d1.value());
+                d2.value(a*d2.value());
+            }
+            else
+            {
+                var a =  Math.sqrt((1-s_sq)/2);
+                d1.value(a);
+                d2.value(a);
+            }
+        }
+
+//------------------------------------------------------------------------------
+
+        function sparande(src,d1,d2)
+        {
+            var s_sq = Math.pow(src.value(),2),
+                d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
+            if(d_sq > 0)
+            {
+                var a =  Math.sqrt((1-s_sq)/d_sq);
+                d1.value(a*d1.value());
+                d2.value(a*d2.value());
+            }
+            else
+            {
+                var a =  Math.sqrt((1-s_sq)/2);
+                d1.value(a);
+                d2.value(a);
+            }
+        }
+
+//------------------------------------------------------------------------------
+
+        var s1 = slider(55,67), s2 = slider(0,50000), s3 = slider(0,50000);
+        s1.value(55);
+        s2.value(10000);
+        s3.value(5000);
+
+        s1.callback(function(){pension(s1,s2,s3);})
+        s2.callback(function(){behallning(s2,s1,s3);})
+        s3.callback(function(){sparande(s3,s1,s2);})
+
+        var slider1 = d3.select("#x1").append("svg").call(s1);
+        var slider2 = d3.select("#x2").append("svg").call(s2);
+        var slider3 = d3.select("#x3").append("svg").call(s3);
+
+    </script>
+    <form name = "gg">
+    <input type="radio" name="choice" value="pensionar" checked> pensionar<br>
+    <input type="radio" name="choice" value="behallning"> behallning<br>
+    <input type="radio" name="choice" value="sparande"> sparande
+  </form>
+
+</body>

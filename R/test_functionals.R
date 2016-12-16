@@ -18,9 +18,9 @@ plotz <- function(argument, unlocked = "x"){
     y <- argument
     z <- sinpi(x)
     
-    points(x,x, col="red", pch = 4)
-    points(x,y, col="red", pch = 3)
-    points(x,z, col="red", pch = 2)
+    points(x,x, col="dodgerblue", pch = 4)
+    points(x,y, col="dodgerblue", pch = 3)
+    points(x,z, col="dodgerblue", pch = 2)
     
   } else{
     
@@ -28,9 +28,9 @@ plotz <- function(argument, unlocked = "x"){
     y <- cospi(x)
     z <- argument
     
-    points(x,x, col="blue", pch = 4)
-    points(x,y, col="blue", pch = 3)
-    points(x,z, col="blue", pch = 2)
+    points(x,x, col="firebrick3", pch = 4)
+    points(x,y, col="firebrick3", pch = 3)
+    points(x,z, col="firebrick3", pch = 2)
   }
   
 
