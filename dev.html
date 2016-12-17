@@ -6,14 +6,27 @@
     .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
     .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
     .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
+
+    .div1 {
+        width: 600px;
+        border: 5px solid gray;
+        padding: 25px;
+        margin: auto;
+        background-color: darkslategray;
+
+    }
+
+
 </style>
 
 <body>
 
-    <div id="x1">X<sub>1</sub></div><br>
-    <div id="x2">X<sub>2</sub></div><br>
-    <div id="x3">X<sub>3</sub></div><br>
 
+<div class = "div1">
+    <div id="x1">Pensionsår<sub>x</sub></div><br>
+    <div id="x2">Behållning<sub>y</sub></div><br>
+    <div id="x3">Sparande<sub>z</sub></div><br>
+</div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="slider2.js"></script>
     <script src="src/jquery-3.1.1.min.js"></script>
@@ -25,74 +38,101 @@ var beta = 600000
 
 //------------------------------------------------------------------------------
 
-        function pension(src,d1,d2)
+        function pension(src, y, z)
         {
           // maxvärde 67 år
           // minvärde 55 år
-            var locked = $('input[name=choice]:checked').val()
+            var unlocked = $('input[name=choice]:checked').val()
             var pensionsar = src.value();
 
             if(pensionsar > 67)
             {
                 var a = 0
-                d1.value(a);
-                d2.value(a);
+                y.value(a);
+                z.value(a);
             }
-            else
+            else if ( unlocked ==  "behallning" )
             {
-                var a =  src.value()///100;
-                d1.value((d2.value()*(a-alpha))/10);
-                //d2.value(a);
+                var x =  src.value()///100;
+                y.value(
+                  z.value()*(x - alpha) / (67 - x + 10)
+                );
+            }
+            else if ( unlocked ==  "sparande" )
+            {
+                var x =  src.value()///100;
+                z.value(
+                  y.value()*(67 - x +10)/(x - alpha)
+                );
+
             }
         }
 
 //------------------------------------------------------------------------------
 
-        function behallning(src,d1,d2)
+        function behallning(src,x,z)
         {
           // maxvärde nuvarande ink /12
+          var unlocked = $('input[name=choice]:checked').val()
+          var behallning = src.value();
 
-            var locked = $('input[name=choice]:checked').val()
-            var s_sq = Math.pow(src.value(),2),
-                d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
-            if(d_sq > 0)
-            {
-                var a =  Math.sqrt((1-s_sq)/d_sq);
-                d1.value(a*d1.value());
-                d2.value(a*d2.value());
-            }
-            else
-            {
-                var a =  Math.sqrt((1-s_sq)/2);
-                d1.value(a);
-                d2.value(a);
-            }
+          if(behallning > 500*1000)
+          {
+              var a = 0
+              x.value(a);
+              z.value(a);
+          }
+          else if ( unlocked ==  "pensionar" )
+          {
+              var y =  behallning///100;
+              x.value(
+                (z.value()*alpha + 67*y + 10*y) / (z.value() + y)
+              );
+          }
+          else if ( unlocked ==  "sparande" )
+          {
+              var y =  behallning///100;
+              z.value(
+                y*(67 - x.value() +10)/(x.value() - alpha)
+              );
+
+          }
         }
 
 //------------------------------------------------------------------------------
 
-        function sparande(src,d1,d2)
+        function sparande(src,x,y)
         {
-            var locked = $('input[name=choice]:checked').val()
-            var s_sq = Math.pow(src.value(),2),
-                d_sq = Math.pow( d1.value(),2) + Math.pow( d2.value(),2);
-            if(d_sq > 0)
-            {
-                var a =  Math.sqrt((1-s_sq)/d_sq);
-                d1.value(a*d1.value());
-                d2.value(a*d2.value());
-            }
-            else
-            {
-                var a =  Math.sqrt((1-s_sq)/2);
-                d1.value(a);
-                d2.value(a);
-            }
+          var unlocked = $('input[name=choice]:checked').val()
+          var sparande = src.value();
+
+          if(sparande > 50*1000)
+          {
+              var a = 0
+              x.value(a);
+              y.value(a);
+          }
+          else if ( unlocked ==  "pensionar" )
+          {
+              var z =  sparande;//100;
+              console.log((z * alpha + 67*y.value() + 10*y.value()) / (z + y.value()));
+              x.value(
+                (z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
+              );
+          }
+          else if ( unlocked ==  "behallning" )
+          {
+              var z =  sparande///100;
+              console.log(z * (x.value() - alpha) / (67 - x.value() + 10));
+              y.value(
+                z * (x.value() - alpha) / (67 - x.value() + 10)
+              );
+          }
         }
 
 //------------------------------------------------------------------------------
 
-        var s1 = slider(55,67), s2 = slider(0,50000), s3 = slider(0,50000);
+        var s1 = slider(55,67), s2 = slider(0,50*1000), s3 = slider(0,50*1000);
         s1.value(55);
         s2.value(10000);
         s3.value(5000);
