@@ -42,8 +42,9 @@
 
         var savings_data = [{"year":55,"kr":20000},{"year":67,"kr":20000}]
 
-        g.append("path")
+      var line1 = g.append("path")
         .attr("class", "line")
+        .attr("id", "line2")
         .attr("d", savings_line(savings_data))
         .attr("");
 
@@ -54,9 +55,27 @@
 
         var behallning_data = [{"year":55,"kr":20000},{"year":67,"kr":50000}]
 
-        g.append("path")
+      var line2 = g.append("path")
         .attr("class", "line")
+        .attr("id", "line1")
         .attr("d", savings_line(behallning_data))
         .attr("");
+
+function redraw(){
+  var behallning55 = s3.value() * (55 - alpha) / (67 - 55 + 10),
+  behallning67 = s3.value() * (67 - alpha) / (67 - 67 + 10)
+  var new_behallning = [{"year":55,"kr": behallning55},{"year":67,"kr":behallning67}]
+
+  d3.select("#line1")
+    //.transition()
+    .attr("d", savings_line(new_behallning))
+
+  var new_savings = [{"year":55,"kr": s3.value()},{"year":67,"kr":s3.value()}]
+
+  d3.select("#line2")
+    //.transition()
+    .attr("d", savings_line(new_savings))
+
+}
 
 //}
