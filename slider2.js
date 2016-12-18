@@ -1,6 +1,6 @@
 function slider(d1,d2)
 {
-    var margin = {top: 40, left: 40, right: 10, bottom: 5},
+    var margin = {top: 40, left: 40, right: 30, bottom: 5},
         width  = 600 - margin.left - margin.right,
         height = 100  - margin.top  - margin.bottom,
         brush  = d3.svg.brush(),

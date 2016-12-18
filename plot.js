@@ -1,6 +1,6 @@
 //function plot()
 //{
-    var margin = {top: 40, left: 60, right: 10, bottom: 30},
+    var margin = {top: 40, left: 60, right: 30, bottom: 30},
         width  = 600 - margin.left - margin.right,
         height = 300  - margin.top  - margin.bottom,
         brush  = d3.svg.brush(),

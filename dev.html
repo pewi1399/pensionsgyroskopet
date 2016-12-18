@@ -22,18 +22,61 @@
 
     }
 
+    .MyInput1 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 119px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
+
+    .MyInput2 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 265px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
+
+    .MyInput3 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 405px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
 
 </style>
 
 <body>
 
 
-<div class = "div1">
-    <div id="x1">Pensionsår<sub>x</sub></div><br>
-    <div id="x2">Behållning<sub>y</sub></div><br>
-    <div id="x3">Sparande<sub>z</sub></div><br>
+<form name = "gg">
+<div class = "div1" style="display: inline-block">
+    <div id="x1">Pensionsår<sub>x</sub><input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
+    <div id="x2">Behållning<sub>y</sub><input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
+    <div id="x3">Sparande<sub>z</sub><input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
     <div id="x4">plot<sub>1</sub></div><br>
 </div>
+
+
+
+
+</form>
+
+
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="slider2.js"></script>
     <script src="plot.js"></script>
@@ -157,10 +200,7 @@ var beta = 600000
         var slider3 = d3.select("#x3").append("svg").call(s3);
 
     </script>
-    <form name = "gg">
-    <input type="radio" name="choice" value="pensionar" checked> pensionar<br>
-    <input type="radio" name="choice" value="behallning"> behallning<br>
-    <input type="radio" name="choice" value="sparande"> sparande
-  </form>
+    <div style="display: inline-block">
 
+</div>
 </body>
