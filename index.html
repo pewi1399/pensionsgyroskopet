@@ -1,251 +1,226 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <style>
+<meta charset="utf-8">
 
-        input[type=range] {
-      -webkit-appearance: none;
-      margin: 10px 0;
-      width: 100%;
+<style>
+    .axis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
+    .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
+    .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
+
+    .Paxis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .Paxis path {
+            fill: none;
+            stroke: black;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+          }
+
+
+
+    path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+    .div1 {
+        width: 600px;
+        border: 5px solid gray;
+        padding: 25px;
+        margin: auto;
+        font-size:10pt;
+        font-family:Arial;
+
     }
-    input[type=range]:focus {
-      outline: none;
+
+    .MyInput1 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 114px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
     }
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      animate: 0.2s;
-      box-shadow: 0px 0px 0px #000000;
-      background: #2497E3;
-      border-radius: 1px;
-      border: 0px solid #000000;
+
+    .MyInput2 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 249px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
     }
-    input[type=range]::-webkit-slider-thumb {
-      box-shadow: 0px 0px 0px #000000;
-      border: 1px solid #2497E3;
-      height: 18px;
-      width: 18px;
-      border-radius: 25px;
-      background: #A1D0FF;
-      cursor: pointer;
-      -webkit-appearance: none;
-      margin-top: -7px;
+
+    .MyInput3 {
+      position: absolute;
+      display: block;
+      float: left;
+      padding: 1px;
+      left: 35px;
+      top: 385px;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
     }
-    input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #2497E3;
-    }
-    input[type=range]::-moz-range-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      animate: 0.2s;
-      box-shadow: 0px 0px 0px #000000;
-      background: #2497E3;
-      border-radius: 1px;
-      border: 0px solid #000000;
-    }
-    input[type=range]::-moz-range-thumb {
-      box-shadow: 0px 0px 0px #000000;
-      border: 1px solid #2497E3;
-      height: 18px;
-      width: 18px;
-      border-radius: 25px;
-      background: #A1D0FF;
-      cursor: pointer;
-    }
-    input[type=range]::-ms-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      animate: 0.2s;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-    input[type=range]::-ms-fill-lower {
-      background: #2497E3;
-      border: 0px solid #000000;
-      border-radius: 2px;
-      box-shadow: 0px 0px 0px #000000;
-    }
-    input[type=range]::-ms-fill-upper {
-      background: #2497E3;
-      border: 0px solid #000000;
-      border-radius: 2px;
-      box-shadow: 0px 0px 0px #000000;
-    }
-    input[type=range]::-ms-thumb {
-      box-shadow: 0px 0px 0px #000000;
-      border: 1px solid #2497E3;
-      height: 18px;
-      width: 18px;
-      border-radius: 25px;
-      background: #A1D0FF;
-      cursor: pointer;
-    }
-    input[type=range]:focus::-ms-fill-lower {
-      background: #2497E3;
-    }
-    input[type=range]:focus::-ms-fill-upper {
-      background: #2497E3;
-    }
-    </style>
-  </head>
+
+    div.content
+{
+font-size:12pt;
+font-family:Arial;
+font-weight:bold;
+font-style:italic;
+color:#23238e;
+}
+
+</style>
 
 <body>
 
-<h3>
-</h3>
-    <!--	<script src="https://d3js.org/d3.v4.min.js"></script> -->
-    <script src="src/d3/d3.min.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
-    <script src="src/jquery-3.1.1.min.js"></script>
-    <!--<script src="src/rangeslider.js-2.3.0/rangeslider.min.js"></script>-->
 
-    <script type="text/javascript">
+<form name = "gg">
+<div class = "div1" style="display: inline-block">
+    <div id="x1">Pensionsår<sub>x</sub><input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
+    <div id="x2">Behållning<sub>y</sub><input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
+    <div id="x3">Sparande<sub>z</sub><input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
+    <div id="x4"><sub></sub></div><br>
+</div>
 
-      // --------------------------- start definitions --------------------------
-    	var margin = {top: 20, right: 100, bottom: 30, left: 100},
-    		width = 1130 - margin.left - margin.right,
-    		height = 550 - margin.top - margin.bottom,
-        bar_offset = 40;
 
-      var data = [
-                  {"x":10, id: "A"},
-                  {"x":10, id: "B"},
-                  {"x":10, id: "C"}
-                ]
 
-      var pair1 = {"lock":0, "value":10}
-      var pair2 = {"lock":1, "value":10}
 
-      $('input[name=gender]:checked').val();
-
-function gyroscope(val1, val2){
-/*
-      if(unlock == "a"){
-        window.data.x_a = data.x_b * data.x_c
-      }else if(unlock == "b"){
-        window.data.x_b = data.x_a * data.x_c
-      }else{
-        window.data.x_c = data.x_a * data.x_bemantik
-      }
-*/
-    var unlocked = $('input[name=gender]:checked').val();
-
-    if(unlocked == "A"){
-      var unlocked = 0
-    } else if(unlocked =="B"){
-      var unlocked = 1
-    }else{
-      var unlocked = 2
-    }
-
-    data[unlocked].x = Math.min(100, (val1 + val2))
-
-    g.selectAll(".controllers")
-        .data(data)
-        .transition()
-        .attr("cx", function(d){ return x(d.x); })
-      }
-
-      // set scales and ranges
-      var x = d3.scaleLinear().range([width,0], .1);
-      var y = d3.scaleLinear().range([height, 0]);
-
-      // define domain
-      x.domain([0, 100].reverse());
-      y.domain([0,100]);
-
-    	var yAxis = d3.axisLeft()
-    		.scale(y);
-
-      var xAxis_ordinal = d3.axisBottom()
-          .scale(x);
-
-      var svg = d3.select("h3")
-    		.append("div")
-    		.attr("id","testname")
-    		.classed("svg-container1", true)
-    		.append("svg")
-    		.attr("preserveAspectRatio", "xMinYMin meet")
-    		.attr("viewBox","0 0 " + (width + margin.left + margin.right)  + " " + (height+ margin.top + margin.bottom))
-    		//class to make it responsive
-    		.classed("svg-content-responsive", true);
-
-      var g = svg.append("g");
-
-      g.append("g")
-        .attr("class", "y-axis")
-        .attr('transform', 'translate(' + [margin.left, margin.top] + ')')
-        .call(yAxis);
-
-      g.append("g")
-      	.attr("class", "x-axis")
-      	.attr("transform", "translate("+ [margin.left, height+ margin.top] + ")")
-      	.call(xAxis_ordinal);
-
-      g.selectAll(".controllers")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr('transform', 'translate(' + [margin.left, margin.top] + ')')
-        .attr("class", "controllers")
-        .attr("r", 10)
-        .attr("cx", function(d){ return x(d.x); })
-        .attr("cy", function(d,i){ return y(((i+1)*30)); });
-
-  </script>
-  <form name = "gg">
-  <input type="radio" name="gender" value="A" checked> A<br>
-  <input type="radio" name="gender" value="B"> B<br>
-  <input type="radio" name="gender" value="C"> C
 </form>
 
-<input
-    type="range"
-    min="10"                    // default 0
-    max="1000"                  // default 100
-    step="10"                   // default 1
-    value="300"                 // default min + (max-min)/2
-    data-orientation="vertical" // default horizontal
-    >
-<input
-    type="range"
-    min="10"                    // default 0
-    max="1000"                  // default 100
-    step="10"                   // default 1
-    value="300"                 // default min + (max-min)/2
-    data-orientation="vertical" // default horizontal
-    >
-<input
-    type="range"
-    min="10"                    // default 0
-    max="1000"                  // default 100
-    step="10"                   // default 1
-    value="300"                 // default min + (max-min)/2
-    data-orientation="vertical" // default horizontal
-    >
 
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="slider2.js"></script>
+    <script src="plot.js"></script>
+    <script src="src/jquery-3.1.1.min.js"></script>
     <script>
-    //$("input[type = 'range']").val()
-
-    // Initialize a new plugin instance for all
-    // e.g. $('input[type="range"]') elements.
-    //$('input[type="range"]').rangeslider();
-
-    // Destroy all plugin instances created from the
-    // e.g. $('input[type="range"]') elements.
-    //$('input[type="range"]').rangeslider('destroy');
-
-    // Update all rangeslider instances for all
-    // e.g. $('input[type="range"]') elements.
-    // Usefull if you changed some attributes e.g. `min` or `max` etc.
-    //$('input[type="range"]').rangeslider('update', true);
-
-</script>
 
 
-  </body>
+var alpha = 25
+var beta = 600000
+
+//------------------------------------------------------------------------------
+
+        function pension(src, y, z)
+        {
+          // maxvärde 67 år
+          // minvärde 55 år
+            var unlocked = $('input[name=choice]:checked').val()
+            var pensionsar = src.value();
+
+            if(pensionsar > 67)
+            {
+                var a = 0
+                y.value(a);
+                z.value(a);
+            }
+            else if ( unlocked ==  "behallning" )
+            {
+                var x =  src.value()///100;
+                y.value(
+                  z.value()*(x - alpha) / (67 - x + 10)
+                );
+            }
+            else if ( unlocked ==  "sparande" )
+            {
+                var x =  src.value()///100;
+                z.value(
+                  y.value()*(67 - x +10)/(x - alpha)
+                );
+
+            }
+            redraw()
+        }
+
+//------------------------------------------------------------------------------
+
+        function behallning(src,x,z)
+        {
+          // maxvärde nuvarande ink /12
+          var unlocked = $('input[name=choice]:checked').val()
+          var behallning = src.value();
+
+          if(behallning > 500*1000)
+          {
+              var a = 0
+              x.value(a);
+              z.value(a);
+          }
+          else if ( unlocked ==  "pensionar" )
+          {
+              var y =  behallning///100;
+              x.value(
+                (z.value()*alpha + 67*y + 10*y) / (z.value() + y)
+              );
+          }
+          else if ( unlocked ==  "sparande" )
+          {
+              var y =  behallning///100;
+              z.value(
+                y*(67 - x.value() +10)/(x.value() - alpha)
+              );
+
+          }
+          redraw()
+        }
+
+//------------------------------------------------------------------------------
+
+        function sparande(src,x,y)
+        {
+          var unlocked = $('input[name=choice]:checked').val()
+          var sparande = src.value();
+
+          if(sparande > 50*1000)
+          {
+              var a = 0
+              x.value(a);
+              y.value(a);
+          }
+          else if ( unlocked ==  "pensionar" )
+          {
+              var z =  sparande;//100;
+              console.log((z * alpha + 67*y.value() + 10*y.value()) / (z + y.value()));
+              x.value(
+                (z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
+              );
+          }
+          else if ( unlocked ==  "behallning" )
+          {
+              var z =  sparande///100;
+              console.log(z * (x.value() - alpha) / (67 - x.value() + 10));
+              y.value(
+                z * (x.value() - alpha) / (67 - x.value() + 10)
+              );
+          }
+          redraw()
+        }
+
+//------------------------------------------------------------------------------
+
+        var s1 = slider(55,67), s2 = slider(0,50*1000), s3 = slider(0,50*1000);
+        s1.value(55);
+        s2.value(10000);
+        s3.value(5000);
+
+        s1.callback(function(){pension(s1,s2,s3);})
+        s2.callback(function(){behallning(s2,s1,s3);})
+        s3.callback(function(){sparande(s3,s1,s2);})
+
+        var slider1 = d3.select("#x1").append("svg").call(s1);
+        var slider2 = d3.select("#x2").append("svg").call(s2);
+        var slider3 = d3.select("#x3").append("svg").call(s3);
+
+    </script>
+    <div style="display: inline-block">
+
+</div>
+</body>

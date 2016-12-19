@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+
+        input[type=range] {
+      -webkit-appearance: none;
+      margin: 10px 0;
+      width: 100%;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 0px 0px 0px #000000;
+      background: #2497E3;
+      border-radius: 1px;
+      border: 0px solid #000000;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      box-shadow: 0px 0px 0px #000000;
+      border: 1px solid #2497E3;
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: #A1D0FF;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -7px;
+    }
+    input[type=range]:focus::-webkit-slider-runnable-track {
+      background: #2497E3;
+    }
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 0px 0px 0px #000000;
+      background: #2497E3;
+      border-radius: 1px;
+      border: 0px solid #000000;
+    }
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0px 0px 0px #000000;
+      border: 1px solid #2497E3;
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: #A1D0FF;
+      cursor: pointer;
+    }
+    input[type=range]::-ms-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      animate: 0.2s;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+      background: #2497E3;
+      border: 0px solid #000000;
+      border-radius: 2px;
+      box-shadow: 0px 0px 0px #000000;
+    }
+    input[type=range]::-ms-fill-upper {
+      background: #2497E3;
+      border: 0px solid #000000;
+      border-radius: 2px;
+      box-shadow: 0px 0px 0px #000000;
+    }
+    input[type=range]::-ms-thumb {
+      box-shadow: 0px 0px 0px #000000;
+      border: 1px solid #2497E3;
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: #A1D0FF;
+      cursor: pointer;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+      background: #2497E3;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+      background: #2497E3;
+    }
+    </style>
+  </head>
+
+<body>
+
+<h3>
+</h3>
+    <!--	<script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script src="src/d3/d3.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+    <script src="src/jquery-3.1.1.min.js"></script>
+    <!--<script src="src/rangeslider.js-2.3.0/rangeslider.min.js"></script>-->
+
+    <script type="text/javascript">
+
+      // --------------------------- start definitions --------------------------
+    	var margin = {top: 20, right: 100, bottom: 30, left: 100},
+    		width = 1130 - margin.left - margin.right,
+    		height = 550 - margin.top - margin.bottom,
+        bar_offset = 40;
+
+      var data = [
+                  {"x":10, id: "A"},
+                  {"x":10, id: "B"},
+                  {"x":10, id: "C"}
+                ]
+
+      var pair1 = {"lock":0, "value":10}
+      var pair2 = {"lock":1, "value":10}
+
+      $('input[name=gender]:checked').val();
+
+function gyroscope(val1, val2){
+/*
+      if(unlock == "a"){
+        window.data.x_a = data.x_b * data.x_c
+      }else if(unlock == "b"){
+        window.data.x_b = data.x_a * data.x_c
+      }else{
+        window.data.x_c = data.x_a * data.x_bemantik
+      }
+*/
+    var unlocked = $('input[name=gender]:checked').val();
+
+    if(unlocked == "A"){
+      var unlocked = 0
+    } else if(unlocked =="B"){
+      var unlocked = 1
+    }else{
+      var unlocked = 2
+    }
+
+    data[unlocked].x = Math.min(100, (val1 + val2))
+
+    g.selectAll(".controllers")
+        .data(data)
+        .transition()
+        .attr("cx", function(d){ return x(d.x); })
+      }
+
+      // set scales and ranges
+      var x = d3.scaleLinear().range([width,0], .1);
+      var y = d3.scaleLinear().range([height, 0]);
+
+      // define domain
+      x.domain([0, 100].reverse());
+      y.domain([0,100]);
+
+    	var yAxis = d3.axisLeft()
+    		.scale(y);
+
+      var xAxis_ordinal = d3.axisBottom()
+          .scale(x);
+
+      var svg = d3.select("h3")
+    		.append("div")
+    		.attr("id","testname")
+    		.classed("svg-container1", true)
+    		.append("svg")
+    		.attr("preserveAspectRatio", "xMinYMin meet")
+    		.attr("viewBox","0 0 " + (width + margin.left + margin.right)  + " " + (height+ margin.top + margin.bottom))
+    		//class to make it responsive
+    		.classed("svg-content-responsive", true);
+
+      var g = svg.append("g");
+
+      g.append("g")
+        .attr("class", "y-axis")
+        .attr('transform', 'translate(' + [margin.left, margin.top] + ')')
+        .call(yAxis);
+
+      g.append("g")
+      	.attr("class", "x-axis")
+      	.attr("transform", "translate("+ [margin.left, height+ margin.top] + ")")
+      	.call(xAxis_ordinal);
+
+      g.selectAll(".controllers")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr('transform', 'translate(' + [margin.left, margin.top] + ')')
+        .attr("class", "controllers")
+        .attr("r", 10)
+        .attr("cx", function(d){ return x(d.x); })
+        .attr("cy", function(d,i){ return y(((i+1)*30)); });
+
+  </script>
+  <form name = "gg">
+  <input type="radio" name="gender" value="A" checked> A<br>
+  <input type="radio" name="gender" value="B"> B<br>
+  <input type="radio" name="gender" value="C"> C
+</form>
+
+<input
+    type="range"
+    min="10"                    // default 0
+    max="1000"                  // default 100
+    step="10"                   // default 1
+    value="300"                 // default min + (max-min)/2
+    data-orientation="vertical" // default horizontal
+    >
+<input
+    type="range"
+    min="10"                    // default 0
+    max="1000"                  // default 100
+    step="10"                   // default 1
+    value="300"                 // default min + (max-min)/2
+    data-orientation="vertical" // default horizontal
+    >
+<input
+    type="range"
+    min="10"                    // default 0
+    max="1000"                  // default 100
+    step="10"                   // default 1
+    value="300"                 // default min + (max-min)/2
+    data-orientation="vertical" // default horizontal
+    >
+
+    <script>
+    //$("input[type = 'range']").val()
+
+    // Initialize a new plugin instance for all
+    // e.g. $('input[type="range"]') elements.
+    //$('input[type="range"]').rangeslider();
+
+    // Destroy all plugin instances created from the
+    // e.g. $('input[type="range"]') elements.
+    //$('input[type="range"]').rangeslider('destroy');
+
+    // Update all rangeslider instances for all
+    // e.g. $('input[type="range"]') elements.
+    // Usefull if you changed some attributes e.g. `min` or `max` etc.
+    //$('input[type="range"]').rangeslider('update', true);
+
+</script>
+
+
+  </body>
