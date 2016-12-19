@@ -7,6 +7,16 @@
     .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
     .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
 
+    .Paxis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .Paxis path {
+            fill: none;
+            stroke: black;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+          }
+
+
+
     path {
     stroke: steelblue;
     stroke-width: 2;
@@ -18,7 +28,8 @@
         border: 5px solid gray;
         padding: 25px;
         margin: auto;
-        background-color: darkslategray;
+        font-size:10pt;
+        font-family:Arial;
 
     }
 
@@ -28,7 +39,7 @@
       float: left;
       padding: 1px;
       left: 35px;
-      top: 119px;
+      top: 114px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -40,7 +51,7 @@
       float: left;
       padding: 1px;
       left: 35px;
-      top: 265px;
+      top: 249px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -52,11 +63,20 @@
       float: left;
       padding: 1px;
       left: 35px;
-      top: 405px;
+      top: 385px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
     }
+
+    div.content
+{
+font-size:12pt;
+font-family:Arial;
+font-weight:bold;
+font-style:italic;
+color:#23238e;
+}
 
 </style>
 
@@ -68,7 +88,7 @@
     <div id="x1">Pensionsår<sub>x</sub><input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
     <div id="x2">Behållning<sub>y</sub><input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
     <div id="x3">Sparande<sub>z</sub><input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
-    <div id="x4">plot<sub>1</sub></div><br>
+    <div id="x4"><sub></sub></div><br>
 </div>
 
 

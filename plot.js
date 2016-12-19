@@ -26,14 +26,14 @@
         var g = svg.append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         g.append("g")
-           .attr("class","x axis")
+           .attr("class","x Paxis")
            .attr("transform", "translate(0,"+height+")")
-           .call(d3.svg.axis().scale(x).orient("bottom").tickSize(0).tickPadding(12));
+           .call(d3.svg.axis().scale(x).orient("bottom").tickSize(5).tickPadding(12));
 
        g.append("g")
-          .attr("class","y axis")
+          .attr("class","y Paxis")
           .attr("transform", "translate(0,"+0+")")
-          .call(d3.svg.axis().scale(y).orient("left").tickSize(0).tickPadding(12));
+          .call(d3.svg.axis().scale(y).orient("left").tickSize(5).tickPadding(4));
 
     var savings_line = d3.svg.line()
           .x(function(d) { return x(d.year); })
@@ -46,7 +46,7 @@
         .attr("class", "line")
         .attr("id", "line2")
         .attr("d", savings_line(savings_data))
-        .attr("");
+        .style("stroke", "Orange");
 
     var behallning_line = d3.svg.line()
           .x(function(d) { return x(d.year); })
@@ -59,7 +59,7 @@
         .attr("class", "line")
         .attr("id", "line1")
         .attr("d", savings_line(behallning_data))
-        .attr("");
+        .style("stroke", "OrangeRed");
 
 function redraw(){
   var behallning55 = s3.value() * (55 - alpha) / (67 - 55 + 10),
