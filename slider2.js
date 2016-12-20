@@ -5,8 +5,8 @@ function slider2(d1,d2)
         height = 100  - margin.top  - margin.bottom,
         brush  = d3.brushX(),
         handle, slider,
-        value  = 0,
-        hue    = function(d){value = d;},
+        h  = 0,
+        hue    = function(d){h = d;},
         cback  = function(d){};
 
     var x = d3.scaleLinear()
@@ -20,9 +20,9 @@ function slider2(d1,d2)
         //brush.extent([[0, 0], [width, height]])
         //     .on("brush", brushed);
 
-        var svg = el.attr("width",  width  + margin.left + margin.right)
-            .attr("height", height + margin.top  + margin.bottom)
-            .append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
+  var svg = el.attr("width",  width  + margin.left + margin.right)
+      .attr("height", height + margin.top  + margin.bottom)
+      .append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         /*
         svg.append("g")
