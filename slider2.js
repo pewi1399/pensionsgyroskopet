@@ -1,4 +1,4 @@
-function slider(d1,d2)
+function slider2(d1,d2)
 {
     var margin = {top: 40, left: 20, right: 30, bottom: 5},
         width  = 600 - margin.left - margin.right,
@@ -32,7 +32,7 @@ function slider(d1,d2)
 */
 
 
-           var slider = svg.append("g")
+  var slider = svg.append("g")
        .attr("class", "slider")
        .attr("transform", "translate(" + margin.left + "," + height / 2 + ")");
 
@@ -47,7 +47,11 @@ function slider(d1,d2)
        .attr("class", "track-overlay")
        .call(d3.drag()
            .on("start.interrupt", function() { slider.interrupt(); })
-          .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+          .on("start drag", function() {
+
+            hue(x.invert(d3.event.x));
+
+          }));
 
    slider.insert("g", ".track-overlay")
        .attr("class", "ticks")
@@ -67,13 +71,13 @@ function slider(d1,d2)
        .duration(750)
        .tween("hue", function() {
          var i = d3.interpolate(0, 70);
-         return function(t) { hue(i(t)); };
+         //return function(t) { hue(t); };
        });
 
 
    function hue(h) {
      handle.attr("cx", x(h));
-     svg.style("background-color", d3.hsl(h, 0.8, 0.8));
+     //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
    }
 
    /*
@@ -99,18 +103,28 @@ function slider(d1,d2)
             upd(value);
             cback();
         }
+        */
+        /*
         upd = function(v)
         {
-            brush.selection([v,v]);
-            value = brush.selection()[0];
-            handle.attr("cx",x(value));
+            //brush.selection([v,v]);
+            //value = brush.selection()[0];
+            handle.attr("cx",x(v));
         }
         */
     }
 
+    //function hues(h) {
+      //console.log(h);
+      //handle.attr("cx", x(h));
+      //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
+    //}
     chart.margin   = function(_) { if (!arguments.length) return margin;  margin = _; return chart; };
     chart.callback = function(_) { if (!arguments.length) return cback;    cback = _; return chart; };
-    chart.value    = function(_) { if (!arguments.length) return value;       upd(_); return chart; };
+    chart.value    = function(_) { if (!arguments.length) return value;
+
+       hue(_); return chart;
+     };
 
     return chart;
 }
