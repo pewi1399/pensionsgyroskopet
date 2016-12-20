@@ -6,7 +6,7 @@ function slider2(d1,d2)
         brush  = d3.brushX(),
         handle, slider,
         value  = 0,
-        upd    = function(d){value = d;},
+        hue    = function(d){value = d;},
         cback  = function(d){};
 
     var x = d3.scaleLinear()
@@ -77,6 +77,7 @@ function slider2(d1,d2)
 
    function hue(h) {
      handle.attr("cx", x(h));
+     console.log(h)
      //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
    }
 
