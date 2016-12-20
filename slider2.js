@@ -121,7 +121,10 @@ function slider2(d1,d2)
       //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
     //}
 
-    
+
+
+
+
     chart.margin   = function(_) { if (!arguments.length) return margin;  margin = _; return chart; };
     chart.callback = function(_) { if (!arguments.length) return cback;    cback = _; return chart; };
     chart.value    = function(_) { if (!arguments.length) return value;
