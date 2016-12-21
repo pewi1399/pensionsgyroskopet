@@ -173,7 +173,7 @@ var beta = 600000
                 );
 
             }
-            redraw()
+            //redraw()
         }
 
 //------------------------------------------------------------------------------
@@ -205,7 +205,7 @@ var beta = 600000
               );
 
           }
-          redraw()
+          //redraw()
         }
 
 //------------------------------------------------------------------------------
@@ -237,26 +237,28 @@ var beta = 600000
                 z * (x.value() - alpha) / (67 - x.value() + 10)
               );
           }
-          redraw()
+          //redraw()
         }
 
 //------------------------------------------------------------------------------
 
         var s1 = slider2(55,67), s2 = slider2(0,50*1000), s3 = slider2(0,50*1000);
-        //s1.value(55);
-        //s2.value(10000);
-        //s3.value(5000);
-
-        s1.callback(function(){
-
-          pension(s1,s2,s3);}
-        )
-        s2.callback(function(){behallning(s2,s1,s3);})
-        s3.callback(function(){sparande(s3,s1,s2);})
 
         var slider11 = d3.select("#x1").append("svg").call(s1);
         var slider22 = d3.select("#x2").append("svg").call(s2);
         var slider33 = d3.select("#x3").append("svg").call(s3);
+
+        s1.callback(function(){
+
+          pension(s1,s2,s3);}
+
+        )
+        s2.callback(function(){behallning(s2,s1,s3);})
+        s3.callback(function(){sparande(s3,s1,s2);})
+
+        s1.value(60);
+        s2.value(10000);
+        s3.value(5000);
 
     </script>
     <div style="display: inline-block">

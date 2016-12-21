@@ -49,7 +49,9 @@ function slider2(d1,d2)
            .on("start.interrupt", function() { slider.interrupt(); })
           .on("start drag", function() {
 
-            hue(x.invert(d3.event.x));
+            h = x.invert(d3.mouse(this)[0])
+            hue(h);
+              cback();
 
           }));
 
@@ -74,52 +76,23 @@ function slider2(d1,d2)
          //return function(t) { hue(t); };
        });
 
+      function brushed(){
 
-   hue = function(h) {
-     handle.attr("cx", x(h));
-     console.log(h)
-     //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
-   }
-
-   /*
-
-        slider = svg.append("g")
-            .attr("class","slider")
-            .call(brush);
-
-        slider.selectAll(".extent,.resize").remove();
-        slider.select(".background").attr("height",height)
-
-        handle = slider.append("circle")
-            .attr("class","handle")
-            .attr("transform", "translate(0,"+height/2+")")
-            .attr("cx",x(value))
-            .attr("r",9);
-
-        function brushed()
-        {
+      h = x.invert(d3.mouse(this)[0])
+      hue(h);
+      cback();
+      }
 
 
-            if (d3.event) value = x.invert(d3.mouse(this)[0]);
-            upd(value);
-            cback();
-        }
-        */
-        /*
-        upd = function(v)
-        {
-            //brush.selection([v,v]);
-            //value = brush.selection()[0];
-            handle.attr("cx",x(v));
-        }
-        */
+     hue = function(h) {
+       handle.attr("cx", x(h));
+       console.log(h)
+       //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
+      }
+
     }
 
-    //function hues(h) {
-      //console.log(h);
-      //handle.attr("cx", x(h));
-      //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
-    //}
+
 
 
 
