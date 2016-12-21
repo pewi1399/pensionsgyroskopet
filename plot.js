@@ -3,18 +3,18 @@
     var margin = {top: 40, left: 60, right: 30, bottom: 30},
         width  = 600 - margin.left - margin.right,
         height = 300  - margin.top  - margin.bottom,
-        brush  = d3.svg.brush(),
+        //brush  = d3.svg.brush(),
         handle, slider,
         value  = 0,
         upd    = function(d){value = d;},
         cback  = function(d){};
 
-    var x = d3.scale.linear()
+    var x = d3.scaleLinear()
         .domain([55,67])
         .range ([0,width])
         .clamp(true);
 
-    var y = d3.scale.linear()
+    var y = d3.scaleLinear()
         .domain([0,100000])
         .range ([height,0])
         .clamp(true);
@@ -28,14 +28,14 @@
         g.append("g")
            .attr("class","x Paxis")
            .attr("transform", "translate(0,"+height+")")
-           .call(d3.svg.axis().scale(x).orient("bottom").tickSize(5).tickPadding(12));
+           .call(d3.axisBottom(x).tickSize(5).tickPadding(12));
 
        g.append("g")
           .attr("class","y Paxis")
           .attr("transform", "translate(0,"+0+")")
-          .call(d3.svg.axis().scale(y).orient("left").tickSize(5).tickPadding(4));
+          .call(d3.axisLeft(y).tickSize(5).tickPadding(4));
 
-    var savings_line = d3.svg.line()
+    var savings_line = d3.line()
           .x(function(d) { return x(d.year); })
           .y(function(d) { return y(d.kr); });
 
@@ -48,7 +48,7 @@
         .attr("d", savings_line(savings_data))
         .style("stroke", "Orange");
 
-    var behallning_line = d3.svg.line()
+    var behallning_line = d3.line()
           .x(function(d) { return x(d.year); })
           .y(function(d) { return y(d.kr); });
 
