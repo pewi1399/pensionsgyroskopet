@@ -77,18 +77,19 @@ function redraw(income){
 
   d3.select("#line2")
     //.transition()
-    .attr("d", savings_line(new_savings))
+    .attr("d", savings_line(new_savings));
 
     if(income=="t"){
+
     //regen old scale
-    x = d3.scaleLinear()
+    xx = d3.scaleLinear()
        .domain([0, 50000])
-       .range ([0,width])
+       .range ([0,550])
        .clamp(true);
 
     d3.selectAll(".income")
-      .attr("width", x(s3.value()))
-  }
+      .attr("x2", xx(50000 - s3.value()))
+  };
 }
 
 //}

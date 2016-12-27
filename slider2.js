@@ -38,7 +38,7 @@ function slider2(d1,d2, type)
 
    slider.append("line")
        .attr("class", "track")
-       .attr("stroke", "dodgerblue")
+       .attr("stroke", "#ddd")
        .attr("x1", x.range()[0])
        .attr("x2", x.range()[1])
      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
@@ -70,17 +70,33 @@ function slider2(d1,d2, type)
        .attr("r", 9);
 
     if(type == "income"){
-      svg.selectAll(".income")
+
+      slider.selectAll(".income")
+      .data([1]).enter()
+      .append("line")
+          .attr("class", "income")
+          .attr("stroke", "MediumSeaGreen")
+          .attr("stroke-width", "6px")
+          .attr("stroke-linecap", "round")
+          .attr("x1", x(0))
+          .attr("x2", x(5000))
+          .attr("transform", "translate(0," + 25 + ")")
+
+
+
+      /*
         .data([1]).enter()
         .append("rect")
         .attr("class", "income")
         .attr("fill", "MediumSeaGreen")
-        .attr("x", 17)
-        .attr("rx", 2)
-        .attr("ry", 2)
-        .attr("y", height/1.1)
+        .attr("x", x(0))
+        //.attr("rx", 2)
+        //.attr("ry", 2)
+        //.attr("y", height/1.1)
         .attr("width", x(5000))
-        .attr("height", 6);
+        .attr("height", 6)
+        .attr("transform", "translate(" + margin.left + "," + height / 2 + ")")
+        */
     }
 
 
