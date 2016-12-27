@@ -61,7 +61,10 @@
         .attr("d", savings_line(behallning_data))
         .style("stroke", "OrangeRed");
 
-function redraw(){
+
+
+
+function redraw(income){
   var behallning55 = s3.value() * (55 - alpha) / (67 - 55 + 10),
   behallning67 = s3.value() * (67 - alpha) / (67 - 67 + 10)
   var new_behallning = [{"year":55,"kr": behallning55},{"year":67,"kr":behallning67}]
@@ -76,6 +79,16 @@ function redraw(){
     //.transition()
     .attr("d", savings_line(new_savings))
 
+    if(income=="t"){
+    //regen old scale
+    x = d3.scaleLinear()
+       .domain([0, 50000])
+       .range ([0,width])
+       .clamp(true);
+
+    d3.selectAll(".income")
+      .attr("width", x(s3.value()))
+  }
 }
 
 //}

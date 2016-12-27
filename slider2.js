@@ -1,4 +1,4 @@
-function slider2(d1,d2)
+function slider2(d1,d2, type)
 {
     var margin = {top: 40, left: 20, right: 30, bottom: 5},
         width  = 600 - margin.left - margin.right,
@@ -68,6 +68,21 @@ function slider2(d1,d2)
    var handle = slider.insert("circle", ".track-overlay")
        .attr("class", "handle")
        .attr("r", 9);
+
+    if(type == "income"){
+      svg.selectAll(".income")
+        .data([1]).enter()
+        .append("rect")
+        .attr("class", "income")
+        .attr("fill", "MediumSeaGreen")
+        .attr("x", 17)
+        .attr("rx", 2)
+        .attr("ry", 2)
+        .attr("y", height/1.1)
+        .attr("width", x(5000))
+        .attr("height", 6);
+    }
+
 
    slider.transition() // Gratuitous intro!
        .duration(750)
