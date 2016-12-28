@@ -63,7 +63,7 @@ function slider2(d1,d2, type)
      .enter().append("text")
        .attr("x", x)
        .attr("text-anchor", "middle")
-       .text(function(d) { return d + "°"; });
+       .text(function(d) { return d; });
 
    var handle = slider.insert("circle", ".track-overlay")
        .attr("class", "handle")
@@ -76,11 +76,11 @@ function slider2(d1,d2, type)
       .append("line")
           .attr("class", "income")
           .attr("stroke", "MediumSeaGreen")
-          .attr("stroke-width", "6px")
+          .attr("stroke-width", "8px")
           .attr("stroke-linecap", "round")
           .attr("x1", x(0))
-          .attr("x2", x(5000))
-          .attr("transform", "translate(0," + 25 + ")")
+          .attr("x2", x(d2))
+          .attr("transform", "translate(0," + 28 + ")")
 
 
 
@@ -133,7 +133,8 @@ function slider2(d1,d2, type)
     chart.callback = function(_) { if (!arguments.length) return cback;    cback = _; return chart; };
     chart.value    = function(_) { if (!arguments.length) return h;
 
-       hue(_); return chart;
+       hue(_);
+       h = _; return chart;
      };
 
     return chart;

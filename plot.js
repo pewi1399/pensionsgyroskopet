@@ -79,7 +79,7 @@ function redraw(income){
     //.transition()
     .attr("d", savings_line(new_savings));
 
-    if(income=="t"){
+    //if(income=="t"){
 
     //regen old scale
     xx = d3.scaleLinear()
@@ -89,7 +89,7 @@ function redraw(income){
 
     d3.selectAll(".income")
       .attr("x2", xx(50000 - s3.value()))
-  };
+  //};
 }
 
 //}
