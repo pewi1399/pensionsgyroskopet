@@ -79,9 +79,17 @@ function slider2(d1,d2, type)
           .attr("stroke-width", "8px")
           .attr("stroke-linecap", "round")
           .attr("x1", x(0))
-          .attr("x2", x(d2))
+          .attr("x2", x(d2-5000))
           .attr("transform", "translate(0," + 28 + ")")
 
+      slider.selectAll(".incometext")
+          .data([1]).enter()
+          .append("text")
+          .attr("class", "incometext")
+          .attr("x", x(d2-5000))
+          .attr("transform", "translate(0," + 28 + ")")
+          .attr("text-anchor", "right")
+          .text("Inkomst idag")
 
 
       /*
