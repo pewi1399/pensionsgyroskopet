@@ -89,6 +89,9 @@ function redraw(income){
 
     d3.selectAll(".income")
       .attr("x2", xx(50000 - s3.value()))
+
+    d3.selectAll(".incometext")
+      .attr("x", xx(50000 - s3.value()))
   //};
 }
 

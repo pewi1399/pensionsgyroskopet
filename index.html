@@ -2,6 +2,13 @@
 <meta charset="utf-8">
 
 <style>
+
+body {
+    text-align: center;
+    font-family:Arial;
+}
+
+
     .axis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
     .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
     .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
@@ -18,7 +25,6 @@
 
 
     path {
-    stroke: steelblue;
     stroke-width: 2;
     fill: none;
 }
@@ -118,8 +124,8 @@ input[type="text"] {
   display: block;
   margin: 0;
   width: 70%;
-  font-family: sans-serif;
-  font-size: 18px;
+  font-family: Arial;
+  font-size: 15px;
   appearance: none;
   box-shadow: none;
   border-radius: none;
@@ -156,6 +162,14 @@ input[type="text"]:focus {
     display: block;
 }
 
+
+#labeltext {
+    font-size: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    color: #969696;
+  }
+
 </style>
 
 <body>
@@ -177,9 +191,25 @@ input[type="text"]:focus {
     </ul>
   </section>
 
-    <div id="x1">Pensionsår<sub>x</sub><input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
-    <div id="x2">Behållning<sub>y</sub><input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
-    <div id="x3">Sparande<sub>z</sub><input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
+    <div id="x1">
+      <h3 id = labeltext>
+        Önskad ålder vid pensionering
+      </h3>
+
+        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
+
+    <div id="x2">
+      <h3 id = labeltext>
+        Pensionsbehållning per månad, kronor netto
+      </h3>
+      <input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
+
+    <div id="x3">
+      <h3 id = labeltext>
+        Sparande per månad fram till pensionering
+      </h3>
+      <input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
+
     <div id="x4"><sub></sub></div><br>
 
 </div>

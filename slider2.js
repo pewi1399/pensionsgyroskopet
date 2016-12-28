@@ -1,6 +1,6 @@
 function slider2(d1,d2, type)
 {
-    var margin = {top: 40, left: 20, right: 30, bottom: 5},
+    var margin = {top: 33, left: 20, right: 30, bottom: 33},
         width  = 600 - margin.left - margin.right,
         height = 100  - margin.top  - margin.bottom,
         brush  = d3.brushX(),
@@ -21,8 +21,8 @@ function slider2(d1,d2, type)
         //     .on("brush", brushed);
 
   var svg = el.attr("width",  width  + margin.left + margin.right)
-      .attr("height", height + margin.top  + margin.bottom)
-      .append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
+      .attr("height", height + 10)
+      .append("g").attr("transform","translate(" + margin.left + "," + 0 + ")");
 
         /*
         svg.append("g")
@@ -71,6 +71,9 @@ function slider2(d1,d2, type)
 
     if(type == "income"){
 
+      slider
+      .attr("transform", "translate(" + margin.left + "," + height / 3.5 + ")");
+
       slider.selectAll(".income")
       .data([1]).enter()
       .append("line")
@@ -83,13 +86,13 @@ function slider2(d1,d2, type)
           .attr("transform", "translate(0," + 28 + ")")
 
       slider.selectAll(".incometext")
-          .data([1]).enter()
-          .append("text")
-          .attr("class", "incometext")
-          .attr("x", x(d2-5000))
-          .attr("transform", "translate(0," + 28 + ")")
-          .attr("text-anchor", "right")
-          .text("Inkomst idag")
+      .data([1]).enter()
+      .append("text")
+      .attr("class", "incometext")
+      .attr("x", x(d2-5000))
+      .attr("transform", "translate(0," + 30 + ")")
+      .text("Disp Ink")
+
 
 
       /*
