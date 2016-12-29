@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
+<head>
+  <link rel="stylesheet" href="src/bootstrap.3.3.7/css/bootstrap.min.css">
+</head>
 <style>
 
 body {
@@ -40,36 +42,27 @@ body {
     }
 
     .MyInput1 {
-      position: absolute;
+      position: relative;
       display: block;
       float: left;
-      padding: 1px;
-      left: 35px;
-      top: 222px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
     }
 
     .MyInput2 {
-      position: absolute;
+      position: relative;
       display: block;
       float: left;
-      padding: 1px;
-      left: 35px;
-      top: 357px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
     }
 
     .MyInput3 {
-      position: absolute;
+      position: relative;
       display: block;
       float: left;
-      padding: 1px;
-      left: 35px;
-      top: 492px;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -123,7 +116,7 @@ color:#23238e;
 input[type="text"] {
   display: block;
   margin: 0;
-  width: 70%;
+  width: 95%;
   font-family: Arial;
   font-size: 15px;
   appearance: none;
@@ -144,25 +137,6 @@ input[type="text"]:focus {
   border: solid 5px #969696;
 }
 
-
-.style-2 .col1,
-.style-2 .col2 {
-    width 49%;
-}
-
-.style-2 .col1 {
-    float: left;
-}
-
-.style-2 .col2 {
-    float: right;
-}
-
-.style-2 label {
-    display: block;
-}
-
-
 #labeltext {
     font-size: 15px;
     vertical-align: middle;
@@ -177,43 +151,76 @@ input[type="text"]:focus {
 
 
 <form name = "gg">
-<div class = "div1" style="display: inline-block">
+
+<div class = "col-md-12" style="display: inline-block">
+
+<!-- row 1 -->
+<div class="row">
 
   <section>
     <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
     <ul class="input-list style-2 clearfix">
-      <div class="col1">
+      <div class="col-md-3 col-md-offset-3">
         <input type="text" placeholder=":Ålder">
       </div>
-      <div class="col2">
+      <div class="col-md-3">
         <input type="text" placeholder=":Inkomst idag (kr)">
       </div>
     </ul>
   </section>
+</div>
 
-    <div id="x1">
+<!-- row 2 -->
+<div class="row">
+    <div class = "col-md-1 col-md-offset-3">
+        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
+    </div>
+
+    <div id="x1" class = "col-md-5">
+
       <h3 id = labeltext>
         Önskad ålder vid pensionering
       </h3>
-
-        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked><br></div><br>
-
-    <div id="x2">
-      <h3 id = labeltext>
-        Pensionsbehållning per månad, kronor netto
-      </h3>
-      <input class = "MyInput2" type="radio" name="choice" value="behallning"><br></div><br>
-
-    <div id="x3">
-      <h3 id = labeltext>
-        Sparande per månad fram till pensionering
-      </h3>
-      <input class = "MyInput3" type="radio" name="choice" value="sparande"></div><br>
-
-    <div id="x4"><sub></sub></div><br>
+    </div>
 
 </div>
 
+<!-- row 3 -->
+<div class="row">
+  <div class = "col-md-1 col-md-offset-3">
+      <input class = "MyInput2" type="radio" name="choice" value="behallning">
+  </div>
+
+    <div id="x2" class = "col-md-5">
+      <h3 id = labeltext>
+        Pensionsbehållning per månad, kronor netto
+      </h3>
+  </div>
+
+</div>
+
+
+
+<!-- row 4 -->
+<div class="row">
+  <div class = "col-md-1 col-md-offset-3">
+      <input class = "MyInput3" type="radio" name="choice" value="sparande">
+  </div>
+
+    <div id="x3" class = "col-md-12">
+      <h3 id = labeltext>
+        Sparande per månad fram till pensionering
+      </h3>
+  </div>
+
+</div>
+
+<!-- row 5 -->
+<div class="row">
+    <div id="x4" class = "col-md-12"><sub></sub></div><br>
+</div>
+
+</div>
 
 </form>
 
@@ -222,10 +229,9 @@ input[type="text"]:focus {
     <script src="slider2.js"></script>
     <script src="plot.js"></script>
     <script src="src/jquery-3.1.1.min.js"></script>
-    <script src="src/bootstrap/js/bootstrap.min.js"></script>
-    <script>
+    <!--<script src="src/bootstrap/js/bootstrap.min.js"></script>-->
 
-
+<script>
 var alpha = 25
 var beta = 600000
 
