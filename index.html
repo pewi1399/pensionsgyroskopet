@@ -44,7 +44,8 @@ body {
     .MyInput1 {
       position: relative;
       display: block;
-      float: left;
+      top : 55px;
+      float: right;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -53,7 +54,8 @@ body {
     .MyInput2 {
       position: relative;
       display: block;
-      float: left;
+      top : 55px;
+      float: right;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -62,7 +64,8 @@ body {
     .MyInput3 {
       position: relative;
       display: block;
-      float: left;
+      top : 55px;
+      float: right;
       -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
       -moz-appearance: checkbox;    /* Firefox */
       -ms-appearance: checkbox;     /* not currently supported */
@@ -116,7 +119,7 @@ color:#23238e;
 input[type="text"] {
   display: block;
   margin: 0;
-  width: 95%;
+  width: 85%;
   font-family: Arial;
   font-size: 15px;
   appearance: none;
@@ -163,7 +166,7 @@ input[type="text"]:focus {
       <div class="col-md-3 col-md-offset-3">
         <input type="text" placeholder=":Ålder">
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 ">
         <input type="text" placeholder=":Inkomst idag (kr)">
       </div>
     </ul>
@@ -172,7 +175,7 @@ input[type="text"]:focus {
 
 <!-- row 2 -->
 <div class="row">
-    <div class = "col-md-1 col-md-offset-3">
+    <div class = "col-md-1 col-md-offset-2">
         <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
     </div>
 
@@ -187,7 +190,7 @@ input[type="text"]:focus {
 
 <!-- row 3 -->
 <div class="row">
-  <div class = "col-md-1 col-md-offset-3">
+  <div class = "col-md-1 col-md-offset-2">
       <input class = "MyInput2" type="radio" name="choice" value="behallning">
   </div>
 
@@ -196,22 +199,20 @@ input[type="text"]:focus {
         Pensionsbehållning per månad, kronor netto
       </h3>
   </div>
-
 </div>
 
 
 
 <!-- row 4 -->
 <div class="row">
-  <div class = "col-md-1 col-md-offset-3">
+  <div class = "col-md-1 col-md-offset-2">
       <input class = "MyInput3" type="radio" name="choice" value="sparande">
   </div>
+  <h3 id = labeltext>
+    Sparande per månad fram till pensionering
+  </h3>
 
-    <div id="x3" class = "col-md-12">
-      <h3 id = labeltext>
-        Sparande per månad fram till pensionering
-      </h3>
-  </div>
+    <div id="x3" class = "col-md-12"></div>
 
 </div>
 
@@ -221,6 +222,7 @@ input[type="text"]:focus {
 </div>
 
 </div>
+
 
 </form>
 

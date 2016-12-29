@@ -22,7 +22,7 @@ function slider2(d1,d2, type)
 
   var svg = el.attr("width",  width  + margin.left + margin.right)
       .attr("height", height + 10)
-      .append("g").attr("transform","translate(" + margin.left + "," + 0 + ")");
+      .append("g").attr("transform","translate(" + 0 + "," + 0 + ")");
 
         /*
         svg.append("g")
