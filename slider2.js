@@ -2,7 +2,7 @@ function slider2(d1,d2, type)
 {
     var margin = {top: 33, left: 20, right: 30, bottom: 33},
         width  = 600 - margin.left - margin.right,
-        height = 100  - margin.top  - margin.bottom,
+        height = 120  - margin.top  - margin.bottom,
         brush  = d3.brushX(),
         handle, slider,
         h  = 0,
@@ -27,7 +27,7 @@ function slider2(d1,d2, type)
       //.attr("width", width + margin.left + margin.right)
       //.attr("height", height + margin.top + margin.bottom)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox","0 0 " + (width + 50)  + " " + height)
+      .attr("viewBox","0 5 " + (width + 50)  + " " + height)
       //class to make it responsive
       .classed("svg-content-responsive", true)
       //.append("g")//.attr("transform","translate(" + 0 + "," + 0 + ")");
