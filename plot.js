@@ -75,6 +75,36 @@
         .style("stroke", "OrangeRed");
 
 
+      var legend = g.selectAll(".legendpoint")
+        .data([1,2]).enter()
+        .append("circle")
+        .attr("class", "legendpoint")
+        .attr("fill", function(d,i){
+          if(i == 1){
+            return "Orange";
+          } else{
+            return "OrangeRed";
+          }
+        })
+        .attr("r", 5)
+        .attr("cx", x(55.3))
+        .attr("cy", function(d,i){ return y(95000-i*6000); })
+
+        var legendtext = g.selectAll(".legendtext")
+          .data([1,2]).enter()
+          .append("text")
+          .attr("class", "legendtext")
+          .text(function(d,i){
+            if(i == 1){
+              return "Orange";
+            } else{
+              return "OrangeRed";
+            }
+          })
+          .attr("x", x(55.3 + 0.15))
+          .attr("y", function(d,i){ return y(95000-i*6000 - 2000); })
+
+
 
 
 function redraw(income){
