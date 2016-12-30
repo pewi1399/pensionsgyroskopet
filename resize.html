@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+</head>
+
+<body>
+
+
+
+
+
+
+
+<!-- row 1 -->
+<div class="row">
+
+  <section>
+    <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
+    <ul class="input-list style-2 clearfix">
+      <div class="col-md-3 col-md-offset-3">
+        <input type="text" placeholder=":Ålder">
+      </div>
+      <div class="col-md-3 ">
+        <input type="text" placeholder=":Inkomst idag (kr)">
+      </div>
+    </ul>
+  </section>
+</div>
+
+<div class="row">
+<h3 id = labeltext>
+  Önskad ålder vid pensionering
+</h3>
+</div>
+
+
+<!-- row 2 -->
+<div class="row">
+    <div class = "col-md-1 col-md-offset-2">
+        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
+    </div>
+
+    <div id="x1" class = "col-md-5">
+    </div>
+
+</div>
+
+<!-- row 5 -->
+<div class="row">
+    <div id="x4" class = "col-md-12"><sub></sub></div><br>
+</div>
+
+
+
+
+
+
+    <script src="src/d3v4/d3.min.js"></script>
+    <script src="slider2.js"></script>
+    <script src="plot.js"></script>
+    <script src="src/jquery-3.1.1.min.js"></script>
+    <!--<script src="src/bootstrap/js/bootstrap.min.js"></script>-->
+
+<script>
+
+        var s1 = slider2(55,67,"n")
+
+        var slider11 = d3.select("#x1").append("svg").call(s1);
+
+    </script>
+    <div style="display: inline-block">
+
+</div>
+</body>

@@ -20,9 +20,17 @@ function slider2(d1,d2, type)
         //brush.extent([[0, 0], [width, height]])
         //     .on("brush", brushed);
 
-  var svg = el.attr("width",  width  + margin.left + margin.right)
-      .attr("height", height + 10)
-      .append("g").attr("transform","translate(" + 0 + "," + 0 + ")");
+  var svg = el//.attr("width",  width  + margin.left + margin.right)
+      //.attr("height", height + 10)
+      //.classed("svg-container1", true)
+      //.append("svg")
+      //.attr("width", width + margin.left + margin.right)
+      //.attr("height", height + margin.top + margin.bottom)
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox","0 0 " + (width + 50)  + " " + height)
+      //class to make it responsive
+      .classed("svg-content-responsive", true)
+      //.append("g")//.attr("transform","translate(" + 0 + "," + 0 + ")");
 
         /*
         svg.append("g")
@@ -91,7 +99,7 @@ function slider2(d1,d2, type)
       .attr("class", "incometext")
       .attr("x", x(d2-5000))
       .attr("transform", "translate(0," + 30 + ")")
-      .text("Disp Ink")
+      .text("*placeholder*")
 
 
 

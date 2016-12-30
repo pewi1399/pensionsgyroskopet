@@ -20,9 +20,22 @@
         .clamp(true);
 
 
-    var svg = d3.select("#x4").append("svg").attr("width",  width  + margin.left + margin.right)
-        .attr("height", height + margin.top  + margin.bottom)
+    var svg = d3.select("#x4")
+              //.classed("svg-container1", true)
+              .append("svg")
+              //.attr("width", width + margin.left + margin.right)
+              //.attr("height", height + margin.top + margin.bottom)
+              .attr("preserveAspectRatio", "xMinYMin meet")
+              .attr("viewBox","0 0 " + (width + margin.left + margin.right)  + " " + (height + margin.top + margin.bottom))
+              //class to make it responsive
+              .classed("svg-content-responsive", true)
 
+
+    /*
+        .append("svg")
+        .attr("width",  width  + margin.left + margin.right)
+        .attr("height", height + margin.top  + margin.bottom)
+*/
         var g = svg.append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         g.append("g")
