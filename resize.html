@@ -1,74 +1,246 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<head>
-</head>
-
-<body>
+<style>
 
 
 
 
+body {
+    text-align: center;
+    font-family:Arial;
+}
+
+
+    .axis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
+    .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
+    .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
+
+    .Paxis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+    .Paxis path {
+            fill: none;
+            stroke: black;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+          }
 
 
 
-<!-- row 1 -->
-<div class="row">
+    path {
+    stroke-width: 2;
+    fill: none;
+}
 
-  <section>
-    <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
-    <ul class="input-list style-2 clearfix">
-      <div class="col-md-3 col-md-offset-3">
-        <input type="text" placeholder=":Ålder">
-      </div>
-      <div class="col-md-3 ">
-        <input type="text" placeholder=":Inkomst idag (kr)">
-      </div>
-    </ul>
-  </section>
+    .div1 {
+        width: 600px;
+        border: 5px solid gray;
+        padding: 25px;
+        margin: auto;
+        font-size:10pt;
+        font-family:Arial;
+
+    }
+
+    .MyInput1 {
+      position: relative;
+      display: block;
+      top : 8px;
+      float: right;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
+
+    .MyInput2 {
+      background: url(http://www.queness.com/resources/images/png/apple_ex.png);
+      position: relative;
+      display: block;
+      top : 8px;
+      float: right;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
+
+    .MyInput3 {
+      position: relative;
+      display: block;
+      top : 8px;
+      float: right;
+      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+      -moz-appearance: checkbox;    /* Firefox */
+      -ms-appearance: checkbox;     /* not currently supported */
+    }
+
+    div.content
+{
+font-size:12pt;
+font-family:Arial;
+font-weight:bold;
+font-style:italic;
+color:#23238e;
+}
+
+
+.ticks {
+  font: 10px sans-serif;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 7px;
+}
+
+.track-inset {
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 30px;
+  cursor: crosshair;
+  opacity: 0;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+}
+
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 85%;
+  font-family: Arial;
+  font-size: 15px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+.style-2 input[type="text"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 input[type="text"]:focus,
+.style-2 input[type="text"].focus {
+  border: solid 5px #969696;
+}
+
+#labeltext {
+    font-size: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    color: #969696;
+  }
+
+
+  input[type=submit] {
+      background: url(http://www.queness.com/resources/images/png/apple_ex.png);
+      border: 0;
+      display: block;
+      height: _the_image_height;
+      width: _the_image_width;
+  }
+
+  label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+
+
+
+
+/*
+    Hide the original radios and checkboxes
+    (but still accessible)
+
+    :not(#foo) > is a rule filter to block browsers
+                 that don't support that selector from
+                 applying rules they shouldn't
+
+*/
+li:not(#foo) > fieldset > div > span > input[type='radio'],
+li:not(#foo) > fieldset > div > span > input[type='checkbox'] {
+
+    /* Hide the input, but have it still be clickable */
+    opacity: 0;
+
+    float: left;
+    width: 18px;
+}
+
+li:not(#foo) > fieldset > div > span > input[type='radio'] + label,
+li:not(#foo) > fieldset > div > span > input[type='checkbox'] + label {
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 5px 0 4px 24px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url(off.png) left center no-repeat;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+li:not(#foo) > fieldset > div > span > input[type='radio']:checked + label {
+    background-image: url(radio.png);
+}
+li:not(#foo) > fieldset > div > span > input[type='checkbox']:checked + label {
+    background-image: url(check.png);
+}
+
+
+</style>
+
+
+
+<input name="test" type="radio" checked="checked"><span class="customRadio"></span>
+<input name="test2" type="radio"><span class="customRadio"></span><br><br>
+
+In action:<br>
+
+<input name="test3" type="radio"><span class="customRadio"></span>
+
+<input name="test3" type="radio"><span class="customRadio"></span>
+
+<input name="test3" type="radio"><span class="customRadio"></span><br><br>
+
+Checkbox:<br>
+
+<input name="test4" type="checkbox"><span class="customCheckbox"></span>
+
+<form name = "gg">
+<div>
+  <input class = "MyInput2" type="radio" name="choice" value="pensionar" checked>
+    <img src= http://www.queness.com/resources/images/png/apple_ex.png >
 </div>
+</form>
 
-<div class="row">
-<h3 id = labeltext>
-  Önskad ålder vid pensionering
-</h3>
-</div>
-
-
-<!-- row 2 -->
-<div class="row">
-    <div class = "col-md-1 col-md-offset-2">
-        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
-    </div>
-
-    <div id="x1" class = "col-md-5">
-    </div>
-
-</div>
-
-<!-- row 5 -->
-<div class="row">
-    <div id="x4" class = "col-md-12"><sub></sub></div><br>
-</div>
-
-
-
-
-
-
-    <script src="src/d3v4/d3.min.js"></script>
-    <script src="slider2.js"></script>
-    <script src="plot.js"></script>
-    <script src="src/jquery-3.1.1.min.js"></script>
-    <!--<script src="src/bootstrap/js/bootstrap.min.js"></script>-->
-
-<script>
-
-        var s1 = slider2(55,67,"n")
-
-        var slider11 = d3.select("#x1").append("svg").call(s1);
-
-    </script>
-    <div style="display: inline-block">
-
-</div>
-</body>
+<label>
+  <input type="radio" name="fb" value="small" />
+  <img src= http://www.queness.com/resources/images/png/apple_ex.png >
+</label>

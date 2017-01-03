@@ -69,6 +69,7 @@ function slider2(d1,d2, type)
      .selectAll("text")
      .data(x.ticks(10))
      .enter().append("text")
+       .attr("class","tickmarks")
        .attr("x", x)
        .attr("text-anchor", "middle")
        .text(function(d) { return d; });
@@ -80,7 +81,7 @@ function slider2(d1,d2, type)
     if(type == "income"){
 
       slider
-      .attr("transform", "translate(" + margin.left + "," + height / 3.5 + ")");
+      .attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
 
       slider.selectAll(".income")
       .data([1]).enter()
@@ -140,6 +141,18 @@ function slider2(d1,d2, type)
        //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
       }
 
+      rescale = function(limit){
+        var x = d3.scaleLinear()
+            .domain([d1,limit])
+            .range ([0,width])
+            .clamp(true);
+
+        slider.data(x.ticks(10))
+            .enter().append("text")
+              .attr("class","tickmarks")
+
+      }
+
     }
 
 
@@ -155,6 +168,11 @@ function slider2(d1,d2, type)
        hue(_);
        h = _; return chart;
      };
+
+     chart.x    = function(_) { if (!arguments.length) return x;
+
+        x = _; return chart;
+      };
 
     return chart;
 }
