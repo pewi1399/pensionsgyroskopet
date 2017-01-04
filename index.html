@@ -163,10 +163,10 @@ input[type="text"]:focus {
     <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
     <ul class="input-list style-2 clearfix">
       <div class="col-md-3 col-md-offset-3">
-        <input type="text" name="f1" placeholder=":Ålder">
+        <input type="text" name="f1" placeholder=":Födelseår">
       </div>
       <div class="col-md-3 ">
-        <input type="text" name = "f2" placeholder=":Inkomst idag (kr)">
+        <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr)">
       </div>
     </ul>
   </section>
@@ -245,20 +245,34 @@ input[type="text"]:focus {
 
 <script>
 
+var alpha = 25
+var beta = 600000
+
 $('input[name^="f1"]').change(function() {
   //alert( "Handler for .change() called." );
-  console.log(1);
+  var d = new Date();
+  var thisYear = Number(d.getFullYear());
+
+
+  //cannot be too young cannot be older than min of scale
+  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 54){
+    alert("Vänligen ange fyrsiffrigt födelseår \n \n Exempel: 1965")
+  }else{
+    window.alpha = thisYear - Number(this.value);
+}
+
 });
 
 $('input[name^="f2"]').change(function() {
-  //alert( "Handler for .change() called." );
-  console.log(2);
+  //alert( "Handler for .change() called." )
+
+  if(isNaN(Number(this.value))){
+    alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
+  }else{
+  s3.x(Number(this.value));
+  window.beta = Number(this.value);
+}
 });
-
-
-
-var alpha = 25
-var beta = 600000
 
 //------------------------------------------------------------------------------
 
