@@ -7,7 +7,8 @@ function slider2(d1,d2, type)
         handle, slider,
         h  = 0,
         hue    = function(d){h = d;},
-        cback  = function(d){};
+        cback  = function(d){},
+        rescale  = function(d){};
 
     var x = d3.scaleLinear()
         .domain([d1,d2])
@@ -66,7 +67,7 @@ function slider2(d1,d2, type)
    slider.insert("g", ".track-overlay")
        .attr("class", "ticks")
        .attr("transform", "translate(0," + 18 + ")")
-     .selectAll("text")
+     .selectAll(".tickmarks")
      .data(x.ticks(10))
      .enter().append("text")
        .attr("class","tickmarks")
@@ -147,31 +148,31 @@ function slider2(d1,d2, type)
             .range ([0,width])
             .clamp(true);
 
-        slider.data(x.ticks(10))
-            .enter().append("text")
-              .attr("class","tickmarks")
+        ticks = slider.selectAll(".ticks").selectAll(".tickmarks").data(x.ticks(10))
 
+        ticks.exit().remove()
+
+        ticks.attr("x", x).text(function(d) { return d; });
+
+        ticks.enter()
+        .append("text")
+        .attr("class","tickmarks")
+        .attr("x", x)
+        .attr("text-anchor", "middle")
+        .text(function(d) { return d; });
+
+
+        return x;
       }
 
     }
 
 
-
-
-
-
-
     chart.margin   = function(_) { if (!arguments.length) return margin;  margin = _; return chart; };
     chart.callback = function(_) { if (!arguments.length) return cback;    cback = _; return chart; };
-    chart.value    = function(_) { if (!arguments.length) return h;
-
-       hue(_);
-       h = _; return chart;
-     };
-
-     chart.x    = function(_) { if (!arguments.length) return x;
-
-        x = _; return chart;
+    chart.value    = function(_) { if (!arguments.length) return h; hue(_); h = _; return chart; };
+    chart.x    = function(_) { if (!arguments.length) return x;
+      x = rescale(_); return chart;
       };
 
     return chart;
