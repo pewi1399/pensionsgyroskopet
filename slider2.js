@@ -92,14 +92,14 @@ function slider2(d1,d2, type)
           .attr("stroke-width", "8px")
           .attr("stroke-linecap", "round")
           .attr("x1", x(0))
-          .attr("x2", x(d2-5000))
+          .attr("x2", x(d2))
           .attr("transform", "translate(0," + 28 + ")")
 
       slider.selectAll(".incometext")
       .data([1]).enter()
       .append("text")
       .attr("class", "incometext")
-      .attr("x", x(d2-5000))
+      .attr("x", x(d2))
       .attr("transform", "translate(0," + 30 + ")")
       .text("*placeholder*")
 
@@ -121,13 +121,13 @@ function slider2(d1,d2, type)
     }
 
 
-   slider.transition() // Gratuitous intro!
+   /*slider.transition() // Gratuitous intro!
        .duration(750)
-       .tween("hue", function() {
+       .tween("huvve", function() {
          var i = d3.interpolate(0, 70);
          //return function(t) { hue(t); };
        });
-
+*/
       function brushed(){
 
       h = x.invert(d3.mouse(this)[0])

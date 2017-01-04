@@ -96,9 +96,9 @@
           .attr("class", "legendtext")
           .text(function(d,i){
             if(i == 1){
-              return "Orange";
+              return "Sparande";
             } else{
-              return "OrangeRed";
+              return "Pensionsbehållning";
             }
           })
           .attr("x", x(55.3 + 0.15))
@@ -126,15 +126,15 @@ function redraw(income){
 
     //regen old scale
     xx = d3.scaleLinear()
-       .domain([0, 50000])
+       .domain([0, beta])
        .range ([0,550])
        .clamp(true);
 
     d3.selectAll(".income")
-      .attr("x2", xx(50000 - s3.value()))
+      .attr("x2", xx(beta - s3.value()))
 
     d3.selectAll(".incometext")
-      .attr("x", xx(50000 - s3.value()))
+      .attr("x", xx(beta - s3.value()))
   //};
 }
 
