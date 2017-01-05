@@ -103,8 +103,6 @@ function slider2(d1,d2, type)
       .attr("transform", "translate(0," + 30 + ")")
       .text("*placeholder*")
 
-
-
       /*
         .data([1]).enter()
         .append("rect")

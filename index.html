@@ -251,7 +251,8 @@ $('input[name^="f1"]').change(function() {
   var d = new Date();
   var thisYear = Number(d.getFullYear());
 
-
+  // spara efter inlägg
+  //http://jsfiddle.net/e84v7nat/
   //cannot be too young cannot be older than min of scale
   if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 54){
     alert("Vänligen ange fyrsiffrigt födelseår \n \n Exempel: 1965")
