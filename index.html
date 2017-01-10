@@ -146,6 +146,20 @@ input[type="text"]:focus {
     display: inline-block;
     color: #969696;
   }
+
+
+  div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+  }
 </style>
 
 <body>
@@ -243,6 +257,7 @@ input[type="text"]:focus {
 
 <script>
 
+// ------------------------------ inputs ---------------------------------------
 var alpha = 25.3
 var beta = 600000.3
 
@@ -274,8 +289,9 @@ $('input[name^="f2"]').change(function() {
   window.beta = Number(this.value);
 }
 });
-
 //------------------------------------------------------------------------------
+
+//--------------------------- sliderfunctions ----------------------------------
 
         function pension(src, y, z)
         {
@@ -374,24 +390,25 @@ $('input[name^="f2"]').change(function() {
 
 //------------------------------------------------------------------------------
 
-        var s1 = slider2(55,67,"n"), s2 = slider2(0,50*1000,"n"), s3 = slider2(0,50*1000, "income");
+//------------------- Activate sliders and callbacks ---------------------------
+    var s1 = slider2(55,67,"n"), s2 = slider2(0,50*1000,"n"), s3 = slider2(0,50*1000, "income");
 
-        var slider11 = d3.select("#x1").append("svg").call(s1);
-        var slider22 = d3.select("#x2").append("svg").call(s2);
-        var slider33 = d3.select("#x3").append("svg").call(s3);
+    var slider11 = d3.select("#x1").append("svg").call(s1);
+    var slider22 = d3.select("#x2").append("svg").call(s2);
+    var slider33 = d3.select("#x3").append("svg").call(s3);
 
-        s1.callback(function(){
+    s1.callback(function(){
 
-          pension(s1,s2,s3);}
+      pension(s1,s2,s3);}
 
-        )
-        s2.callback(function(){behallning(s2,s1,s3);})
-        s3.callback(function(){sparande(s3,s1,s2);})
+    )
+    s2.callback(function(){behallning(s2,s1,s3);})
+    s3.callback(function(){sparande(s3,s1,s2);})
 
-        s1.value(60);
-        s2.value(10000);
-        s3.value(0);
-
+    s1.value(60);
+    s2.value(10000);
+    s3.value(0);
+//------------------------------------------------------------------------------
     </script>
     <div style="display: inline-block">
 

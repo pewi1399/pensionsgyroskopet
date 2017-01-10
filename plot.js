@@ -21,22 +21,17 @@
 
 
     var svg = d3.select("#x4")
-              //.classed("svg-container1", true)
               .append("svg")
-              //.attr("width", width + margin.left + margin.right)
-              //.attr("height", height + margin.top + margin.bottom)
               .attr("preserveAspectRatio", "xMinYMin meet")
               .attr("viewBox","0 0 " + (width + margin.left + margin.right)  + " " + (height + margin.top + margin.bottom))
-              //class to make it responsive
               .classed("svg-content-responsive", true)
 
 
-    /*
-        .append("svg")
-        .attr("width",  width  + margin.left + margin.right)
-        .attr("height", height + margin.top  + margin.bottom)
-*/
-        var g = svg.append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
+    var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+    var g = svg.append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         g.append("g")
            .attr("class","x Paxis")
@@ -53,9 +48,9 @@
           .y(function(d) { return y(d.kr); });
 
 
-        var savings_data = [{"year":55,"kr":20000},{"year":67,"kr":20000}]
+    var savings_data = [{"year":55,"kr":20000},{"year":67,"kr":20000}]
 
-      var line1 = g.append("path")
+    var line1 = g.append("path")
         .attr("class", "line")
         .attr("id", "line2")
         .attr("d", savings_line(savings_data))
@@ -66,16 +61,16 @@
           .y(function(d) { return y(d.kr); });
 
 
-        var behallning_data = [{"year":55,"kr":20000},{"year":67,"kr":50000}]
+    var behallning_data = [{"year":55,"kr":20000},{"year":67,"kr":50000}]
 
-      var line2 = g.append("path")
+    var line2 = g.append("path")
         .attr("class", "line")
         .attr("id", "line1")
         .attr("d", savings_line(behallning_data))
         .style("stroke", "OrangeRed");
 
 
-      var legend = g.selectAll(".legendpoint")
+    var legend = g.selectAll(".legendpoint")
         .data([1,2]).enter()
         .append("circle")
         .attr("class", "legendpoint")
@@ -90,19 +85,19 @@
         .attr("cx", x(55.3))
         .attr("cy", function(d,i){ return y(95000-i*6000); })
 
-        var legendtext = g.selectAll(".legendtext")
-          .data([1,2]).enter()
-          .append("text")
-          .attr("class", "legendtext")
-          .text(function(d,i){
-            if(i == 1){
-              return "Sparande";
-            } else{
-              return "Pensionsbehållning";
-            }
-          })
-          .attr("x", x(55.3 + 0.15))
-          .attr("y", function(d,i){ return y(95000-i*6000 - 2000); })
+    var legendtext = g.selectAll(".legendtext")
+        .data([1,2]).enter()
+        .append("text")
+        .attr("class", "legendtext")
+        .text(function(d,i){
+          if(i == 1){
+            return "Sparande";
+          } else{
+            return "Pensionsbehållning";
+          }
+        })
+        .attr("x", x(55.3 + 0.15))
+        .attr("y", function(d,i){ return y(95000-i*6000 - 2000); })
 
 
 

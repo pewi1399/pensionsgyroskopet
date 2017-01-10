@@ -21,29 +21,30 @@ function slider2(d1,d2, type)
         //brush.extent([[0, 0], [width, height]])
         //     .on("brush", brushed);
 
-  var svg = el//.attr("width",  width  + margin.left + margin.right)
-      //.attr("height", height + 10)
-      //.classed("svg-container1", true)
-      //.append("svg")
-      //.attr("width", width + margin.left + margin.right)
-      //.attr("height", height + margin.top + margin.bottom)
-      .attr("preserveAspectRatio", "xMinYMin meet")
+  var svg = el
+    .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("viewBox","0 5 " + (width + 50)  + " " + height)
       //class to make it responsive
       .classed("svg-content-responsive", true)
-      //.append("g")//.attr("transform","translate(" + 0 + "," + 0 + ")");
 
-        /*
-        svg.append("g")
-           .attr("class","x axis")
-           .attr("transform", "translate(0,"+height/2+")")
-           .call(d3.axisBottom(x).tickSize(0).tickPadding(12));
-*/
 
 
   var slider = svg.append("g")
        .attr("class", "slider")
-       .attr("transform", "translate(" + margin.left + "," + height / 2 + ")");
+       .attr("transform", "translate(" + margin.left + "," + height / 2 + ")")
+       .on("mouseover", function(d) {
+           div.transition()
+             .duration(200)
+             .style("opacity", .9);
+           div.html(Math.round(h) + "<br/>")
+             .style("left", (d3.event.pageX) + "px")
+             .style("top", (d3.event.pageY - 28) + "px");
+           })
+         .on("mouseout", function(d) {
+           div.transition()
+             .duration(500)
+             .style("opacity", 0);
+           });
 
    slider.append("line")
        .attr("class", "track")
@@ -102,30 +103,8 @@ function slider2(d1,d2, type)
       .attr("x", x(d2))
       .attr("transform", "translate(0," + 30 + ")")
       .text("*placeholder*")
-
-      /*
-        .data([1]).enter()
-        .append("rect")
-        .attr("class", "income")
-        .attr("fill", "MediumSeaGreen")
-        .attr("x", x(0))
-        //.attr("rx", 2)
-        //.attr("ry", 2)
-        //.attr("y", height/1.1)
-        .attr("width", x(5000))
-        .attr("height", 6)
-        .attr("transform", "translate(" + margin.left + "," + height / 2 + ")")
-        */
     }
 
-
-   /*slider.transition() // Gratuitous intro!
-       .duration(750)
-       .tween("huvve", function() {
-         var i = d3.interpolate(0, 70);
-         //return function(t) { hue(t); };
-       });
-*/
       function brushed(){
 
       h = x.invert(d3.mouse(this)[0])
