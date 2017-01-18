@@ -26,7 +26,7 @@
               .attr("viewBox","0 0 " + (width + margin.left + margin.right)  + " " + (height + margin.top + margin.bottom))
               .classed("svg-content-responsive", true)
 
-
+//tooltip
     var div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);

@@ -31,20 +31,7 @@ function slider2(d1,d2, type)
 
   var slider = svg.append("g")
        .attr("class", "slider")
-       .attr("transform", "translate(" + margin.left + "," + height / 2 + ")")
-       .on("mouseover", function(d) {
-           div.transition()
-             .duration(200)
-             .style("opacity", .9);
-           div.html(Math.round(h) + "<br/>")
-             .style("left", (d3.event.pageX) + "px")
-             .style("top", (d3.event.pageY - 28) + "px");
-           })
-         .on("mouseout", function(d) {
-           div.transition()
-             .duration(500)
-             .style("opacity", 0);
-           });
+       .attr("transform", "translate(" + margin.left + "," + height / 2 + ")");
 
    slider.append("line")
        .attr("class", "track")
@@ -56,14 +43,53 @@ function slider2(d1,d2, type)
      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
        .attr("class", "track-overlay")
        .call(d3.drag()
-           .on("start.interrupt", function() { slider.interrupt(); })
+           .on("start.interrupt", function() { slider.interrupt();})
           .on("start drag", function() {
 
             h = x.invert(d3.mouse(this)[0])
             hue(h);
-              cback();
+            cback();
 
-          }));
+            // update tooltip
+            div.html(Math.round(h) + "<br/>")
+            .transition()
+              .duration(200)
+              .style("opacity", .9)
+              .style("left", (d3.event.x + $(window).width()/12*3.5) + "px")
+              .style("top",  + "px")
+
+            text
+            .attr("x", x(h))
+            .attr("y", -10)
+            .attr("text-anchor", "middle")
+            .attr("font", "sans-serif")
+            .attr("font-size",  "10px")
+            .attr("opacity", 1)
+            .text(Math.round(h))
+            .transition()
+            .duration(3000)
+            .attr("opacity", 0)
+              //.style("top", (d3.event.pageY - 28) + "px");
+              //.transition()
+              //.duration(500)
+              //.style("opacity", 0);
+
+          })
+          //.on("end drag", function() {
+          //  text.attr("opacity", 0)
+          //})
+          /*.on("end drag", function() {
+
+            // update tooltip
+            div.transition()
+              .duration(200)
+              .style("opacity", 0)
+              //.transition()
+              //.duration(500)
+              //.style("opacity", 0);
+
+          })*/
+        );
 
    slider.insert("g", ".track-overlay")
        .attr("class", "ticks")
@@ -79,6 +105,13 @@ function slider2(d1,d2, type)
    var handle = slider.insert("circle", ".track-overlay")
        .attr("class", "handle")
        .attr("r", 9);
+
+  var text = slider.selectAll(".exacttext")
+      .data([1]).enter()
+      .append("text")
+      .attr("class", "exacttext")
+      .attr("x", x)
+      .text("")
 
     if(type == "income"){
 
@@ -117,6 +150,21 @@ function slider2(d1,d2, type)
        handle.attr("cx", x(h));
        console.log(h)
        //svg.style("background-color", d3.hsl(h, 0.8, 0.8));
+
+
+       //.on("mouseover", function(d) {
+          /* div.transition()
+             .duration(200)
+             .style("opacity", .9);
+           div.html(Math.round(h) + "<br/>") */
+             //.style("left", (d3.event.pageX) + "px")
+             //.style("top", (d3.event.pageY - 28) + "px");
+          // })
+         //.on("mouseout", function(d) {
+           //div.transition()
+             //.duration(500)
+             //.style("opacity", 0);
+           //});
       }
 
       rescale = function(limit){
@@ -137,7 +185,6 @@ function slider2(d1,d2, type)
         .attr("x", x)
         .attr("text-anchor", "middle")
         .text(function(d) { return d; });
-
 
         return x;
       }

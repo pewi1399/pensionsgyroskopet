@@ -29,7 +29,15 @@ P2 = -ranta
 
 P3 = P1/P2
 
-P4 = P3/Delningstal
+//utbetalning per månad
+P4 = P3/Delningstal/12
 
-lhs = (P3*Delningstal*tid)
-rhs = Avgift * Math.exp(ranta*tid) * (Math.exp(-ranta*tid) -1)/(-ranta)
+// Solve for P
+P_org = ((Avgift*Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1)) * mu)/-ranta/Delningstal/12
+//------------------------------------------------------------------------------
+
+// Solve for A
+A_org = (P_org*12*Delningstal*-ranta)/mu/(Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1))
+//------------------------------------------------------------------------------
+
+// solve for T (suck!)
