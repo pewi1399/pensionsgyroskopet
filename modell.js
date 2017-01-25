@@ -15,7 +15,7 @@ Avgift = 16092
 ranta = 0.017
 
 // t = antal år
-tid = 40
+tid = 50
 
 // mu = arvsvinster
 mu = 1
@@ -31,6 +31,7 @@ P3 = P1/P2
 
 //utbetalning per månad
 P4 = P3/Delningstal/12
+//----------------------------- tommys modell ----------------------------------
 
 // Solve for P
 P_org = ((Avgift*Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1)) * mu)/-ranta/Delningstal/12
@@ -38,6 +39,9 @@ P_org = ((Avgift*Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1)) * mu)/-rant
 
 // Solve for A
 A_org = (P_org*12*Delningstal*-ranta)/mu/(Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1))
+
+// wolfram A = (P*12*D*-R)/M/((e^(R*T))*(e^((-R*T)) - 1)) solve for P
 //------------------------------------------------------------------------------
+T_org = Math.log((P4*12*Delningstal*ranta)/(Avgift+mu)+1)/ranta
 
 // solve for T (suck!)

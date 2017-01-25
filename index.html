@@ -261,7 +261,15 @@ input[type="text"]:focus {
 // ------------------------------ inputs ---------------------------------------
 var alpha = 25.3
 var beta = 600000.3
+// r = ränta
+ranta = 0.017
+// mu = arvsvinster
+mu = 1
+// D delningstal
+Delningstal = 14.53
 
+
+//----------------------------- sliderfields -----------------------------------
 $('input[name^="f1"]').change(function() {
   //alert( "Handler for .change() called." );
   var d = new Date();
@@ -311,14 +319,18 @@ $('input[name^="f2"]').change(function() {
             {
                 var x =  src.value()///100;
                 y.value(
-                  z.value()*(x - alpha) / (67 - x + 10)
+                  //z.value()*(x - alpha) / (67 - x + 10)
+                  // räkna ut behållning via z = Avgift och src = pensionsar
+                  ((z.value() * Math.exp((ranta*pensionsar))*(Math.exp((-ranta*pensionsar)) - 1)) * mu)/-ranta/Delningstal/12
                 );
             }
             else if ( unlocked ==  "sparande" )
             {
                 var x =  src.value()///100;
                 z.value(
-                  y.value()*(67 - x +10)/(x - alpha)
+                  //y.value()*(67 - x +10)/(x - alpha)
+                  // räkna ut avgift via y = utbetalning och src = pensionsar
+                  (y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*pensionsar))*(Math.exp((-ranta*pensionsar)) - 1))
                 );
 
             }
@@ -343,14 +355,19 @@ $('input[name^="f2"]').change(function() {
           {
               var y =  behallning///100;
               x.value(
-                (z.value()*alpha + 67*y + 10*y) / (z.value() + y)
+                //(z.value()*alpha + 67*y + 10*y) / (z.value() + y)
+                // räkna ut tid utifrån z = Avgift och src = behallning
+                Math.log((behallning*12*Delningstal*ranta)/(z.value()+mu)+1)/ranta
+
               );
           }
           else if ( unlocked ==  "sparande" )
           {
               var y =  behallning///100;
               z.value(
-                y*(67 - x.value() +10)/(x.value() - alpha)
+                //y*(67 - x.value() +10)/(x.value() - alpha)
+                // räkna ut avgift utifrån x = pensionar och src = behallning
+                (behallning*12*Delningstal*-ranta)/mu/(Math.exp((ranta*x.value()))*(Math.exp((-ranta*x.value())) - 1))
               );
 
           }
@@ -373,17 +390,19 @@ $('input[name^="f2"]').change(function() {
           else if ( unlocked ==  "pensionar" )
           {
               var z =  sparande;//100;
-              console.log((z * alpha + 67*y.value() + 10*y.value()) / (z + y.value()));
               x.value(
-                (z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
+                //(z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
+                // räkna ut tid utifrån y = utbetalning och src = sparande
+                Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta
               );
           }
           else if ( unlocked ==  "behallning" )
           {
               var z =  sparande///100;
-              console.log(z * (x.value() - alpha) / (67 - x.value() + 10));
               y.value(
-                z * (x.value() - alpha) / (67 - x.value() + 10)
+                //z * (x.value() - alpha) / (67 - x.value() + 10)
+                // räkna ut behallning utifrån x = pensionar och src = sparande
+                ((sparande*Math.exp((ranta*x.value()))*(Math.exp((-ranta*x.value())) - 1)) * mu)/-ranta/Delningstal/12
               );
           }
           redraw(income="t")
