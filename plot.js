@@ -27,9 +27,9 @@
               .classed("svg-content-responsive", true)
 
 //tooltip
-    var div = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+    //var div = d3.select("body").append("div")
+    //        .attr("class", "tooltip")
+    //        .style("opacity", 0);
 
     var g = svg.append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 

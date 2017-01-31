@@ -51,13 +51,13 @@ function slider2(d1,d2, type)
             cback();
 
             // update tooltip
-            div.html(Math.round(h) + "<br/>")
-            .transition()
-              .duration(200)
-              .style("opacity", .9)
-              .style("left", (d3.event.x + $(window).width()/12*3.5) + "px")
-              .style("top",  + "px")
-
+          //  div.html(Math.round(h) + "<br/>")
+          //  .transition()
+          //    .duration(200)
+          //    .style("opacity", .9)
+          //    .style("left", (d3.event.x + $(window).width()/12*3.5) + "px")
+          //    .style("top",  + "px")
+//
             text
             .attr("x", x(h))
             .attr("y", -10)
