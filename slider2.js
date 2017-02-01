@@ -135,7 +135,7 @@ function slider2(d1,d2, type)
       .attr("class", "incometext")
       .attr("x", x(d2))
       .attr("transform", "translate(0," + 30 + ")")
-      .text("*placeholder*")
+      .text("")
     }
 
       function brushed(){

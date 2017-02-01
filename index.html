@@ -177,10 +177,10 @@ input[type="text"]:focus {
     <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
     <ul class="input-list style-2 clearfix">
       <div class="col-md-3 col-md-offset-3">
-        <input type="text" name="f1" placeholder=":Födelseår 1950" value = 1950>
+        <input type="text" name="f1" placeholder=":Födelseår">
       </div>
       <div class="col-md-3 ">
-        <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr) 30 000"  value = 30000>
+        <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr)">
       </div>
     </ul>
   </section>
@@ -207,7 +207,7 @@ input[type="text"]:focus {
 
 <div class="row">
 <h3 id = labeltext>
-  Pensionsbehållning per månad, kronor netto
+  Pensionsutbetalning per månad, kronor netto
 </h3>
 </div>
 
@@ -278,12 +278,12 @@ $('input[name^="f1"]').change(function() {
   // spara efter inlägg
   //http://jsfiddle.net/e84v7nat/
   //cannot be too young cannot be older than min of scale
-  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 54){
+  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 67){
     alert("Vänligen ange fyrsiffrigt födelseår \n \n Exempel: 1965")
   }else{
     window.alpha = thisYear - Number(this.value);
     var maxPB = Number($('input[name^="f2"]').val())*1.5
-    s2.x(maxPB);
+    //s2.x(maxPB);
 }
 
 });

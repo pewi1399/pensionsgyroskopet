@@ -93,7 +93,7 @@
           if(i == 1){
             return "Sparande";
           } else{
-            return "Pensionsbehållning";
+            return "Pension netto";
           }
         })
         .attr("x", x(55.3 + 0.15))
@@ -103,8 +103,8 @@
 
 
 function redraw(income){
-  var behallning55 = s3.value() * (55 - alpha) / (67 - 55 + 10),
-  behallning67 = s3.value() * (67 - alpha) / (67 - 67 + 10)
+  var behallning55 = (s3.value() * (55 - alpha) / (67 - 55 + 10))/2,
+  behallning67 = (s3.value() * (67 - alpha) / (67 - 67 + 10))/2
   var new_behallning = [{"year":55,"kr": behallning55},{"year":67,"kr":behallning67}]
 
   d3.select("#line1")
