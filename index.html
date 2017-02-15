@@ -140,6 +140,12 @@ input[type="text"]:focus {
   border: solid 5px #969696;
 }
 
+#placetext32{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
 #labeltext {
     font-size: 15px;
     vertical-align: middle;
@@ -175,6 +181,36 @@ input[type="text"]:focus {
 
   <section>
     <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
+
+    <div class="col-md-6 col-md-offset-3">
+    <p id = "introtext" align="left">
+      Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan hur mycket pengar att leva för idag, hur mycket pengar i pension och hur länge de skulle arbeta innan pension.
+      Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
+
+
+    </p>
+    <p id = "introtext" align="left">
+      Du kommer att få svara på vilken kombination av pengar att leva på, framtida pension och pensionsålder som du tror passar dig bäst via en räknesnurra.
+      Tänk noggrant igenom innan du slutligen väljer den kombination som du tror är den bästa för dig.
+    </p>
+
+    <p id = "introtext" align="left">
+      När du svarar, utgå ifrån att din arbetsgivare accepterar den pensionsålder du väljer, att du jobbar heltid under hela arbetslivet, att du har arbetat från och med 23 års ålder och att du har samma arbetsinkomst under hela arbetslivet. Utgå också ifrån att valet av pensionsavgift ska täcka allt ditt pensionssparande, det vill säga allmän pension, tjänstepension och privat pensionssparande.
+      I räknesnurran anges inkomsterna från arbete och pension alltid före skatt. Tänk på den inkomstnivå du väljer under arbetslivet betalas ut till dess att du går i pension. Därefter betalas pensionen ut resten av livet.
+    </p>
+  <p id = "introtext" align="left">
+      Räknesnurra visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
+      Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
+      Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
+      Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar ska räcka under en kortare tid.
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+    </p>
+    </div>
+
+
     <ul class="input-list style-2 clearfix">
       <div class="col-md-3 col-md-offset-3">
         <input type="text" name="f1" placeholder=":Födelseår">
@@ -186,6 +222,10 @@ input[type="text"]:focus {
   </section>
 </div>
 
+
+<p id = "placetext32" >
+
+</p>
 
 <div class="row">
 <h3 id = labeltext>
@@ -268,7 +308,6 @@ mu = 1
 // D delningstal
 Delningstal = 14.53
 
-
 //------------------------ input field functions -------------------------------
 $('input[name^="f1"]').change(function() {
   //alert( "Handler for .change() called." );
@@ -294,6 +333,10 @@ $('input[name^="f2"]').change(function() {
   if(isNaN(Number(this.value))){
     alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
   }else{
+
+    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar din arbetsgivare: " + Math.round(this.value*0.18) + "kr (18%) av din lön i allmän pensionsavgift")
+
+
   s2.x(Number(this.value)*1.5);
   s3.x(Number(this.value));
   window.beta = Number(this.value);
@@ -408,7 +451,6 @@ $('input[name^="f2"]').change(function() {
           }
           redraw(income="t")
         }
-
 //------------------------------------------------------------------------------
 
 //------------------- Activate sliders and callbacks ---------------------------
