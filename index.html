@@ -77,8 +77,8 @@ font-size:12pt;
 font-family:Arial;
 font-weight:bold;
 font-style:italic;
-color:#23238e;
 }
+
 
 
 .ticks {
@@ -150,7 +150,14 @@ input[type="text"]:focus {
     font-size: 15px;
     vertical-align: middle;
     display: inline-block;
-    color: #969696;
+    color: darkgrey;
+  }
+
+.incometext{
+    font-size: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    fill: darkgrey;
   }
 
 
@@ -317,7 +324,7 @@ $('input[name^="f1"]').change(function() {
   // spara efter inlägg
   //http://jsfiddle.net/e84v7nat/
   //cannot be too young cannot be older than min of scale
-  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 67){
+  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 75){
     alert("Vänligen ange fyrsiffrigt födelseår \n \n Exempel: 1965")
   }else{
     window.alpha = thisYear - Number(this.value);
@@ -353,7 +360,7 @@ $('input[name^="f2"]').change(function() {
             var unlocked = $('input[name=choice]:checked').val()
             var pensionsar = src.value();
 
-            if(pensionsar > 67)
+            if(pensionsar > 75)
             {
                 var a = 0
                 y.value(a);
@@ -454,7 +461,7 @@ $('input[name^="f2"]').change(function() {
 //------------------------------------------------------------------------------
 
 //------------------- Activate sliders and callbacks ---------------------------
-    var s1 = slider2(55,67,"n"), s2 = slider2(0,50*1000,"n"), s3 = slider2(0,50*1000, "income");
+    var s1 = slider2(55,75,"n"), s2 = slider2(0,50*1000,"n"), s3 = slider2(0,50*1000, "income");
 
     var slider11 = d3.select("#x1").append("svg").call(s1);
     var slider22 = d3.select("#x2").append("svg").call(s2);

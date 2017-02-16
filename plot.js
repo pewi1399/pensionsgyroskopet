@@ -104,8 +104,9 @@
 
 
 
-
+*/
 function redraw(income){
+/*
   var behallning55 = (s3.value() * (55 - alpha) / (67 - 55 + 10))/2,
   behallning67 = (s3.value() * (67 - alpha) / (67 - 67 + 10))/2
   var new_behallning = [{"year":55,"kr": behallning55},{"year":67,"kr":behallning67}]
@@ -121,6 +122,7 @@ function redraw(income){
     .attr("d", savings_line(new_savings));
 
     //if(income=="t"){
+*/
 
     //regen old scale
     xx = d3.scaleLinear()
@@ -131,10 +133,16 @@ function redraw(income){
     d3.selectAll(".income")
       .attr("x2", xx(beta - s3.value()))
 
-    d3.selectAll(".incometext")
-      .attr("x", xx(beta - s3.value()))
+    // even less elegant than usual. Fix this
+    if(s3.value() < Number($('input[name^="f2"]').val()) * 0.18){
+      d3.select(".income").transition(2000).attr("stroke", "red")
+      d3.select(".incometext").text("Disponibel inkomst idag. Valt sparande understiger avgift till den allmäna pensionen").style("fill", "red")
+    }else{
+      d3.select(".income").transition(2000).attr("stroke", "MediumSeaGreen")
+        d3.select(".incometext").text("Disponibel inkomst idag").style("fill", "darkgrey")
+    }
+
   //};
 }
 
 //}
-*/

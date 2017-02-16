@@ -21,12 +21,20 @@ function slider2(d1,d2, type)
         //brush.extent([[0, 0], [width, height]])
         //     .on("brush", brushed);
 
+// income svg needs to be alittle bit bigger since it contains two sliders
+if(type == "income"){
+  var svg = el
+    .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox","0 5 " + (width + 50)  + " " + (height+50))
+      //class to make it responsive
+      .classed("svg-content-responsive", true)
+}else{
   var svg = el
     .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("viewBox","0 5 " + (width + 50)  + " " + height)
       //class to make it responsive
       .classed("svg-content-responsive", true)
-
+}
 
 
   var slider = svg.append("g")
@@ -116,7 +124,8 @@ function slider2(d1,d2, type)
     if(type == "income"){
 
       slider
-      .attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
+      .attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");
+      //.attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
 
       slider.selectAll(".income")
       .data([1]).enter()
@@ -127,15 +136,17 @@ function slider2(d1,d2, type)
           .attr("stroke-linecap", "round")
           .attr("x1", x(0))
           .attr("x2", x(d2))
-          .attr("transform", "translate(0," + 28 + ")")
+          .attr("transform", "translate(0," + 50 + ")")
 
       slider.selectAll(".incometext")
       .data([1]).enter()
       .append("text")
       .attr("class", "incometext")
-      .attr("x", x(d2))
-      .attr("transform", "translate(0," + 30 + ")")
-      .text("")
+      .attr("text-anchor", "middle")
+      .attr("x", x.range()[1]/2) // place text in middle of plot
+      .attr("transform", "translate(0," + 36 + ")")
+      .text("Disponibel inkomst idag")
+
     }
 
       function brushed(){
