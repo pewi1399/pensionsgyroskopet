@@ -115,6 +115,13 @@ font-style:italic;
   stroke-width: 1.25px;
 }
 
+.lasttext{
+  margin-bottom: 45px
+}
+
+#x5{
+  margin-bottom: 155px
+}
 
 input[type="text"] {
   display: block;
@@ -190,6 +197,8 @@ input[type="text"]:focus {
     <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
 
     <div class="col-md-6 col-md-offset-3">
+
+
     <p id = "introtext" align="left">
       Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan hur mycket pengar att leva för idag, hur mycket pengar i pension och hur länge de skulle arbeta innan pension.
       Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
@@ -205,7 +214,7 @@ input[type="text"]:focus {
       När du svarar, utgå ifrån att din arbetsgivare accepterar den pensionsålder du väljer, att du jobbar heltid under hela arbetslivet, att du har arbetat från och med 23 års ålder och att du har samma arbetsinkomst under hela arbetslivet. Utgå också ifrån att valet av pensionsavgift ska täcka allt ditt pensionssparande, det vill säga allmän pension, tjänstepension och privat pensionssparande.
       I räknesnurran anges inkomsterna från arbete och pension alltid före skatt. Tänk på den inkomstnivå du väljer under arbetslivet betalas ut till dess att du går i pension. Därefter betalas pensionen ut resten av livet.
     </p>
-  <p id = "introtext" align="left">
+  <p id = "introtext" align="left" class = "lasttext">
       Räknesnurra visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
       Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
       Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
@@ -233,6 +242,11 @@ input[type="text"]:focus {
 <p id = "placetext32" >
 
 </p>
+
+<div class="radio">
+<label><input type="radio" name="optradio">Kvinna</label>
+<label><input type="radio" name="optradio">Man</label>
+</div>
 
 <div class="row">
 <h3 id = labeltext>
@@ -292,6 +306,9 @@ input[type="text"]:focus {
 
 </div>
 
+<div id="x5" class = "col-md-1 col-md-offset-8">
+<button type="button" class="btn btn-danger">Spara</button>
+</div>
 
 </form>
 
@@ -299,11 +316,18 @@ input[type="text"]:focus {
     <script src="src/d3v4/d3.min.js"></script>
     <script src="slider2.js"></script>
     <script src="plot.js"></script>
+    <script src="src/delningstal.js"></script>
     <script src="src/jquery-3.1.1.min.js"></script>
     <script src="modell.js"></script>
     <!--<script src="src/bootstrap/js/bootstrap.min.js"></script>-->
 
 <script>
+
+// ractivity for button
+$("button").on("click", function(){
+  var message = "Tack för din medverkan. \n \n Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på Minpension.se. "
+  alert(message)
+})
 
 // ----------------------------- constants -------------------------------------
 var alpha = 25.3
@@ -313,7 +337,7 @@ ranta = 0.017
 // mu = arvsvinster
 mu = 1
 // D delningstal
-Delningstal = 14.53
+Delningstal = delningstal.X65
 
 //------------------------ input field functions -------------------------------
 $('input[name^="f1"]').change(function() {
@@ -341,11 +365,12 @@ $('input[name^="f2"]').change(function() {
     alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
   }else{
 
-    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar din arbetsgivare: " + Math.round(this.value*0.18) + "kr (18%) av din lön i allmän pensionsavgift")
+    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18%) av din lön i allmän pensionsavgift")
 
 
-  s2.x(Number(this.value)*1.5);
-  s3.x(Number(this.value));
+  s2.value(Number(this.value)*1.5);
+  s3.value(Number(this.value)*0.18);
+
   window.beta = Number(this.value);
 }
 });
@@ -358,7 +383,16 @@ $('input[name^="f2"]').change(function() {
           // maxvärde 67 år
           // minvärde 55 år
             var unlocked = $('input[name=choice]:checked').val()
-            var pensionsar = src.value();
+            var pensionsar = Math.round(src.value());
+
+            if(pensionsar <61){
+              delningsar = 61
+            }else if(pensionsar >110){
+              delningsar = 110
+            }else{
+              delningsar = pensionsar
+            }
+            window.Delningstal = delningstal["X"+ delningsar]
 
             if(pensionsar > 75)
             {
@@ -382,6 +416,14 @@ $('input[name^="f2"]').change(function() {
                   //y.value()*(67 - x +10)/(x - alpha)
                   // räkna ut avgift via y = utbetalning och src = pensionsar
                   (y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*pensionsar))*(Math.exp((-ranta*pensionsar)) - 1))
+                );
+
+//console.log("gggg")
+                // eftersom delningstalet ändras ändras även utbetalningen
+                y.value(
+                  //z.value()*(x - alpha) / (67 - x + 10)
+                  // räkna ut behållning via z = Avgift och src = pensionsar
+                  ((z.value() * Math.exp((ranta*pensionsar))*(Math.exp((-ranta*pensionsar)) - 1)) * mu)/-ranta/Delningstal/12
                 );
 
             }
