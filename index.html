@@ -358,6 +358,10 @@ $('input[name^="f2"]').change(function() {
 
     d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift")
 
+    s2.x(this.value*1.5)
+    s3.x(this.value)
+
+
 // sätt initial counters
   s3.value(Number(this.value)*0.185);
 
@@ -365,7 +369,7 @@ $('input[name^="f2"]').change(function() {
   s2.value(
       //z.value()*(x - alpha) / (67 - x + 10)
       // räkna ut behållning via z = Avgift och src = pensionsar
-      ((s3.value() * Math.exp((ranta*(s1.value()-23)))*(Math.exp((-ranta*(s1.value()-23))) - 1)) * mu)/-ranta/Delningstal
+      (((s3.value()*12 )* Math.exp((ranta*(s1.value()-23)))*(Math.exp((-ranta*(s1.value()-23))) - 1)) * mu)/-ranta/Delningstal/12
   );
 
 
@@ -407,7 +411,7 @@ $('input[name^="f2"]').change(function() {
                 y.value(
                   //z.value()*(x - alpha) / (67 - x + 10)
                   // räkna ut behållning via z = Avgift och src = pensionsar
-                  //((z.value() * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
+                  (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
                 );
             }
             else if ( unlocked ==  "sparande" )
@@ -416,7 +420,7 @@ $('input[name^="f2"]').change(function() {
                 z.value(
                   //y.value()*(67 - x +10)/(x - alpha)
                   // räkna ut avgift via y = utbetalning och src = pensionsar
-                  //(y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1))
+                  ((y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)))/12
                 );
 
 //console.log("gggg")
@@ -424,7 +428,7 @@ $('input[name^="f2"]').change(function() {
                 y.value(
                   //z.value()*(x - alpha) / (67 - x + 10)
                   // räkna ut behållning via z = Avgift och src = pensionsar
-                  //((z.value() * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
+                  (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
                 );
 
             }
@@ -451,7 +455,7 @@ $('input[name^="f2"]').change(function() {
               x.value(
                 //(z.value()*alpha + 67*y + 10*y) / (z.value() + y)
                 // räkna ut tid utifrån z = Avgift och src = behallning
-                //Math.log((behallning*12*Delningstal*ranta)/(z.value()+mu)+1)/ranta
+                23 + Math.log((behallning*12*Delningstal*ranta)/((z.value()*12)+mu)+1)/ranta
 
               );
           }
@@ -461,7 +465,7 @@ $('input[name^="f2"]').change(function() {
               z.value(
                 //y*(67 - x.value() +10)/(x.value() - alpha)
                 // räkna ut avgift utifrån x = pensionar och src = behallning
-                //(behallning*12*Delningstal*-ranta)/mu/(Math.exp((ranta*(x.value()-23)))*(Math.exp((-ranta*(x.value()-23))) - 1))
+                ((behallning*12*Delningstal*-ranta)/mu/(Math.exp((ranta*(x.value()-23)))*(Math.exp((-ranta*(x.value()-23))) - 1)))/12
               );
 
           }
@@ -473,9 +477,9 @@ $('input[name^="f2"]').change(function() {
         function sparande(src,x,y)
         {
           var unlocked = $('input[name=choice]:checked').val()
-          var sparande = src.value();
+          var sparande = src.value()*12;
 
-          if(sparande > 50*1000)
+          if(sparande > 50*10000)
           {
               var a = 0
               x.value(a);
@@ -487,7 +491,7 @@ $('input[name^="f2"]').change(function() {
               x.value(
                 //(z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
                 // räkna ut tid utifrån y = utbetalning och src = sparande
-                Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta
+                23 + Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta
               );
           }
           else if ( unlocked ==  "behallning" )

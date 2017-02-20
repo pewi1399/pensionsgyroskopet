@@ -9,19 +9,19 @@
 // endogen faktor
 
 // A = avgift
-Avgift = 16092
+Avgift = 5550
 
 // r = ränta
 ranta = 0.017
 
 // t = antal år
-tid = 67
+tid = 42
 
 // mu = arvsvinster
 mu = 1
 
 // D delningstal
-Delningstal = 13.78
+Delningstal = 16.24
 
 P1 = (Avgift*Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1))*mu
 
