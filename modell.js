@@ -15,13 +15,13 @@ Avgift = 16092
 ranta = 0.017
 
 // t = antal år
-tid = 50
+tid = 67
 
 // mu = arvsvinster
 mu = 1
 
 // D delningstal
-Delningstal = 14.53
+Delningstal = 13.78
 
 P1 = (Avgift*Math.exp((ranta*tid))*(Math.exp((-ranta*tid)) - 1))*mu
 
