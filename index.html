@@ -82,7 +82,7 @@ font-style:italic;
 
 
 .ticks {
-  font: 10px sans-serif;
+  font: 13px sans-serif;
 }
 
 .track,
@@ -157,14 +157,14 @@ input[type="text"]:focus {
     font-size: 15px;
     vertical-align: middle;
     display: inline-block;
-    color: darkgrey;
+    color: dimgrey;
   }
 
 .incometext{
     font-size: 15px;
     vertical-align: middle;
     display: inline-block;
-    fill: darkgrey;
+    fill: dimgrey;
   }
 
 
@@ -356,10 +356,10 @@ $('input[name^="f2"]').change(function() {
     alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
   }else{
 
-    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift")
+    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift till det allmäna pensionssystemet")
 
     s2.x(this.value*1.5)
-    s3.x(this.value)
+    s3.x(this.value*1.185)
 
 
 // sätt initial counters

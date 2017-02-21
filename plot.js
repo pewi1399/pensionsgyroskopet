@@ -131,15 +131,15 @@ function redraw(income){
        .clamp(true);
 
     d3.selectAll(".income")
-      .attr("x2", xx(beta - s3.value()))
+      .attr("x2", xx((beta*1.185) - s3.value()))
 
     // even less elegant than usual. Fix this
     if(s3.value() < Number($('input[name^="f2"]').val()) * 0.18){
       d3.select(".income").transition(2000).attr("stroke", "red")
-      d3.select(".incometext").text("Disponibel inkomst idag. Valt sparande understiger avgift till den allmäna pensionen").style("fill", "red")
+      d3.select(".incometext").text("Bruttoinkomst idag. Valt sparande understiger den allämna avgiften").style("fill", "red")
     }else{
       d3.select(".income").transition(2000).attr("stroke", "MediumSeaGreen")
-        d3.select(".incometext").text("Disponibel inkomst idag").style("fill", "darkgrey")
+        d3.select(".incometext").text("Bruttoinkomst idag").style("fill", "Dimgrey")
     }
 
   //};

@@ -145,7 +145,7 @@ if(type == "income"){
       .attr("text-anchor", "middle")
       .attr("x", x.range()[1]/2) // place text in middle of plot
       .attr("transform", "translate(0," + 36 + ")")
-      .text("Disponibel inkomst idag")
+      .text("Bruttoinkomst idag")
 
     }
 
