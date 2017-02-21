@@ -356,7 +356,7 @@ $('input[name^="f2"]').change(function() {
     alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
   }else{
 
-    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift till det allmäna pensionssystemet")
+    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift till det allmänna pensionssystemet")
 
     s2.x(this.value*1.5)
     s3.x(this.value*1.185)
