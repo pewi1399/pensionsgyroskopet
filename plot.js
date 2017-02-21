@@ -136,7 +136,7 @@ function redraw(income){
     // even less elegant than usual. Fix this
     if(s3.value() < Number($('input[name^="f2"]').val()) * 0.18){
       d3.select(".income").transition(2000).attr("stroke", "red")
-      d3.select(".incometext").text("Bruttoinkomst idag. Valt sparande understiger den allämna avgiften").style("fill", "red")
+      d3.select(".incometext").text("Bruttoinkomst idag. Valt sparande understiger den allmäna avgiften").style("fill", "red")
     }else{
       d3.select(".income").transition(2000).attr("stroke", "MediumSeaGreen")
         d3.select(".incometext").text("Bruttoinkomst idag").style("fill", "Dimgrey")
