@@ -323,6 +323,7 @@ $("button").on("click", function(){
 // ----------------------------- constants -------------------------------------
 var alpha = 25.3
 var beta = 600000.3
+var IBB = 61500
 // r = ränta
 ranta = 0.017
 // mu = arvsvinster
@@ -356,14 +357,31 @@ $('input[name^="f2"]').change(function() {
     alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
   }else{
 
-    d3.selectAll("#placetext32").transition(1500).text("Med din inkomst betalar du: " + Math.round(this.value*0.18) + "kr (18.5%) av din lön i pensionsavgift till det allmänna pensionssystemet")
+    // Över 7.5 IBB
+    if(Number(this.value) > (7.5*IBB)/12){
 
-    s2.x(this.value*1.5)
-    s3.x(this.value*1.185)
+      // Överskjutande del avgift inbetalning 30% på denna
+      var over = (Number(this.value)-(7.5*IBB)/12)*0.30
 
+      // 18.5% på 7.5 IBB
+      var under = (7.5*IBB/12)*0.185
+
+      // total inbetalning
+      var total = over + under
+      var procent = Math.round(((Number(this.value)+total)/Number(this.value)-1)*100*10)/10
+
+
+      d3.selectAll("#placetext32").transition(1500).text("Med din inkomst avsätts: " + Math.round(total) + "kr (" + procent + "%) av din lön i pensionsavgift")
+
+        s3.value(total); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
+    }else{
+      d3.selectAll("#placetext32").transition(1500).text("Med din inkomst avsätts: " + Math.round(this.value*0.185) + "kr (18.5%) av din lön i pensionsavgift")
+
+        s3.value(Number(this.value)*0.185);
+    }
 
 // sätt initial counters
-  s3.value(Number(this.value)*0.185);
+  //s3.value(Number(this.value)*0.185);
 
 
   s2.value(

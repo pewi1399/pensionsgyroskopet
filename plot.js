@@ -112,7 +112,7 @@ function redraw(income){
   var new_behallning = [{"year":55,"kr": behallning55},{"year":67,"kr":behallning67}]
 
   d3.select("#line1")
-    //.transition()
+    //.transition()tat
     .attr("d", savings_line(new_behallning))
 
   var new_savings = [{"year":55,"kr": s3.value()},{"year":67,"kr":s3.value()}]
