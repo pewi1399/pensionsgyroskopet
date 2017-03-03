@@ -171,6 +171,13 @@ input[type="text"]:focus {
   div.tooltip {
     background: lightsteelblue;
   }
+
+
+  ol > li {
+      margin: 0 10px 15px;
+      text-align: left;
+  }
+
 </style>
 
 <body>
@@ -191,19 +198,26 @@ input[type="text"]:focus {
 
 
       <p id = "introtext" align="left">
-        Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan hur mycket pengar att leva för idag, hur mycket pengar i pension och hur länge de skulle arbeta innan pension.
+        Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan pengar att leva för idag, pengar i pension och hur länge de vill arbeta innan pensionen.
+
+        I räknesnurran nedan anger du vilken kombination av pensionsålder, pensionssparande och framtida pension som skulle passar dig bäst. Reglagen hänger ihop så ändrar du t ex pensionsåldern ändras även hur mycket du måste spara och hur mycket pension du får.
+
+
+
+
+      </p>
+      <p id = "introtext" align="left">
         Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
-
-
-      </p>
-      <p id = "introtext" align="left">
-        Du kommer att få svara på vilken kombination av pengar att leva på, framtida pension och pensionsålder som du tror passar dig bäst via en räknesnurra.
-        Tänk noggrant igenom innan du slutligen väljer den kombination som du tror är den bästa för dig.
       </p>
 
       <p id = "introtext" align="left">
-        När du svarar, utgå ifrån att din arbetsgivare accepterar den pensionsålder du väljer, att du jobbar heltid under hela arbetslivet, att du har arbetat från och med 23 års ålder och att du har samma arbetsinkomst under hela arbetslivet. Utgå också ifrån att valet av pensionsavgift ska täcka allt ditt pensionssparande, det vill säga allmän pension, tjänstepension och privat pensionssparande.
-        I räknesnurran anges inkomsterna från arbete och pension alltid före skatt. Tänk på den inkomstnivå du väljer under arbetslivet betalas ut till dess att du går i pension. Därefter betalas pensionen ut resten av livet.
+      <ol type="1">
+        <li> Börja med att ange vilket år du är född, din månadsinkomst före skatt, om din arbetsgivare betalar tjänstepension eller inte samt om du är man eller kvinna. Då visar reglagen automatiskt hur mycket som sparas av din inkomst till pensionen enligt gällande pensionssystem och hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar till dess du är 65 år.*</li>
+
+        <li> Därefter väljer du med hjälp av reglagen den kombination av pensionsålder, pensionsinkomst och sparande som passar dig bäst. Tänk på att du har möjlighet att ”låsa” ett reglage genom att klicka i rutan till vänster om respektive reglage.</li>
+
+        <li> När du är klar ”trycker” du på räknesnurrans spara-knapp och din valda kombination skickas in.</li>
+      </ol>
       </p>
 
       </div>
@@ -317,15 +331,29 @@ input[type="text"]:focus {
 
   <div class="col-md-12 col-md-offset-0">
   <p id = "introtext" align="left" class = "lasttext">
-      Räknesnurran visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
-      Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
-      Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
-      Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar ska räcka under en kortare tid.
+    Detta antar räknesnurran
+    Snurran antar att du arbetar heltid hela arbetslivet, från och med 23 års ålder och att du har samma inkomst hela arbetslivet. Snurran antar också att den pensionsavgift du väljer ska täcka både den allmänna pensionen och privat pensionssparande (den eventuella tjänstepensionen antas din arbetsgivare spara till separat och denna pensionsutbetalning läggs automatiskt på som ett schablonbelopp).
   &nbsp;
   &nbsp;
   &nbsp;
   &nbsp;
     </p>
+
+    <p id = "introtext" align="left" class = "lasttext">
+      Snurran är en förenkling av pensionssystemet
+Räknesnurra visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
+Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
+Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
+Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar fördelas över en kortare tid.
+Följande text bör kanske stå efter det att individen har ”skjutit av” sin valda kombination, för att undvika förvirring:
+Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på Minpension.se.
+
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+      </p>
+
   </div>
 
 </div>
