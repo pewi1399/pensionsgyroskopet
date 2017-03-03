@@ -121,12 +121,27 @@ if(type == "income"){
       .attr("x", x)
       .text("")
 
-    svg.on("mouseover", function(d) {
+//var tooltrigger = slider
+
+
+    slider.on("mouseover", function(d) {
+
+// sätt texter för tooltip
+      if(type == "alder"){
+        var texten = "Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad."
+      } else if (type == "utbet"){
+        var texten = "Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive sparande per månad."
+      } else {
+        var texten = "Här kan du ändra ditt sparande och se hur det påverkar pensionsutbetalning respektive pensionsålder."+
+        "Den gröna stapeln visar hur din inkomst att leva på idag (före skatt) påverkas när du sparar mer eller mindre till din pension  (Detta reglage kan du endast ändra genom de andra tre reglagen)"
+      }
+
+
        div.transition()
          .duration(200)
          .style("opacity", .9);
-       div.html("hej" + "<br/>" + "ho")
-         .style("top", (d3.event.pageY - 28) + "px");
+       div.html(texten)
+         .style("top", (d3.event.pageY-100) + "px");
        })
      .on("mouseout", function(d) {
        div.transition()
