@@ -121,6 +121,19 @@ if(type == "income"){
       .attr("x", x)
       .text("")
 
+    svg.on("mouseover", function(d) {
+       div.transition()
+         .duration(200)
+         .style("opacity", .9);
+       div.html("hej" + "<br/>" + "ho")
+         .style("top", (d3.event.pageY - 28) + "px");
+       })
+     .on("mouseout", function(d) {
+       div.transition()
+         .duration(500)
+         .style("opacity", 0);
+       });
+
     if(type == "income"){
 
       slider

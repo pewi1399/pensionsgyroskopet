@@ -169,16 +169,7 @@ input[type="text"]:focus {
 
 
   div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 60px;
-    height: 28px;
-    padding: 2px;
-    font: 12px sans-serif;
     background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
   }
 </style>
 
@@ -187,119 +178,165 @@ input[type="text"]:focus {
 
 
 <form name = "gg">
+<!-- huvud div -->
+<div class = "col-md-8 col-md-offset-2" style="display: inline-block">
 
-<div class = "col-md-12" style="display: inline-block">
-
-<!-- row 1 -->
-<div class="row">
-
-  <section>
-    <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
-
-    <div class="col-md-4 col-md-offset-4">
+  <!-- row 1 -->
+  <div class="col-md-12 col-md-offset-0">
 
 
-    <p id = "introtext" align="left">
-      Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan hur mycket pengar att leva för idag, hur mycket pengar i pension och hur länge de skulle arbeta innan pension.
-      Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
+      <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
+
+      <div class="col-md-12">
 
 
-    </p>
-    <p id = "introtext" align="left">
-      Du kommer att få svara på vilken kombination av pengar att leva på, framtida pension och pensionsålder som du tror passar dig bäst via en räknesnurra.
-      Tänk noggrant igenom innan du slutligen väljer den kombination som du tror är den bästa för dig.
-    </p>
-
-    <p id = "introtext" align="left">
-      När du svarar, utgå ifrån att din arbetsgivare accepterar den pensionsålder du väljer, att du jobbar heltid under hela arbetslivet, att du har arbetat från och med 23 års ålder och att du har samma arbetsinkomst under hela arbetslivet. Utgå också ifrån att valet av pensionsavgift ska täcka allt ditt pensionssparande, det vill säga allmän pension, tjänstepension och privat pensionssparande.
-      I räknesnurran anges inkomsterna från arbete och pension alltid före skatt. Tänk på den inkomstnivå du väljer under arbetslivet betalas ut till dess att du går i pension. Därefter betalas pensionen ut resten av livet.
-    </p>
-
-    </div>
+      <p id = "introtext" align="left">
+        Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja – om de fick välja fritt – mellan hur mycket pengar att leva för idag, hur mycket pengar i pension och hur länge de skulle arbeta innan pension.
+        Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
 
 
-    <ul class="input-list style-2 clearfix">
-      <div class="col-md-2 col-md-offset-4">
-        <input type="text" name="f1" placeholder=":Födelseår">
+      </p>
+      <p id = "introtext" align="left">
+        Du kommer att få svara på vilken kombination av pengar att leva på, framtida pension och pensionsålder som du tror passar dig bäst via en räknesnurra.
+        Tänk noggrant igenom innan du slutligen väljer den kombination som du tror är den bästa för dig.
+      </p>
+
+      <p id = "introtext" align="left">
+        När du svarar, utgå ifrån att din arbetsgivare accepterar den pensionsålder du väljer, att du jobbar heltid under hela arbetslivet, att du har arbetat från och med 23 års ålder och att du har samma arbetsinkomst under hela arbetslivet. Utgå också ifrån att valet av pensionsavgift ska täcka allt ditt pensionssparande, det vill säga allmän pension, tjänstepension och privat pensionssparande.
+        I räknesnurran anges inkomsterna från arbete och pension alltid före skatt. Tänk på den inkomstnivå du väljer under arbetslivet betalas ut till dess att du går i pension. Därefter betalas pensionen ut resten av livet.
+      </p>
+
       </div>
-      <div class="col-md-2 ">
-        <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr)">
+  </div>
+
+  <ul class="input-list style-2 clearfix">
+    <div class="col-md-5 col-md-offset-1">
+      <input type="text" name="f1" placeholder=":Födelseår">
+    </div>
+    <div class="col-md-5 col-md-offset-0">
+      <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr)">
+    </div>
+  </ul>
+
+
+  <p id = "placetext32" >
+
+  </p>
+
+  <div class="radio">
+  <label><input type="radio" name="optradio">Kvinna</label>
+  <label><input type="radio" name="optradio">Man</label>
+  <label><input type="radio" name="optradio">Annat</label>
+  </div>
+
+  <div class="row">
+  <h3 id = labeltext>
+    Önskad ålder vid pensionering
+  </h3>
+  </div>
+
+
+  <!-- row 2 pension age goes here-->
+  <div class="row">
+      <div class = "col-md-1 col-md-offset-0">
+        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
       </div>
-    </ul>
-  </section>
-</div>
 
+      <div id="x1" class = "col-md-10">
+      </div>
 
-<p id = "placetext32" >
-
-</p>
-
-<div class="radio">
-<label><input type="radio" name="optradio">Kvinna</label>
-<label><input type="radio" name="optradio">Man</label>
-</div>
-
-<div class="row">
-<h3 id = labeltext>
-  Önskad ålder vid pensionering
-</h3>
-</div>
-
-
-<!-- row 2 -->
-<div class="row">
-    <div class = "col-md-1 col-md-offset-3">
-      <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
-    </div>
-
-    <div id="x1" class = "col-md-4">
-    </div>
-
-</div>
-
-<div class="row">
-<h3 id = labeltext>
-  Pensionsutbetalning per månad, kronor
-</h3>
-</div>
-
-<!-- row 3 -->
-<div class="row">
-  <div class = "col-md-1 col-md-offset-3">
-      <input class = "MyInput2" type="radio" name="choice" value="behallning">
+  <!--
+      <div id="x2-tooltip" class = "col-md-3">
+        <text>
+            Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad.
+      </text>
+      </div>
+  -->
   </div>
 
-    <div id="x2" class = "col-md-4">
-  </div>
-</div>
-
-
-<div class="row">
-<h3 id = labeltext>
-  Sparande per månad fram till pensionering
-</h3>
-
-<!-- row 4 -->
-<div class="row">
-  <div class = "col-md-1 col-md-offset-3">
-      <input class = "MyInput3" type="radio" name="choice" value="sparande">
+  <div class="row">
+  <h3 id = labeltext>
+    Pensionsutbetalning per månad, kronor
+  </h3>
   </div>
 
-    <div id="x3" class = "col-md-4">
-
+  <!-- row 3 payouts goes here-->
+  <div class="row">
+    <div class = "col-md-1 col-md-offset-0">
+        <input class = "MyInput2" type="radio" name="choice" value="behallning">
     </div>
+
+      <div id="x2" class = "col-md-10">
+    </div>
+  <!--
+    <div id="x2-tooltip" class = "col-md-3">
+      <text>
+        Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive sparande per månad.
+    </text>
+    </div>
+  -->
+  </div>
+
+
+  <div class="row">
+  <h3 id = labeltext>
+    Sparande per månad fram till pensionering
+  </h3>
+
+  <!-- row 4 savings goes here -->
+  <div class="row">
+    <div class = "col-md-1 col-md-offset-0">
+        <input class = "MyInput3" type="radio" name="choice" value="sparande">
+    </div>
+
+      <div id="x3" class = "col-md-10">
+      </div>
+  <!--
+      <div id="x3-tooltip" class = "col-md-3">
+        <text>
+          Här kan du ändra ditt sparande och se hur det påverkar pensionsutbetalning respektive pensionsålder.
+          Den gröna stapeln visar hur din inkomst att leva på idag (före skatt)
+          påverkas när du sparar mer eller mindre till din pension
+          (Detta reglage kan du endast ändra genom de andra tre reglagen)
+      </text>
+      </div>
+    -->
+  </div>
+
+  <!-- row 5 -->
+  <!--
+  <div class="row">
+      <div id="x4" class = "col-md-4 col-md-offset-4"><sub></sub></div><br>
+  </div>
+  -->
+  </div>
+
+  <div id="x5" class = "col-md-1 col-md-offset-10">
+  <button type="button" class="btn btn-danger">Spara</button>
+  </div>
+
+  <div class="col-md-12 col-md-offset-0">
+  <p id = "introtext" align="left" class = "lasttext">
+      Räknesnurran visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
+      Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
+      Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
+      Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar ska räcka under en kortare tid.
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+    </p>
+  </div>
+
 </div>
 
-<!-- row 5 -->
-<div class="row">
-    <div id="x4" class = "col-md-4 col-md-offset-4"><sub></sub></div><br>
+<!-- secondary tooltip div -->
+<div id = "perwim" class="col-md-1 col-md-offset-0">
+  gg
 </div>
 
-</div>
 
-<div id="x5" class = "col-md-1 col-md-offset-7">
-<button type="button" class="btn btn-danger">Spara</button>
-</div>
+
 
 </form>
 
@@ -314,7 +351,10 @@ input[type="text"]:focus {
 
 <script>
 
-// ractivity for button
+// pick up tooltip div
+var div = d3.select("#perwim")
+
+// reactivity for button
 $("button").on("click", function(){
   var message = "Tack för din medverkan. \n \n Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på Minpension.se. "
   alert(message)
@@ -371,12 +411,21 @@ $('input[name^="f2"]').change(function() {
       var procent = Math.round(((Number(this.value)+total)/Number(this.value)-1)*100*10)/10
 
 
-      d3.selectAll("#placetext32").transition(1500).text("Med din inkomst avsätts: " + Math.round(total) + "kr (" + procent + "%) av din lön i pensionsavgift")
+      d3.selectAll("#placetext32").transition(1500).text(
+"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(total) + "kronor (" + procent + "%) per månad till det allmänna pensionssystemet."
+      +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
+      +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
+)
+
+
 
         s3.value(total); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
     }else{
-      d3.selectAll("#placetext32").transition(1500).text("Med din inkomst avsätts: " + Math.round(this.value*0.185) + "kr (18.5%) av din lön i pensionsavgift")
-
+      d3.selectAll("#placetext32").transition(1500).text(
+"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*0.185) + "kronor (18.5%) per månad till det allmänna pensionssystemet."
+      +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
+      +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
+)
         s3.value(Number(this.value)*0.185);
     }
 
@@ -548,16 +597,5 @@ $('input[name^="f2"]').change(function() {
     <div style="display: inline-block">
 
 </div>
-<div class="col-md-4 col-md-offset-4">
-<p id = "introtext" align="left" class = "lasttext">
-    Räknesnurran visar på ett förenklat sätt hur det svenska pensionssystemet fungerar. Du kan läsa mer om pensionssystemet här:
-    Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
-    Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
-    Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar ska räcka under en kortare tid.
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-  </p>
-</div>
+
 </body>
