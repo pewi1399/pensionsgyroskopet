@@ -99,11 +99,19 @@ if(type == "income"){
           })*/
         );
 
+    if(type == "alder"){
+      var tickmarks = [55,57,59,61,63,65,67,69,71,73,75]
+
+    } else {
+      var tickmarks  = x.ticks(10)
+
+    }
+
    slider.insert("g", ".track-overlay")
        .attr("class", "ticks")
        .attr("transform", "translate(0," + 18 + ")")
      .selectAll(".tickmarks")
-     .data(x.ticks(10))
+     .data(tickmarks)
      .enter().append("text")
        .attr("class","tickmarks")
        .attr("x", x)
