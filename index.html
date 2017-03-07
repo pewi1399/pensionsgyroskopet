@@ -210,6 +210,7 @@ input[type="text"]:focus {
 .sweet-alert fieldset input {
 display: none;
 }
+
 </style>
 
 <body>
@@ -384,12 +385,18 @@ Det andra sättet att få högre pension på är att arbeta längre. Om du till 
       </p>
 
   </div>
+  <div class="col-md-12 col-md-offset-0">
+  <p id = "introtext" align="left" class = "lasttext">
+    <br> <b> Vi är tacksamma för dina synpunkter</b>  </br>
+Gyroskopet är ett arbete under utveckling, dina åsikter gör stor skillnad. Fyll gärna i utvärderingen för att hjälpa oss förbättra sidan. Svaren är anonyma:
+<p>
+  <button type="button" class="btn btn-danger pull-center" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'"> Till utvärdering</button>
 
 </div>
 
 <!-- secondary tooltip div -->
 <div id = "perwim" class="col-md-2 col-md-offset-0">
-  gg
+
 </div>
 
 
@@ -419,6 +426,7 @@ $("button").on("click", function(){
 //  alert(message)
 
 var choices = "<li> Pensionsår: " + Math.round(s1.value())+ "</li> <li> Utbetalning: " + Math.round(s2.value()) + " </li> <li> Sparande: " + Math.round(s3.value())+ "</li>"
+var utvardering = "<a href='https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'>Minpension.se</a>"
 
   swal({title:"Tack för din medverkan!",text: message , type:"success", html: true})
 
@@ -434,7 +442,13 @@ var choices = "<li> Pensionsår: " + Math.round(s1.value())+ "</li> <li> Utbetal
     html:true
   },
   function(){
-    swal({title:"Tack för din medverkan!",text: message , type:"success", html: true});
+    swal({title:"Tack för din medverkan!",
+          confirmButtonText: "Ok | Utvärdera",
+          text: message+ "<b> När du klickat på ok kommer du att omdirigeras till ett formulär där du kan fylla i dina synpunkter om gyroskopet notera att detta gäller endast för testversionen </b>" , type:"success", html: true},
+  function(){
+    window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1';
+  });
+
   });
 
 })
