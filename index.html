@@ -179,6 +179,16 @@ input[type="text"]:focus {
       text-align: left;
   }
 
+  ul  {
+   padding-left:0;
+  }
+
+  ul > li {
+      margin: 0 10px 15px;
+      text-align: center;
+      list-style-position:inside
+  }
+
   .lasttext{
       font-size: 15px;
       vertical-align: middle;
@@ -197,6 +207,9 @@ input[type="text"]:focus {
    border-radius: 10px;
 }
 
+.sweet-alert fieldset input {
+display: none;
+}
 </style>
 
 <body>
@@ -205,7 +218,7 @@ input[type="text"]:focus {
 
 <form name = "gg">
 <!-- huvud div -->
-<div class = "col-md-8 col-md-offset-2" style="display: inline-block">
+<div class = "col-md-6 col-md-offset-3" style="display: inline-block">
 
   <!-- row 1 -->
   <div class="col-md-12 col-md-offset-0">
@@ -364,8 +377,6 @@ Räknesnurra visar på ett förenklat sätt hur det svenska pensionssystemet fun
 Den pension du kommer att få ut när du pensionerar dig bestäms av hur mycket du har betalat in till pensionssystemet under ditt arbetsliv - pensionsavgiften. Något förenklat kan man säga att ju mer du betalar in till pensionssystemet desto större blir din pension. Detta innebär att det finns två sätt att få ut en högre pension.
 Det första är att betala in mer pengar till pensionssystemet, till exempel genom att staten eller arbetsgivaren höjer pensionsavgiften. En högre pensionsavgift innebär samtidigt att du får en lägre inkomst att leva på idag, och tvärtom. Om du exempelvis tjänar 25 000 kr i månaden före skatt och pensionsavgiften är 10 % (2 500 kr) hade din lön varit 27 500 kr om pensionsavgiften inte fanns.
 Det andra sättet att få högre pension på är att arbeta längre. Om du till exempel arbetar till 67 års ålder i stället för till 63 års ålder kommer du att få en högre månatlig pension eftersom dina pensionsbesparingar fördelas över en kortare tid.
-Följande text bör kanske stå efter det att individen har ”skjutit av” sin valda kombination, för att undvika förvirring:
-Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på Minpension.se.
     &nbsp;
     &nbsp;
     &nbsp;
@@ -404,9 +415,28 @@ var div = d3.select("#perwim")
 
 // reactivity for button
 $("button").on("click", function(){
-  var message = "Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på Minpension.se. "
+  var message = "Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på <a href='https://www.minpension.se/'>Minpension.se</a>"
 //  alert(message)
-  swal({title:"Tack för din medverkan!",text:"message https://github.com/t4t5/sweetalert/issues/351", type:"success"})
+
+var choices = "<li> Pensionsår: " + Math.round(s1.value())+ "</li> <li> Utbetalning: " + Math.round(s2.value()) + " </li> <li> Sparande: " + Math.round(s3.value())+ "</li>"
+
+  swal({title:"Tack för din medverkan!",text: message , type:"success", html: true})
+
+  swal({
+    title: "Är du säker?",
+    text: "Du har valt följande kombination: \n \n \n  <p style='padding-top: 20px'> <b>" + choices + "</b> </p>",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    cancelButtonText:"Ångra",
+    confirmButtonText: "Spara",
+    closeOnConfirm: false,
+    html:true
+  },
+  function(){
+    swal({title:"Tack för din medverkan!",text: message , type:"success", html: true});
+  });
+
 })
 
 // ----------------------------- constants -------------------------------------
@@ -430,7 +460,9 @@ $('input[name^="f1"]').change(function() {
   //http://jsfiddle.net/e84v7nat/
   //cannot be too young cannot be older than min of scale
   if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 75){
-    alert("Vänligen ange fyrsiffrigt födelseår \n \n Exempel: 1965")
+    swal({title: "Fel format",
+          text:"Vänligen ange fyrsiffrigt födelseår  \n \n Exempel: 1965",
+          type: "warning"})
   }else{
     window.alpha = thisYear - Number(this.value);
     var maxPB = Number($('input[name^="f2"]').val())*1.5
@@ -443,7 +475,10 @@ $('input[name^="f2"]').change(function() {
   //alert( "Handler for .change() called." )
 
   if(isNaN(Number(this.value))){
-    alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
+    //alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
+    swal({title: "Fel format",
+          text:"Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000",
+          type: "warning"})
   }else{
 
     // Över 7.5 IBB
@@ -461,21 +496,27 @@ $('input[name^="f2"]').change(function() {
 
 
       d3.selectAll("#placetext32").transition(1500).text(
-"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(total) + "kronor (" + procent + "%) per månad till det allmänna pensionssystemet."
+"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(total) + "kronor (" + procent + "%) per månad i pensionsavgift."
       +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
       +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
 )
 
-
-
+        s3.x(Number(this.value)+total)
         s3.value(total); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
+        s2.x(Number(this.value)*1.5);
+
+        //redraw(Number(this.value));
     }else{
       d3.selectAll("#placetext32").transition(1500).text(
-"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*0.185) + "kronor (18.5%) per månad till det allmänna pensionssystemet."
+"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*0.185) + "kronor (18.5%) per månad i pensionsavgift."
       +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
       +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
 )
+        s3.x(Number(this.value)*1.185)
         s3.value(Number(this.value)*0.185);
+        s2.x(Number(this.value)*1.5);
+
+        //redraw(Number(this.value));
     }
 
 // sätt initial counters
