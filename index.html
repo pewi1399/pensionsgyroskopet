@@ -273,7 +273,7 @@ display: none;
   <div class="radio">
   <label><input type="radio" name="optradio">Kvinna</label>
   <label><input type="radio" name="optradio">Man</label>
-  <label><input type="radio" name="optradio">Annat</label>
+  <label><input type="radio" name="optradio">Annat/ Vill ej svara</label>
   </div>
 
   <div class="row">
@@ -474,7 +474,7 @@ $('input[name^="f1"]').change(function() {
   // spara efter inlägg
   //http://jsfiddle.net/e84v7nat/
   //cannot be too young cannot be older than min of scale
-  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 18 || (thisYear - Number(this.value)) > 75){
+  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 0 || (thisYear - Number(this.value)) > 75){
     swal({title: "Fel format",
           text:"Vänligen ange fyrsiffrigt födelseår  \n \n Exempel: 1965",
           type: "warning"})
@@ -503,7 +503,7 @@ $('input[name^="f2"]').change(function() {
       var over = (Number(this.value)-(7.5*IBB)/12)*0.30
 
       // 18.5% på 7.5 IBB
-      var under = (7.5*IBB/12)*0.185
+      var under = (7.5*IBB/12)*(0.1721+0.045)
 
       // total inbetalning
       var total = over + under
@@ -523,12 +523,12 @@ $('input[name^="f2"]').change(function() {
         //redraw(Number(this.value));
     }else{
       d3.selectAll("#placetext32").transition(1500).text(
-"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*0.185) + "kronor (18.5%) per månad i pensionsavgift."
+"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*(0.1721 + 0.045)) + "kronor (21.7%) per månad i pensionsavgift."
       +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
       +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
 )
-        s3.x(Number(this.value)*1.185)
-        s3.value(Number(this.value)*0.185);
+        s3.x(Number(this.value)*(1+0.1721+0.045));
+        s3.value(Number(this.value)*(0.1721+0.045));
         s2.x(Number(this.value)*1.5);
 
         //redraw(Number(this.value));
