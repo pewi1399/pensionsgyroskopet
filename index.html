@@ -324,7 +324,7 @@ display: none;
 
   <div class="row">
   <h3 id = labeltext>
-    Önskad ålder vid pensionering
+    Pensionsålder
   </h3>
   </div>
 
@@ -373,7 +373,7 @@ display: none;
 
   <div class="row">
   <h3 id = labeltext>
-    Sparande per månad fram till pensionering
+    Relativt idag, hur mycket vill du spara per månad?
   </h3>
 
   <!-- row 4 savings goes here -->
@@ -798,7 +798,7 @@ $('input[name^="f2"]').change(function() {
 //------------------------------------------------------------------------------
 
 //------------------- Activate sliders and callbacks ---------------------------
-    var s1 = slider2(55,75,"alder"), s2 = slider2(0,50*1000,"utbet"), s3 = slider2(0,50*1000, "income");
+    var s1 = slider2(55,75,"alder"), s2 = slider2(0,50*1000,"utbet"), s3 = slider2((50*1000*-0.185),50*1000, "income");
 
     var slider11 = d3.select("#x1").append("svg").call(s1);
     var slider22 = d3.select("#x2").append("svg").call(s2);

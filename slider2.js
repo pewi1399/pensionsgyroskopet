@@ -100,10 +100,14 @@ if(type == "income"){
         );
 
     if(type == "alder"){
-      var tickmarks = [55,57,59,61,63,65,67,69,71,73,75]
+      var tickmarks = [55, 75]
 
-    } else {
-      var tickmarks  = x.ticks(10)
+    } else if(type == "income") {
+
+      var tickmarks  = [x.domain()[0], 0, x.domain()[1]]
+
+    } else  {
+      var tickmarks  = x.ticks(1)
 
     }
 
@@ -163,25 +167,25 @@ if(type == "income"){
       .attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");
       //.attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
 
-      slider.selectAll(".income")
-      .data([1]).enter()
-      .append("line")
-          .attr("class", "income")
-          .attr("stroke", "MediumSeaGreen")
-          .attr("stroke-width", "8px")
-          .attr("stroke-linecap", "round")
-          .attr("x1", x(0))
-          .attr("x2", x(d2))
-          .attr("transform", "translate(0," + 50 + ")")
+      // slider.selectAll(".income")
+      // .data([1]).enter()
+      // .append("line")
+      //     .attr("class", "income")
+      //     .attr("stroke", "MediumSeaGreen")
+      //     .attr("stroke-width", "8px")
+      //     .attr("stroke-linecap", "round")
+      //     .attr("x1", x(0))
+      //     .attr("x2", x(d2))
+      //     .attr("transform", "translate(0," + 50 + ")")
 
-      slider.selectAll(".incometext")
-      .data([1]).enter()
-      .append("text")
-      .attr("class", "incometext")
-      .attr("text-anchor", "middle")
-      .attr("x", x.range()[1]/2) // place text in middle of plot
-      .attr("transform", "translate(0," + 36 + ")")
-      .text("Bruttoinkomst idag")
+      // slider.selectAll(".incometext")
+      // .data([1]).enter()
+      // .append("text")
+      // .attr("class", "incometext")
+      // .attr("text-anchor", "middle")
+      // .attr("x", x.range()[1]/2) // place text in middle of plot
+      // .attr("transform", "translate(0," + 36 + ")")
+      // .text("Bruttoinkomst idag")
 
     }
 
