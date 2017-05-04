@@ -70,15 +70,15 @@ if(type == "income"){
 //
             text
             .attr("x", x(h))
-            .attr("y", -10)
+            .attr("y", -11)
             .attr("text-anchor", "middle")
             .attr("font", "sans-serif")
-            .attr("font-size",  "10px")
+            .attr("font-size",  "13px")
             .attr("opacity", 1)
             .text(Math.round(h))
-            .transition()
-            .duration(3000)
-            .attr("opacity", 0)
+            //.transition()
+            //.duration(3000)
+            //.attr("opacity", 0)
               //.style("top", (d3.event.pageY - 28) + "px");
               //.transition()
               //.duration(500)
@@ -163,31 +163,32 @@ if(type == "income"){
          .style("opacity", 0);
        });
 
-    if(type == "income"){
+    //if(type == "income"){
 
       //slider
       //.attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");
       //.attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
 
-       slider.selectAll(".income")
-       .data([1]).enter()
-       .append("line")
-           .attr("class", "income")
-           .attr("stroke", "MediumSeaGreen")
-           .attr("stroke-width", "8px")
-           .attr("stroke-linecap", "round")
-           .attr("x1", x(-2110))
-           .attr("x2", x(d2))
-           
-        slider.selectAll(".income")
-       .data([1]).enter()
-       .append("line")
-           .attr("class", "income")
-           .attr("stroke", "MediumSeaGreen")
-           .attr("stroke-width", "8px")
-           .attr("stroke-linecap", "round")
-           .attr("x1", x(-2000))
-           .attr("x2", x(0))
+    //   slider.selectAll(".income")
+    //   .data([1]).enter()
+    //   .append("line")
+    //       .attr("class", "income")
+    //       .attr("stroke", "MediumSeaGreen")
+    //       .attr("stroke-width", "8px")
+    //       .attr("stroke-linecap", "round")
+    //       .attr("x1", x(-2110))
+    //       .attr("x2", x(d2))
+    //
+    //    slider.selectAll(".income")
+    //   .data([1]).enter()
+    //   .append("line")
+    //       .attr("class", "income")
+    //       .attr("stroke", "MediumSeaGreen")
+    //       .attr("stroke-width", "8px")
+    //       .attr("stroke-linecap", "round")
+    //       .attr("x1", x(-2000))
+    //       .attr("x2", x(0))
+
 
       // slider.selectAll(".incometext")
       // .data([1]).enter()
@@ -198,7 +199,7 @@ if(type == "income"){
       // .attr("transform", "translate(0," + 36 + ")")
       // .text("Bruttoinkomst idag")
 
-    }
+    //}
 
       function brushed(){
 
@@ -234,15 +235,15 @@ if(type == "income"){
             .domain([d1,limit])
             .range ([0,width])
             .clamp(true);
-            
-            
+
+
         if(type == "income") {
-    
+
           var tickmarks  = [x.domain()[0], 0, x.domain()[1]]
-    
+
         } else  {
           var tickmarks  = x.ticks(1)
-    
+
         }
 
         ticks = slider.selectAll(".ticks").selectAll(".tickmarks").data(tickmarks)
