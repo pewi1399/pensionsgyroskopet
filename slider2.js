@@ -43,7 +43,9 @@ if(type == "income"){
 
    slider.append("line")
        .attr("class", "track")
-       .attr("stroke", "#ddd")
+       //.attr("stroke", "#ddd")
+       .attr("stroke", "url(#svgGradient)")
+       .attr("fill", "none")
        .attr("x1", x.range()[0])
        .attr("x2", x.range()[1])
      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
@@ -163,20 +165,29 @@ if(type == "income"){
 
     if(type == "income"){
 
-      slider
-      .attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");
+      //slider
+      //.attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");
       //.attr("transform", "translate(" + (margin.left)+ "," + height / 3.5 + ")");
 
-      // slider.selectAll(".income")
-      // .data([1]).enter()
-      // .append("line")
-      //     .attr("class", "income")
-      //     .attr("stroke", "MediumSeaGreen")
-      //     .attr("stroke-width", "8px")
-      //     .attr("stroke-linecap", "round")
-      //     .attr("x1", x(0))
-      //     .attr("x2", x(d2))
-      //     .attr("transform", "translate(0," + 50 + ")")
+       slider.selectAll(".income")
+       .data([1]).enter()
+       .append("line")
+           .attr("class", "income")
+           .attr("stroke", "MediumSeaGreen")
+           .attr("stroke-width", "8px")
+           .attr("stroke-linecap", "round")
+           .attr("x1", x(-2110))
+           .attr("x2", x(d2))
+           
+        slider.selectAll(".income")
+       .data([1]).enter()
+       .append("line")
+           .attr("class", "income")
+           .attr("stroke", "MediumSeaGreen")
+           .attr("stroke-width", "8px")
+           .attr("stroke-linecap", "round")
+           .attr("x1", x(-2000))
+           .attr("x2", x(0))
 
       // slider.selectAll(".incometext")
       // .data([1]).enter()
@@ -223,8 +234,18 @@ if(type == "income"){
             .domain([d1,limit])
             .range ([0,width])
             .clamp(true);
+            
+            
+        if(type == "income") {
+    
+          var tickmarks  = [x.domain()[0], 0, x.domain()[1]]
+    
+        } else  {
+          var tickmarks  = x.ticks(1)
+    
+        }
 
-        ticks = slider.selectAll(".ticks").selectAll(".tickmarks").data(x.ticks(10))
+        ticks = slider.selectAll(".ticks").selectAll(".tickmarks").data(tickmarks)
 
         ticks.exit().remove()
 

@@ -6,6 +6,46 @@
 </head>
 <style>
 
+
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.visa{background-image:url(https://openclipart.org/download/68545/lock2.svg);}
+.mastercard{background-image:url(http://i.imgur.com/SJbRQF7.png);}
+
+.cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+
 body {
     text-align: center;
     font-family:Arial;
@@ -331,8 +371,10 @@ display: none;
 
   <!-- row 2 pension age goes here-->
   <div class="row">
-      <div class = "col-md-1 col-md-offset-0">
-        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked>
+      <div class = "col-md-1 col-md-offset-0 cc-selector">
+        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked/>
+       <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
+        <label class="drinkcard-cc visa"for="pensionar"></label>
       </div>
 
       <div id="x1" class = "col-md-10">
@@ -355,8 +397,12 @@ display: none;
 
   <!-- row 3 payouts goes here-->
   <div class="row">
-    <div class = "col-md-1 col-md-offset-0">
-        <input class = "MyInput2" type="radio" name="choice" value="behallning">
+    <div class = "col-md-1 col-md-offset-0 cc-selector">
+        <!-- <input class = "MyInput2" type="radio" name="choice" value="behallning">-->
+        <input class = "MyInput1" type="radio" name="choice" value="behallning"/>
+       <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
+        <label class="drinkcard-cc visa" for="behallning"></label>
+        
     </div>
 
       <div id="x2" class = "col-md-10">
@@ -695,7 +741,7 @@ $('input[name^="f2"]').change(function() {
                 y.value(a);
                 z.value(a);
             }
-            else if ( unlocked ==  "behallning" )
+            else if ( unlocked ==  "sparande" )
             {
                 var x =  src.value()///100;
                 y.value(
@@ -704,7 +750,7 @@ $('input[name^="f2"]').change(function() {
                   (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
                 );
             }
-            else if ( unlocked ==  "sparande" )
+            else if ( unlocked ==  "behallning" )
             {
                 var x =  src.value()///100;
                 z.value(
@@ -739,7 +785,7 @@ $('input[name^="f2"]').change(function() {
               x.value(a);
               z.value(a);
           }
-          else if ( unlocked ==  "pensionar" )
+          else if ( unlocked ==  "sparande" )
           {
               var y =  behallning///100;
               x.value(
@@ -749,7 +795,7 @@ $('input[name^="f2"]').change(function() {
 
               );
           }
-          else if ( unlocked ==  "sparande" )
+          else if ( unlocked ==  "pensionar" )
           {
               var y =  behallning///100;
               z.value(
@@ -775,7 +821,7 @@ $('input[name^="f2"]').change(function() {
               x.value(a);
               y.value(a);
           }
-          else if ( unlocked ==  "pensionar" )
+          else if ( unlocked ==  "behallning" )
           {
               var z =  sparande;//100;
               x.value(
@@ -784,7 +830,7 @@ $('input[name^="f2"]').change(function() {
                 23 + Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta
               );
           }
-          else if ( unlocked ==  "behallning" )
+          else if ( unlocked ==  "pensionar" )
           {
               var z =  sparande///100;
               y.value(
