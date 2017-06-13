@@ -13,14 +13,15 @@
        -moz-appearance:none;
             appearance:none;
 }
-.visa{background-image:url(https://openclipart.org/download/68545/lock2.svg);}
-.mastercard{background-image:url(http://i.imgur.com/SJbRQF7.png);}
+.visa{background-image:url(C:/Users/perwim/Desktop/lock2.svg);}
+
 
 .cc-selector input:active +.drinkcard-cc{opacity: .95;}
 .cc-selector input:checked +.drinkcard-cc{
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
+    background-image:url(C:/Users/perwim/Desktop/lock1.svg);
 }
 .drinkcard-cc{
     cursor:pointer;
@@ -39,6 +40,8 @@
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
+  background-image:url(C:/Users/perwim/Desktop/lock1.svg);
+
 }
 
 /* Extras */
@@ -372,9 +375,9 @@ display: none;
   <!-- row 2 pension age goes here-->
   <div class="row">
       <div class = "col-md-1 col-md-offset-0 cc-selector">
-        <input class = "MyInput1" type="radio" name="choice" value="pensionar" checked/>
+        <input class = "MyInput1" type="radio" name="choice" id="pensionar" value="pensionar" checked/>
        <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
-       <label class="drinkcard-cc visa"for="pensionar"></label>
+       <label class="drinkcard-cc visa" for="pensionar"></label>
       </div>
 
       <div id="x1" class = "col-md-10">
@@ -399,7 +402,7 @@ display: none;
   <div class="row">
     <div class = "col-md-1 col-md-offset-0 cc-selector">
         <!-- <input class = "MyInput2" type="radio" name="choice" value="behallning">-->
-        <input class = "MyInput2" type="radio" name="choice" value="behallning"/>
+        <input class = "MyInput2" type="radio" name="choice" id="behallning" value="behallning" checked/>
        <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
         <label class="drinkcard-cc visa" for="behallning"></label>
 
@@ -428,31 +431,14 @@ display: none;
   <div class="row">
     <div class = "col-md-1 col-md-offset-0 cc-selector">
         <!--<input class = "MyInput3" type="radio" name="choice" value="sparande">-->
-        <input class = "MyInput3" type="radio" name="choice" value="sparande"/>
+        <input class = "MyInput3" type="radio" name="choice" id="sparande" value="sparande"/>
         <label class="drinkcard-cc visa" for="sparande"></label>
     </div>
 
       <div id="x3" class = "col-md-10">
       </div>
-  <!--
-      <div id="x3-tooltip" class = "col-md-3">
-        <text>
-          Här kan du ändra ditt sparande och se hur det påverkar pensionsutbetalning respektive pensionsålder.
-          Den gröna stapeln visar hur din inkomst att leva på idag (före skatt)
-          påverkas när du sparar mer eller mindre till din pension
-          (Detta reglage kan du endast ändra genom de andra tre reglagen)
-      </text>
-      </div>
-    -->
-  </div>
 
-  <!-- row 5 -->
-  <!--
-  <div class="row">
-      <div id="x4" class = "col-md-4 col-md-offset-4"><sub></sub></div><br>
   </div>
-  -->
-
 
   <div id="x5" class = "col-md-1 col-md-offset-10">
   <button type="button" class="btn btn-danger">Spara</button>
@@ -564,9 +550,6 @@ display: none;
 <div id = "perwim" class="col-md-2 col-md-offset-0">
 
 </div>
-
-
-
 
 </form>
 
