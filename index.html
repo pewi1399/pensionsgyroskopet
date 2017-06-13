@@ -13,7 +13,10 @@
        -moz-appearance:none;
             appearance:none;
 }
-.visa{background-image:url(C:/Users/perwim/Desktop/lock2.svg);}
+
+
+
+.visa{background-image:url(resources/lock2.svg);}
 
 
 .cc-selector input:active +.drinkcard-cc{opacity: .95;}
@@ -21,7 +24,7 @@
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
-    background-image:url(C:/Users/perwim/Desktop/lock1.svg);
+    background-image:url(resources/lock1.svg);
 }
 .drinkcard-cc{
     cursor:pointer;
@@ -40,7 +43,7 @@
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
-  background-image:url(C:/Users/perwim/Desktop/lock1.svg);
+  background-image:url(resources/lock1.svg);
 
 }
 
@@ -267,7 +270,7 @@ display: none;
   <!-- row 1 -->
   <div class="container col-md-12 col-md-offset-0">
 
-      <h2> - P E N S I O N S G Y R O S K O P E T - </h2>
+      <h2> ... </h2>
 
     <div class="panel-group" id="accordion1">
   <div class="panel panel-default">
@@ -383,13 +386,10 @@ display: none;
       <div id="x1" class = "col-md-10">
       </div>
 
-  <!--
-      <div id="x2-tooltip" class = "col-md-3">
-        <text>
-            Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad.
-      </text>
+      <div class = "col-md-1 col-md-offset-0">
+        <input name = "pensionartext" style = "width:100%"/>
       </div>
-  -->
+
   </div>
 
   <div class="row">
@@ -401,15 +401,17 @@ display: none;
   <!-- row 3 payouts goes here-->
   <div class="row">
     <div class = "col-md-1 col-md-offset-0 cc-selector">
-        <!-- <input class = "MyInput2" type="radio" name="choice" value="behallning">-->
         <input class = "MyInput2" type="radio" name="choice" id="behallning" value="behallning" checked/>
-       <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
         <label class="drinkcard-cc visa" for="behallning"></label>
 
     </div>
 
       <div id="x2" class = "col-md-10">
     </div>
+
+          <div class = "col-md-1 col-md-offset-0">
+        <input class = "textfield" name = "behallningtext"/>
+      </div>
   <!--
     <div id="x2-tooltip" class = "col-md-3">
       <text>
@@ -436,6 +438,10 @@ display: none;
     </div>
 
       <div id="x3" class = "col-md-10">
+      </div>
+
+            <div class = "col-md-1 col-md-offset-0">
+        <input class = "textfield" name = "sparandetext"/>
       </div>
 
   </div>
@@ -541,7 +547,7 @@ display: none;
   <div class="col-md-12 col-md-offset-0">
 
   <button type="button" class="btn btn-danger pull-center" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'"> Till utvärdering</button>
-
+ <h2> ... </h2>
 </div>
 
 </div>
@@ -552,6 +558,8 @@ display: none;
 </div>
 
 </form>
+
+
 
 
     <script src="src/d3v4/d3.min.js"></script>
