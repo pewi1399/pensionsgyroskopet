@@ -142,12 +142,11 @@ if(type == "income"){
 
 // sätt texter för tooltip
       if(type == "alder"){
-        var texten = "Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar storleken på ditt månatliga pensionssparande och storleken på din månatliga pensionsutbetalning (före skatt)."
+        var texten = "Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad."
       } else if (type == "utbet"){
-        var texten = "Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar dels din pensionsålder och dels ditt sparande per månad."
+        var texten = "Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive lön du har kvar att leva på idag."
       } else {
-        var texten = "Här kan du ändra ditt pensionssparande och se hur det påverkar din pensionsutbetalning och din pensionsålder."+
-        "Den gröna stapeln visar hur din inkomst att leva på idag (före skatt) påverkas när du sparar mer eller mindre till din pension  (Detta reglage kan du endast ändra genom de andra tre reglagen)"
+        var texten = "Här kan du ändra din månadslön (i och med att du väljer att spara mer eller mindre till din pension) och se hur det påverkar pensionsinkomst respektive pensionsålder."
       }
 
 
