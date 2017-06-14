@@ -68,14 +68,14 @@ if(type == "income"){
           //    .style("left", (d3.event.x + $(window).width()/12*3.5) + "px")
           //    .style("top",  + "px")
 //
-            text
-            .attr("x", x(h))
-            .attr("y", -11)
-            .attr("text-anchor", "middle")
-            .attr("font", "sans-serif")
-            .attr("font-size",  "13px")
-            .attr("opacity", 1)
-            .text(Math.round(h))
+         //   text
+         //   .attr("x", x(h))
+         //   .attr("y", -11)
+         //   .attr("text-anchor", "middle")
+         //   .attr("font", "sans-serif")
+         //   .attr("font-size",  "13px")
+         //   .attr("opacity", 1)
+         //   .text(Math.round(h))
             //.transition()
             //.duration(3000)
             //.attr("opacity", 0)
