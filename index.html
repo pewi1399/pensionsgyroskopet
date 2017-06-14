@@ -523,7 +523,8 @@ display: none;
 
   <div class="col-md-12 col-md-offset-0">
 
-  <button type="button" class="btn btn-danger pull-center" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'"> Till utvärdering</button>
+  <button type="button" class="btn btn-danger pull-center" onclick="location.href='https://docs.google.com/fo
+  ä'äääärms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'"> Till utvärdering</button>
  <h2> ... </h2>
 </div>
 
@@ -651,9 +652,9 @@ $('input[name^="f2"]').change(function() {
       +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
 )
 
-        s3.x(Number(this.value)+total)
-        s3.value(total); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
-        s2.x(Number(this.value)*1.5);
+        s3.x(Number(this.value))
+        //s3.value(2000); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
+        s2.x(Number(this.value));
 
         //redraw(Number(this.value));
     }else{
@@ -663,9 +664,9 @@ $('input[name^="f2"]').change(function() {
       +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
       +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
 )
-        s3.x(Number(this.value)*(1+0.1721+0.045));
-        s3.value(Number(this.value)*(0.1721+0.045));
-        s2.x(Number(this.value)*1.5);
+        s3.x(Number(this.value))
+        //s3.value(3000); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
+        s2.x(Number(this.value));
 
         //redraw(Number(this.value));
     }
@@ -844,7 +845,7 @@ $('input[name^="f2"]').change(function() {
 //------------------------------------------------------------------------------
 
 //------------------- Activate sliders and callbacks ---------------------------
-    var s1 = slider2(55,75,"alder"), s2 = slider2(0,50*1000,"utbet"), s3 = slider2((50*1000*-0.185),50*1000, "income");
+    var s1 = slider2(55,75,"alder"), s2 = slider2(0,100,"utbet"), s3 = slider2(0,100, "income");
 
     var slider11 = d3.select("#x1").append("svg").call(s1);
     var slider22 = d3.select("#x2").append("svg").call(s2);
