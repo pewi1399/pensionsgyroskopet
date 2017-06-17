@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Pensionsgyroskopet</title>
+	<meta name="author" content="perwim" />
+	<meta name="description" content="Pensionsgyroskopet" />
+	<meta name="keywords"  content="Pensionsgyroskopet" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" href="src/bootstrap.3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/examples/examples.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="src/fullPage.js-master/vendors/scrolloverflow.js"></script>
+	<script type="text/javascript" src="src/fullPage.js-master/jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+			});
+		});
+	</script>
+
+<style>
+	.radioLeft{
+    text-align:left
+	}
+
+</style>
+</script>
+
+
+
+</head>
+<body>
+
+<div id="fullpage">
+	<div class="section active" id="section0">
+		<h1>Om du fick välja fritt?</h1>
+		<p> När det gäller din pension vad är viktigast för dig?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+		  	<input checked="checked" name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
+		   	<input checked="checked" name="CalendarType" value="2" type="radio"> Att få en bra pension <br>
+		   	<input checked="checked"  name="CalendarType" value="3" type="radio"> Annat / Vet ej<br>
+	 		</p>
+		</div>
+	</div>
+
+	<div class="section" id="section1">
+		<h1>Vid vilken ålder skulle du vilja gå i pension?</h1>
+		<p> Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder"> år gammal. </p>
+	</div>
+
+	<div class="section" id="section2">
+		<h1>Hur mycket skulle du helst vilja ha i pension?</h1>
+		<p> Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor"> efter skatt per månad. </p>
+	</div>
+
+	<div class="section" id="section3">
+		<h1> Pensionen påverkas av flera faktorer</h1>
+		<p> Något förenklat beror din framtida pension på två faktorer: <br>
+			När du går i pension och hur mycket du sätter av till pensionen <br>
+		</p>
+		<ol>
+		  <li><p>1. Jobbar du längre får du en högre pension </p></li>
+		  <li><p>2. Är du beredd att sätta av mer av din lön idag blir pensionen högre</p></li>
+		</ol>
+	</div>
+
+	<div class="section" id="section4">
+			<h1>Vad tjänar du idag?</h1>
+			<p> Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor"> per månad efter skatt. </p>
+	</div>
+
+	<div class="section" id="section5">
+		<h1>Hur ser du på att spara?</h1>
+		<p> Kan du tänka dig att leva på mindre pengar idag för att få en högre pension?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
+				<input checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
+			</p>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<p> (om ja) Hur mycket? <input type="text" name = "sparande_innan" placeholder="Ange kronor"> per månad.</p>
+		</div>
+	</div>
+
+	<div class="section" id="section6">
+		<h1>En dag blir du pensionär</h1>
+		<p>	Med ett sparande på xxx kronor i månaden kan du välja på nedanstående <br>
+				ungefärliga kombination av pensioneringsålder och pension: <br>
+		</p>
+	</div>
+
+	<div class="section" id="section7">
+		<h1>Förändrar detta din syn på sparande?</h1>
+		<p> Med denna information skulle du vilja ändra ditt angivna sparande?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
+				<input checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
+			</p>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<p> (om ja) Hur mycket? <input type="text" name = "sparande_efter" placeholder="Ange kronor"> per månad.</p>
+		</div>
+	</div>
+
+	<div class="section" id="section8">
+		<h1>Med ditt nya sparande har du dessa valmöjligheter</h1>
+		<p>	Med ett sparande på xxx kronor i månaden kan du välja på nedanstående <br>
+				ungefärliga kombination av pensioneringsålder och pension: <br>
+		</p>
+	</div>
+
+	<div class="section" id="section9">
+	</div>
+
+</div>
+
+</body>
+</html>
