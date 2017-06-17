@@ -1,873 +1,130 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <link rel="stylesheet" href="src/bootstrap.3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-</head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Pensionsgyroskopet</title>
+	<meta name="author" content="perwim" />
+	<meta name="description" content="Pensionsgyroskopet" />
+	<meta name="keywords"  content="Pensionsgyroskopet" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" href="src/bootstrap.3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/examples/examples.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="src/fullPage.js-master/vendors/scrolloverflow.js"></script>
+	<script type="text/javascript" src="src/fullPage.js-master/jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+			});
+		});
+	</script>
+
 <style>
-
-
-.cc-selector input{
-    margin:0;padding:0;
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
-}
-
-
-.textfield{
-margin-right:0px;margin-left:-15px;
-    margin-top: 0px;
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
-          width:150%;
-}
-
-
-.visa{background-image:url(resources/lock2.svg);}
-
-
-.cc-selector input:active +.drinkcard-cc{opacity: .95;}
-.cc-selector input:checked +.drinkcard-cc{
-    -webkit-filter: none;
-       -moz-filter: none;
-            filter: none;
-    background-image:url(resources/lock1.svg);
-}
-.drinkcard-cc{
-    cursor:pointer;
-    background-size:contain;
-    background-repeat:no-repeat;
-    display:inline-block;
-    width:100px;height:70px;
-    -webkit-transition: all 100ms ease-in;
-       -moz-transition: all 100ms ease-in;
-            transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.2);
-       -moz-filter: brightness(1.8) grayscale(1) opacity(.2);
-            filter: brightness(1.8) grayscale(1) opacity(.2);
-}
-.drinkcard-cc:hover{
-    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-            filter: brightness(1.2) grayscale(.5) opacity(.9);
-  background-image:url(resources/lock1.svg);
-
-}
-
-/* Extras */
-a:visited{color:#888}
-a{color:#444;text-decoration:none;}
-p{margin-bottom:.3em;}
-
-body {
-    text-align: center;
-    font-family:Arial;
-}
-
-
-    .axis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-    .axis   .domain { fill: none; stroke: #000; stroke-opacity: .3; stroke-width: 10px; stroke-linecap: round; }
-    .axis   .halo   { fill: none; stroke: #ddd; stroke-width: 8px;  stroke-linecap: round; }
-    .slider .handle { fill: #fff; stroke: #000; stroke-opacity: .5; stroke-width: 1.25px; pointer-events: none; }
-
-    .Paxis { font: 10px sans-serif; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-    .Paxis path {
-            fill: none;
-            stroke: black;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
-          }
-
-
-
-    path {
-    stroke-width: 2;
-    fill: none;
-}
-
-    .div1 {
-        width: 600px;
-        border: 5px solid gray;
-        padding: 25px;
-        margin: auto;
-        font-size:10pt;
-        font-family:Arial;
-
-    }
-
-    .MyInput1 {
-      position: relative;
-      display: block;
-      top : 8px;
-      float: right;
-      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-      -moz-appearance: checkbox;    /* Firefox */
-      -ms-appearance: checkbox;     /* not currently supported */
-    }
-
-    .MyInput2 {
-      position: relative;
-      display: block;
-      top : 8px;
-      float: right;
-      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-      -moz-appearance: checkbox;    /* Firefox */
-      -ms-appearance: checkbox;     /* not currently supported */
-    }
-
-    .MyInput3 {
-      position: relative;
-      display: block;
-      top : 8px;
-      float: right;
-      -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-      -moz-appearance: checkbox;    /* Firefox */
-      -ms-appearance: checkbox;     /* not currently supported */
-    }
-
-    div.content
-{
-font-size:12pt;
-font-family:Arial;
-font-weight:bold;
-font-style:italic;
-}
-
-
-
-.ticks {
-  font: 13px sans-serif;
-}
-
-.track,
-.track-inset,
-.track-overlay {
-  stroke-linecap: round;
-}
-
-.track {
-  stroke: #000;
-  stroke-opacity: 0.3;
-  stroke-width: 7px;
-}
-
-.track-inset {
-  stroke-width: 8px;
-}
-
-.track-overlay {
-  pointer-events: stroke;
-  stroke-width: 30px;
-  cursor: crosshair;
-  opacity: 0;
-}
-
-.handle {
-  fill: #fff;
-  stroke: #000;
-  stroke-opacity: 0.5;
-  stroke-width: 1.25px;
-}
-
-.lasttext{
-  margin-bottom: 45px
-}
-
-#x5{
-  margin-bottom: 36px
-}
-
-input[type="text"] {
-  display: block;
-  margin: 0;
-  width: 85%;
-  font-family: Arial;
-  font-size: 15px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-}
-input[type="text"]:focus {
-  outline: none;
-}
-
-.style-2 input[type="text"] {
-  padding: 10px;
-  border: solid 5px #c9c9c9;
-  transition: border 0.3s;
-}
-.style-2 input[type="text"]:focus,
-.style-2 input[type="text"].focus {
-  border: solid 5px #969696;
-}
-
-#placetext32{
-  font-size: 15px;
-  font-weight: bold;
-}
-
-
-#labeltext {
-    font-size: 15px;
-    vertical-align: middle;
-    display: inline-block;
-    color: dimgrey;
-  }
-
-.incometext{
-    font-size: 15px;
-    vertical-align: middle;
-    display: inline-block;
-    fill: dimgrey;
-  }
-
-
-  div.tooltip {
-    background: lightsteelblue;
-  }
-
-
-  ol > li {
-      margin: 0 10px 15px;
-      text-align: left;
-  }
-
-  ul  {
-   padding-left:0;
-  }
-
-  ul > li {
-      margin: 0 10px 15px;
-      text-align: center;
-      list-style-position:inside
-  }
-
-  .lasttext{
-      font-size: 15px;
-      vertical-align: middle;
-      display: inline-block;
-      background-color: #E8E8E8 ;
-      border: 4px solid lightgrey;
-      text-align: left;
-      border-radius: 10px;
-      fill: dimgrey;
-    }
-
-  #perwim {
-  background-color: #E8E8E8 ;
-  border: 4px solid lightgrey;
-  text-align: left;
-   border-radius: 10px;
-}
-
-.sweet-alert fieldset input {
-display: none;
-}
+	.radioLeft{
+    text-align:left
+	}
 
 </style>
+</script>
 
+
+
+</head>
 <body>
 
+<div id="fullpage">
+	<div class="section active" id="section0">
+		<h1>Om du fick välja fritt?</h1>
+		<p> När det gäller din pension vad är viktigast för dig?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+		  	<input checked="checked" name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
+		   	<input checked="checked" name="CalendarType" value="2" type="radio"> Att få en bra pension <br>
+		   	<input checked="checked"  name="CalendarType" value="3" type="radio"> Annat / Vet ej<br>
+	 		</p>
+		</div>
+	</div>
 
+	<div class="section" id="section1">
+		<h1>Vid vilken ålder skulle du vilja gå i pension?</h1>
+		<p> Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder"> år gammal. </p>
+	</div>
 
-<form name = "gg" method="post" >
-<!-- huvud div -->
-<div class = "col-md-6 col-md-offset-3" style="display: inline-block">
+	<div class="section" id="section2">
+		<h1>Hur mycket skulle du helst vilja ha i pension?</h1>
+		<p> Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor"> efter skatt per månad. </p>
+	</div>
 
-  <!-- row 1 -->
-  <div class="container col-md-12 col-md-offset-0">
+	<div class="section" id="section3">
+		<h1> Pensionen påverkas av flera faktorer</h1>
+		<p> Något förenklat beror din framtida pension på två faktorer: <br>
+			När du går i pension och hur mycket du sätter av till pensionen <br>
+		</p>
+		<ol>
+		  <li><p>1. Jobbar du längre får du en högre pension </p></li>
+		  <li><p>2. Är du beredd att sätta av mer av din lön idag blir pensionen högre</p></li>
+		</ol>
+	</div>
 
-      <h2> ... </h2>
+	<div class="section" id="section4">
+			<h1>Vad tjänar du idag?</h1>
+			<p> Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor"> per månad efter skatt. </p>
+	</div>
 
-    <div class="panel-group" id="accordion1">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse11">
-        Bakgrund +</a>
-      </h4>
-    </div>
-    <div id="collapse11" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <p id = "introtext" align="left">
-          Pensionsmyndigheten genomför ett projekt för att se hur människor
-          skulle välja – om de fick välja fritt – mellan hur länge de vill arbeta
-          innan pensionen, pengar i pension och pengar att leva på idag.
-        </p>
+	<div class="section" id="section5">
+		<h1>Hur ser du på att spara?</h1>
+		<p> Kan du tänka dig att leva på mindre pengar idag för att få en högre pension?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
+				<input checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
+			</p>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<p> (om ja) Hur mycket? <input type="text" name = "sparande_innan" placeholder="Ange kronor"> per månad.</p>
+		</div>
+	</div>
 
-          <p id = "introtext" align="left">
-            Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
-          </p>
+	<div class="section" id="section6">
+		<h1>En dag blir du pensionär</h1>
+		<p>	Med ett sparande på xxx kronor i månaden kan du välja på nedanstående <br>
+				ungefärliga kombination av pensioneringsålder och pension: <br>
+		</p>
+	</div>
 
-          <p id = "introtext" align="left">
-          Du har blivit slumpmässigt utvald att delta i projektet och ditt
-          deltagande är garanterat anonymt.
-          I räknesnurran nedan anger du vilken kombination av pensionsålder,
-          pensionssparande och framtida pensionsinkomst som passar dig bäst.
-      </p>
+	<div class="section" id="section7">
+		<h1>Förändrar detta din syn på sparande?</h1>
+		<p> Med denna information skulle du vilja ändra ditt angivna sparande?</p>
+		<div class="radioLeft col-md-4 col-md-offset-4">
+			<p>
+				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
+				<input checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
+			</p>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<p> (om ja) Hur mycket? <input type="text" name = "sparande_efter" placeholder="Ange kronor"> per månad.</p>
+		</div>
+	</div>
 
+	<div class="section" id="section8">
+		<h1>Med ditt nya sparande har du dessa valmöjligheter</h1>
+		<p>	Med ett sparande på xxx kronor i månaden kan du välja på nedanstående <br>
+				ungefärliga kombination av pensioneringsålder och pension: <br>
+		</p>
+	</div>
 
-
-</div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse22">
-        Så här gör du + </a>
-      </h4>
-    </div>
-    <div id="collapse22" class="panel-collapse collapse">
-      <ul class="list-group">
-
-  <li class="list-group-item">
-    <p id = "introtext" align="left">
-    1. Börja med att ange vilket år du är född, din månadslön <b>före skatt</b>,
-    samt om du är man eller kvinna. Då visar reglagen automatiskt hur mycket du får
-    i pension (exklusive eventuell tjänstepension) om du arbetar till dess du är 65 år.*
-    <p>
-  </li>
-
-  <li class="list-group-item">
-    <p id = "introtext" align="left">
-    2. 2. Därefter väljer du med hjälp av reglagen den kombination av pensionsålder,
-    pensionsinkomst och lön att leva på idag som passar dig bäst. Du kan bara
-    ändra mellan två reglage i taget. Du låser det tredje reglaget genom att
-    klicka på hänglåset till vänster om respektive reglage.
-    <p>
-  </li>
-  <li class="list-group-item">
-    <p id = "introtext" align="left">
-    3. När du är klar ”trycker” du på räknesnurrans spara-knapp och din valda
-    kombination skickas in.
-
-    OBSERVERA att det endast är fiktiva (ungefärliga antagna) värden som visas i
-    räknesnurran för att visa relationen mellan de olika reglagen.
-    Det är alltså ingen prognos över din framtida pension.
-    Du kan göra en realistisk prognos över din framtida pensionsinkomst på Minpension.se
-
-    <p>
-  </li>
-</ul>
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-  <ul class="input-list style-2 clearfix">
-    <div class="col-md-5 col-md-offset-1">
-      <input type="text" name="f1" placeholder=":Födelseår">
-    </div>
-    <div class="col-md-5 col-md-offset-0">
-      <input type="text" name = "f2" placeholder=":Månadsinkomst idag (kr)">
-    </div>
-  </ul>
-
-
-  <p id = "placetext32" >
-
-  </p>
-
-  <div class="radio">
-  <label><input type="radio" name="optradio">Kvinna</label>
-  <label><input type="radio" name="optradio">Man</label>
-  <label><input type="radio" name="optradio">Annat/ Vill ej svara</label>
-  </div>
-
-  <div class="row">
-  <h3 id = labeltext>
-    Pensionsålder
-  </h3>
-  </div>
-
-
-  <!-- row 2 pension age goes here-->
-  <div class="row">
-      <div class = "col-md-1 col-md-offset-0 cc-selector">
-        <input class = "MyInput1" type="radio" name="choice" id="pensionar" value="pensionar" checked/>
-       <!-- <input id="mastercard" type="radio" name="credit-card" value="mastercard" />-->
-       <label class="drinkcard-cc visa" for="pensionar"></label>
-      </div>
-
-      <div id="x1" class = "col-md-10">
-      </div>
-
-      <div class = "col-md-1 col-md-offset-0">
-        <input class = "textfield" name = "pensionartext"/>
-      </div>
-
-  </div>
-
-  <div class="row">
-  <h3 id = labeltext>
-    Pensionsutbetalning per månad, kronor
-  </h3>
-  </div>
-
-  <!-- row 3 payouts goes here-->
-  <div class="row">
-    <div class = "col-md-1 col-md-offset-0 cc-selector">
-        <input class = "MyInput2" type="radio" name="choice" id="behallning" value="behallning" checked/>
-        <label class="drinkcard-cc visa" for="behallning"></label>
-
-    </div>
-
-      <div id="x2" class = "col-md-10">
-    </div>
-
-          <div class = "col-md-1 col-md-offset-0">
-        <input class = "textfield" name = "behallningtext"/>
-      </div>
-  <!--
-    <div id="x2-tooltip" class = "col-md-3">
-      <text>
-        Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive sparande per månad.
-    </text>
-    </div>
-  -->
-  </div>
-
-
-  <div class="row">
-  <h3 id = labeltext>
-    Relativt idag, hur mycket vill du spara per månad?
-  </h3>
-
-  </div>
-
-  <!-- row 4 savings goes here -->
-  <div class="row">
-    <div class = "col-md-1 col-md-offset-0 cc-selector">
-        <!--<input class = "MyInput3" type="radio" name="choice" value="sparande">-->
-        <input class = "MyInput3" type="radio" name="choice" id="sparande" value="sparande"/>
-        <label class="drinkcard-cc visa" for="sparande"></label>
-    </div>
-
-      <div id="x3" class = "col-md-10">
-      </div>
-
-            <div class = "col-md-1 col-md-offset-0">
-        <input class = "textfield" name = "sparandetext"/>
-      </div>
-
-  <div class = "col-md-10 col-md-offset-1">
-  Nuvarande pensionsystem tillåter inte ett sparande mindre än xxx.
-  Om detta vore tillåtet skulle du överväga att spara ännu mindre för att
-  få mer pengar att röra dig med idag till priset av en lägre pension i framtiden.
-
-  <div class="radio">
-    <label><input type="radio" name="optradio">Ja</label>
-    <label><input type="radio" name="optradio">Nej</label>
-  </div>
-
-  </div>
-  </div>
-
-
-  <div id="x5" class = "col-md-1 col-md-offset-10">
-  <button type="button" class="btn btn-danger">Spara</button>
-  </div>
-
-
-  <div class="container col-md-12 col-md-offset-0">
-    <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Detta antar räknesnurran +</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-        <ul class="list-group">
-        <li class="list-group-item">
-        <p id = "introtext" align="left">
-        1. Att du arbetar heltid hela arbetslivet från och med 23 års ålder och att du har
-        samma lön hela arbetslivet.
-        <p>
-        </li>
-        <li class="list-group-item">
-        <p id = "introtext" align="left">
-        2. Att du haft och kommer att ha löneutveckling från du var 23 år fram tills du
-        går i pension baserat på genomsnittet för Sverige.
-        <p>
-        </li>
-        <li class="list-group-item">
-        <p id = "introtext" align="left">
-        3. Att lönen och pensionsinkomsten visas i dagens penningvärde och bortser från inflation,
-        vilket innebär att du kan tänka att pengarna är lika mycket värda som idag när du går i pension.
-        <p>
-        </li>
-        </ul>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Vi är tacksamma för dina synpunkter +</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">Gyroskopet är ett arbete under utveckling, dina åsikter gör stor skillnad.
-        Fyll gärna i utvärderingen för att hjälpa oss förbättra sidan. Svaren är anonyma.</div>
-    </div>
-  </div>
-</div>
-</div>
-
-  <div class="col-md-12 col-md-offset-0">
-
-  <button type="button" class="btn btn-danger pull-center" onclick="location.href='https://docs.google.com/fo
-  ä'äääärms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'"> Till utvärdering</button>
- <h2> ... </h2>
-</div>
+	<div class="section" id="section9">
+	</div>
 
 </div>
-
-<!-- secondary tooltip div -->
-<div id = "perwim" class="col-md-2 col-md-offset-0">
-
-</div>
-
-</form>
-
-
-
-
-    <script src="src/d3v4/d3.min.js"></script>
-    <script src="slider2.js"></script>
-    <script src="plot.js"></script>
-    <script src="src/delningstal.js"></script>
-    <script src="src/jquery-3.1.1.min.js"></script>
-    <script src="modell.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="src/bootstrap.3.3.7/js/bootstrap.min.js"></script>
-
-    <!--<script src="src/bootstrap/js/bootstrap.min.js"></script>-->
-
-<script>
-
-// pick up tooltip div
-var div = d3.select("#perwim")
-
-// reactivity for button
-$("button").on("click", function(){
-  var message = "Om du vill göra en prognos på din framtida pensionsinkomst utifrån mer verkliga förhållanden, det vill säga utifrån ditt faktiska intjänande till den allmänna pensionen och tjänstepensionen, så kan du göra det på <a href='https://www.minpension.se/'>Minpension.se</a>"
-//  alert(message)
-
-var choices = "<li> Pensionsår: " + Math.round(s1.value())+ "</li> <li> Utbetalning: " + Math.round(s2.value()) + " </li> <li> Sparande: " + Math.round(s3.value())+ "</li>"
-var utvardering = "<a href='https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1'>Minpension.se</a>"
-
-  swal({title:"Tack för din medverkan!",text: message , type:"success", html: true})
-
-  swal({
-    title: "Är du säker?",
-    text: "Du har valt följande kombination: \n \n \n  <p style='padding-top: 20px'> <b>" + choices + "</b> </p>",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#DD6B55",
-    cancelButtonText:"Ångra",
-    confirmButtonText: "Spara",
-    closeOnConfirm: false,
-    html:true
-  },
-  function(){
-    swal({title:"Tack för din medverkan!",
-          confirmButtonText: "Ok | Utvärdera",
-          text: message+ "<b> När du klickat på ok kommer du att omdirigeras till ett formulär där du kan fylla i dina synpunkter om gyroskopet notera att detta gäller endast för testversionen </b>" , type:"success", html: true},
-  function(){
-    window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScAEuGk6Yv6dMKrb39ANKPmCQnItFQyfn7K39tjUle4O_tDQw/viewform?c=0&w=1';
-  });
-
-  });
-
-})
-
-// ----------------------------- constants -------------------------------------
-var alpha = 25.3
-var beta = 600000.3
-var IBB = 61500
-// r = ränta
-ranta = 0.017
-// mu = arvsvinster
-mu = 1
-// D delningstal
-Delningstal = delningstal.X65
-
-//------------------------ input field functions -------------------------------
-$('input[name^="f1"]').change(function() {
-  //alert( "Handler for .change() called." );
-  var d = new Date();
-  var thisYear = Number(d.getFullYear());
-
-  // spara efter inlägg
-  //http://jsfiddle.net/e84v7nat/
-  //cannot be too young cannot be older than min of scale
-  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 0 || (thisYear - Number(this.value)) > 75){
-    swal({title: "Fel format",
-          text:"Vänligen ange fyrsiffrigt födelseår  \n \n Exempel: 1965",
-          type: "warning"})
-  }else{
-    window.alpha = thisYear - Number(this.value);
-    var maxPB = Number($('input[name^="f2"]').val())*1.5
-    //s2.x(maxPB);
-}
-
-});
-
-$('input[name^="f2"]').change(function() {
-  //alert( "Handler for .change() called." )
-
-  if(isNaN(Number(this.value))){
-    //alert("Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000")
-    swal({title: "Fel format",
-          text:"Vänligen ange månadsinkomst i kronor utan tusentalsavgränsare eller mellanslag. \n \n Exempel: 25000",
-          type: "warning"})
-  }else{
-
-    // Över 7.5 IBB
-    if(Number(this.value) > (7.5*IBB)/12){
-
-      // Överskjutande del avgift inbetalning 30% på denna
-      var over = (Number(this.value)-(7.5*IBB)/12)*0.30
-
-      // 18.5% på 7.5 IBB
-      var under = (7.5*IBB/12)*(0.1721+0.045)
-
-      // total inbetalning
-      var total = over + under
-      var procent = Math.round(((Number(this.value)+total)/Number(this.value)-1)*100*10)/10
-
-
-      d3.selectAll("#placetext32").transition(1500).text(
-        "Om du har tjänstepension avsätter du/din arbetsgivare in en viss andel av din lön till tjänstepension ( i regel 4,5 procent men det varierar mellan olika kollektivavtalsområden. Procentsatsen kan också variera beroende på storleken på lönen). "
-//"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(total) + "kronor (" + procent + "%) per månad i pensionsavgift."
-      +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
-      +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
-)
-
-        s3.x(Number(this.value))
-        //s3.value(2000); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
-        s2.x(Number(this.value));
-
-        //redraw(Number(this.value));
-    }else{
-      d3.selectAll("#placetext32").transition(1500).text(
-        "Om du har tjänstepension avsätter du/din arbetsgivare in en viss andel av din lön till tjänstepension ( i regel 4,5 procent men det varierar mellan olika kollektivavtalsområden. Procentsatsen kan också variera beroende på storleken på lönen). "
-//"Med den månadsinkomst du fyllt i betalar du/din arbetsgivare idag ytterligare " +  Math.round(Number(this.value)*(0.1721 + 0.045)) + "kronor (21.7%) per månad i pensionsavgift."
-      +" Reglagen nedan visar automatiskt hur mycket du får i pension (plus eventuell tjänstepension) om du arbetar tills du är 65 år. "
-      +" Ändra värdena i reglagen för att hitta en kombination som passar dig. Den gröna stapeln längst ned visar hur stor inkomst du får att leva på idag beroende på hur stort sparande du väljer."
-)
-        s3.x(Number(this.value))
-        //s3.value(3000); // här måste justering in så att inte 30% räknas på hela beloppet utan bara på överskjutande del
-        s2.x(Number(this.value));
-
-        //redraw(Number(this.value));
-    }
-
-// sätt initial counters
-  //s3.value(Number(this.value)*0.185);
-
-
-  s2.value(
-      //z.value()*(x - alpha) / (67 - x + 10)
-      // räkna ut behållning via z = Avgift och src = pensionsar
-      (((s3.value()*12 )* Math.exp((ranta*(s1.value()-23)))*(Math.exp((-ranta*(s1.value()-23))) - 1)) * mu)/-ranta/Delningstal/12
-  );
-
-
-
-  window.beta = Number(this.value);
-}
-});
-//------------------------------------------------------------------------------
-
-//--------------------------- sliderfunctions ----------------------------------
-
-        function pension(src, y, z)
-        {
-          // maxvärde 67 år
-          // minvärde 55 år
-            var unlocked = $('input[name=choice]:checked').val()
-            var pensionsar = Math.round(src.value());
-            var arbetstid = pensionsar - 23
-            window.time = arbetstid
-
-          $('input[name=pensionartext]').val(Math.round(pensionsar))
-
-            if(pensionsar <61){
-              delningsar = 61
-            }else if(pensionsar >110){
-              delningsar = 110
-            }else{
-              delningsar = pensionsar
-            }
-            window.Delningstal = delningstal["X"+ delningsar]
-
-            if(pensionsar > 75)
-            {
-                var a = 0
-                y.value(a);
-                z.value(a);
-            }
-            else if ( unlocked ==  "sparande" )
-            {
-                var x =  src.value()///100;
-
-
-                //z.value()*(x - alpha) / (67 - x + 10)
-                // räkna ut behållning via z = Avgift och src = pensionsar
-                var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
-
-                y.value(behallning);
-                $('input[name=behallningtext]').val(Math.round(behallning))
-
-            }
-            else if ( unlocked ==  "behallning" )
-            {
-                var x =  src.value()///100;
-
-
-                //y.value()*(67 - x +10)/(x - alpha)
-                // räkna ut avgift via y = utbetalning och src = pensionsar
-                var avgift = ((y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)))/12;
-
-                z.value(avgift);
-                $('input[name=sparandetext]').val(Math.round(avgift))
-
-                                //z.value()*(x - alpha) / (67 - x + 10)
-                // räkna ut behållning via z = Avgift och src = pensionsar
-                var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
-
-                y.value(behallning);
-                $('input[name=behallningtext]').val(Math.round(behallning))
-
-
-
-
-
-            }
-            redraw(income="f")
-        }
-
-//------------------------------------------------------------------------------
-
-        function behallning(src,x,z)
-        {
-          // maxvärde nuvarande ink /12
-          var unlocked = $('input[name=choice]:checked').val()
-          var behallning = src.value();
-
-          $('input[name=behallningtext]').val(Math.round(behallning))
-
-          if(behallning > 500*1000)
-          {
-              var a = 0
-              x.value(a);
-              z.value(a);
-          }
-          else if ( unlocked ==  "sparande" )
-          {
-              var y =  behallning///100;
-
-            //(z.value()*alpha + 67*y + 10*y) / (z.value() + y)
-            // räkna ut tid utifrån z = Avgift och src = behallning
-            var pensionsalder =  23 + Math.log((behallning*12*Delningstal*ranta)/((z.value()*12)+mu)+1)/ranta;
-
-              x.value(pensionsalder);
-
-            $('input[name=pensionartext]').val(Math.round(pensionsalder));
-
-          }
-          else if ( unlocked ==  "pensionar" )
-          {
-              var y =  behallning///100;
-
-              //y*(67 - x.value() +10)/(x.value() - alpha)
-              // räkna ut avgift utifrån x = pensionar och src = behallning
-              var avgift =  ((behallning*12*Delningstal*-ranta)/mu/(Math.exp((ranta*(x.value()-23)))*(Math.exp((-ranta*(x.value()-23))) - 1)))/12;
-
-
-              z.value(avgift);
-              $('input[name=sparandetext]').val(Math.round(avgift));
-
-          }
-          redraw(income="f")
-        }
-
-//------------------------------------------------------------------------------
-
-        function sparande(src,x,y)
-        {
-          var unlocked = $('input[name=choice]:checked').val()
-          var sparande = src.value()*12;
-
-          $('input[name=sparandetext]').val(Math.round(sparande/12))
-
-          if(sparande > 50*10000)
-          {
-              var a = 0
-              x.value(a);
-              y.value(a);
-          }
-          else if ( unlocked ==  "behallning" )
-          {
-              var z =  sparande;//100;
-
-              //(z * alpha + 67*y.value() + 10*y.value()) / (z + y.value())
-              // räkna ut tid utifrån y = utbetalning och src = sparande
-              var pensionsalder = 23 + Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta;
-
-              x.value(pensionsalder);
-              $('input[name=pensionartext]').val(Math.round(pensionsalder));
-
-          }
-          else if ( unlocked ==  "pensionar" )
-          {
-              var z =  sparande///100;
-
-              //z * (x.value() - alpha) / (67 - x.value() + 10)
-              // räkna ut behallning utifrån x = pensionar och src = sparande
-              var behallning = ((sparande*Math.exp((ranta*(x.value()-23)))*(Math.exp((-ranta*(x.value()-23))) - 1)) * mu)/-ranta/Delningstal/12;
-
-
-              y.value(behallning);
-              $('input[name=behallningtext]').val(Math.round(behallning));
-          }
-          redraw(income="t")
-        }
-//------------------------------------------------------------------------------
-
-//------------------- Activate sliders and callbacks ---------------------------
-    var s1 = slider2(55,75,"alder"), s2 = slider2(0,100,"utbet"), s3 = slider2(0,100, "income");
-
-    var slider11 = d3.select("#x1").append("svg").call(s1);
-    var slider22 = d3.select("#x2").append("svg").call(s2);
-    var slider33 = d3.select("#x3").append("svg").call(s3);
-
-    s1.callback(function(){
-
-      pension(s1,s2,s3);}
-
-    )
-    s2.callback(function(){behallning(s2,s1,s3);})
-    s3.callback(function(){sparande(s3,s1,s2);})
-
-    s1.value(65);
-    //s2.value(10000);
-    //s3.value(0);
-//------------------------------------------------------------------------------
-    </script>
-    <div style="display: inline-block">
-
-</div>
-
-
 
 </body>
+</html>
