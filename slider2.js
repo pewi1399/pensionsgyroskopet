@@ -138,31 +138,31 @@ if(type == "income"){
 //var tooltrigger = slider
 
 
-    slider.on("mouseover", function(d) {
-
-// sätt texter för tooltip
-      if(type == "alder"){
-        var texten = "Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad."
-      } else if (type == "utbet"){
-        var texten = "Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive lön du har kvar att leva på idag."
-      } else {
-        var texten = "Här kan du ändra din månadslön (i och med att du väljer att spara mer eller mindre till din pension) och se hur det påverkar pensionsinkomst respektive pensionsålder."
-      }
-
-
-       div.transition()
-         .duration(200)
-         .style("opacity", .9);
-       div.html(texten)
-         .style("top", (d3.event.pageY-100) + "px");
-       })
-     .on("mouseout", function(d) {
-       div.transition()
-         .duration(500)
-         .style("opacity", 0);
-       });
-
-    //if(type == "income"){
+//    slider.on("mouseover", function(d) {
+//
+//// sätt texter för tooltip
+//      if(type == "alder"){
+//        var texten = "Här kan du ändra den ålder du vill gå i pension för att se hur det påverkar pensionsutbetalning respektive sparande per månad."
+//      } else if (type == "utbet"){
+//        var texten = "Här kan du ändra det belopp du önskar få ut i pension och se hur det påverkar pensionsålder respektive lön du har kvar att leva på idag."
+//      } else {
+//        var texten = "Här kan du ändra din månadslön (i och med att du väljer att spara mer eller mindre till din pension) och se hur det påverkar pensionsinkomst respektive pensionsålder."
+//      }
+//
+//
+//       div.transition()
+//         .duration(200)
+//         .style("opacity", .9);
+//       div.html(texten)
+//         .style("top", (d3.event.pageY-100) + "px");
+//       })
+//     .on("mouseout", function(d) {
+//       div.transition()
+//         .duration(500)
+//         .style("opacity", 0);
+//       });
+//
+//    //if(type == "income"){
 
       //slider
       //.attr("transform", "translate(" + (margin.left)+ "," + height /2.2 + ")");

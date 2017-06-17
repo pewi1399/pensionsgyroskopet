@@ -15,10 +15,18 @@
 	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/examples/examples.css" />
 
+	<link rel="stylesheet" type="text/css" href="src/gyro_style.css" />
+
 	<script src="src/jquery-3.1.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="src/fullPage.js-master/vendors/scrolloverflow.js"></script>
 	<script type="text/javascript" src="src/fullPage.js-master/jquery.fullPage.js"></script>
+	<script src="src/d3v4/d3.min.js"></script>
+	<script src="slider2.js"></script>
+	<script src="plot.js"></script>
+	<script src="src/delningstal.js"></script>
+	<script src="modell.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
@@ -26,17 +34,6 @@
 			});
 		});
 	</script>
-
-<style>
-	.radioLeft{
-    text-align:left
-	}
-
-</style>
-</script>
-
-
-
 </head>
 <body>
 
@@ -98,6 +95,10 @@
 		<p>	Med ett sparande på xxx kronor i månaden kan du välja på nedanstående <br>
 				ungefärliga kombination av pensioneringsålder och pension: <br>
 		</p>
+		<div id="x1" class = "col-md-10 col-md-offset-1">
+		</div>
+		<div id="x2" class = "col-md-10 col-md-offset-1">
+		</div>
 	</div>
 
 	<div class="section" id="section7">
@@ -127,4 +128,15 @@
 </div>
 
 </body>
+
+<script>
+	var s1 = slider2(55,75,"alder"), s2 = slider2(0,100,"utbet"), s3 = slider2(0,100, "income");
+
+	var slider11 = d3.select("#x1").append("svg").call(s1);
+	var slider22 = d3.select("#x2").append("svg").call(s2);    
+</script>
+
+
+
+
 </html>
