@@ -35,3 +35,11 @@
   stroke-opacity: 0.5;
   stroke-width: 1.25px;
 }
+
+.mytext {
+    width: 300px;
+}
+
+input {
+text-align: center;
+}
