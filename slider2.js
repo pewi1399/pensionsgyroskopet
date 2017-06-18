@@ -109,7 +109,8 @@ if(type == "income"){
       var tickmarks  = [x.domain()[0], 0, x.domain()[1]]
 
     } else  {
-      var tickmarks  = x.ticks(1)
+      //var tickmarks  = x.ticks(1)
+      var tickmarks = [x.domain()[0], 0, x.domain()[1]]
 
     }
 
