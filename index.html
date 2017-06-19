@@ -112,7 +112,7 @@
 		</div>
 		<div class="col-md-10 col-md-offset-1">
 			<p> <br>
-				Hur mycket? <input type="text" name = "sparande_innan" placeholder="Ange kronor" style="width: 160px;text-align: center;"> per månad.
+				Hur mycket? <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> per månad.
 			</p>
 		</div>
 		<div id="x3" class = "col-md-10 col-md-offset-1">
@@ -123,15 +123,15 @@
 		<h1>En dag blir du pensionär</h1>
 		<p>
 			<br>
-			Med ett sparande på 1000 kronor i månaden kan du välja på nedanstående <br>
+			Med ett sparande på <span id="sparande_i_mening"></span> kronor i månaden kan du välja på nedanstående <br>
 			ungefärliga kombination av pensioneringsålder och pension: <br>
 			<br>
 		</p>
 		<div id="x1" class = "col-md-10 col-md-offset-1">
-			<p> Pensionsålder <input type="text" name = "test_slider_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
+			<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
 		</div>
 		<div class = "col-md-10 col-md-offset-1">
-			<p> Pension <input type="text" name = "test_slider_inkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr efter skatt</p>
+			<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr efter skatt</p>
 		</div>
 		<div id="x2" class = "col-md-10 col-md-offset-1">
 		</div>
@@ -199,7 +199,7 @@
 
 	)
 	s2.callback(function(){behallning(s2,s1,s3);})
-	//s3.callback(function(){sparande(s3,s1,s2);})
+	s3.callback(function(){sparande(s3,s1,s2);})
 
 	s1.value(65);
 	//s2.value(10000);

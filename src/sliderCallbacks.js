@@ -21,7 +21,7 @@ Delningstal = delningstal.X65
             var arbetstid = pensionsar - 23
             window.time = arbetstid
 
-          $('input[name=pensionartext]').val(Math.round(pensionsar))
+          $('input[name=test_slider_pensionsalder]').val(Math.round(pensionsar))
 
             if(pensionsar <61){
               delningsar = 61
@@ -48,7 +48,7 @@ Delningstal = delningstal.X65
                 var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
 
                 y.value(behallning);
-                $('input[name=behallningtext]').val(Math.round(behallning))
+                $('input[name=test_slider_pensionsinkomst]').val(Math.round(behallning))
 
             }
             else if ( unlocked ==  "behallning" )
@@ -61,14 +61,14 @@ Delningstal = delningstal.X65
                 var avgift = ((y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)))/12;
 
                 z.value(avgift);
-                $('input[name=sparandetext]').val(Math.round(avgift))
+                $('input[name=test_slider_sparande]').val(Math.round(avgift))
 
                                 //z.value()*(x - alpha) / (67 - x + 10)
                 // räkna ut behållning via z = Avgift och src = pensionsar
                 var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
 
                 y.value(behallning);
-                $('input[name=behallningtext]').val(Math.round(behallning))
+                $('input[name=test_slider_pensionsinkomst]').val(Math.round(behallning))
 
 
 
@@ -87,7 +87,7 @@ Delningstal = delningstal.X65
           var unlocked = "sparande"
           var behallning = src.value();
 
-          $('input[name=behallningtext]').val(Math.round(behallning))
+          $('input[name=test_slider_pensionsinkomst]').val(Math.round(behallning))
 
           if(behallning > 500*1000)
           {
@@ -105,7 +105,7 @@ Delningstal = delningstal.X65
 
               x.value(pensionsalder);
 
-            $('input[name=pensionartext]').val(Math.round(pensionsalder));
+            $('input[name=test_slider_pensionsalder]').val(Math.round(pensionsalder));
 
           }
           else if ( unlocked ==  "pensionar" )
@@ -118,7 +118,7 @@ Delningstal = delningstal.X65
 
 
               z.value(avgift);
-              $('input[name=sparandetext]').val(Math.round(avgift));
+              $('input[name=test_slider_sparande]').val(Math.round(avgift));
 
           }
           redraw(income="f")
@@ -132,7 +132,8 @@ Delningstal = delningstal.X65
           var unlocked = "sparande"
           var sparande = src.value()*12;
 
-          $('input[name=sparandetext]').val(Math.round(sparande/12))
+          $('input[name=test_slider_sparande]').val(Math.round(sparande/12))
+          document.getElementById('sparande_i_mening').innerHTML= Math.round(sparande/12)
 
           if(sparande > 50*10000)
           {
@@ -149,7 +150,7 @@ Delningstal = delningstal.X65
               var pensionsalder = 23 + Math.log((y.value()*12*Delningstal*ranta)/(sparande+mu)+1)/ranta;
 
               x.value(pensionsalder);
-              $('input[name=pensionartext]').val(Math.round(pensionsalder));
+              $('input[name=test_slider_pensionsalder]').val(Math.round(pensionsalder));
 
           }
           else if ( unlocked ==  "pensionar" )
@@ -162,7 +163,7 @@ Delningstal = delningstal.X65
 
 
               y.value(behallning);
-              $('input[name=behallningtext]').val(Math.round(behallning));
+              $('input[name=test_slider_pensionsinkomst]').val(Math.round(behallning));
           }
           redraw(income="t")
         }
