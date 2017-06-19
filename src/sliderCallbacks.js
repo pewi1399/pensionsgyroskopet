@@ -15,7 +15,8 @@ Delningstal = delningstal.X65
         {
           // maxvärde 67 år
           // minvärde 55 år
-            var unlocked = $('input[name=choice]:checked').val()
+           // var unlocked = $('input[name=choice]:checked').val()
+            var unlocked = "sparande"
             var pensionsar = Math.round(src.value());
             var arbetstid = pensionsar - 23
             window.time = arbetstid
@@ -82,7 +83,8 @@ Delningstal = delningstal.X65
         function behallning(src,x,z)
         {
           // maxvärde nuvarande ink /12
-          var unlocked = $('input[name=choice]:checked').val()
+          //var unlocked = $('input[name=choice]:checked').val()
+          var unlocked = "sparande"
           var behallning = src.value();
 
           $('input[name=behallningtext]').val(Math.round(behallning))
@@ -126,7 +128,8 @@ Delningstal = delningstal.X65
 
         function sparande(src,x,y)
         {
-          var unlocked = $('input[name=choice]:checked').val()
+          //var unlocked = $('input[name=choice]:checked').val()
+          var unlocked = "sparande"
           var sparande = src.value()*12;
 
           $('input[name=sparandetext]').val(Math.round(sparande/12))
