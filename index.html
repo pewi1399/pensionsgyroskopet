@@ -71,7 +71,7 @@
 		<h1>Hur mycket skulle du helst vilja ha i pension?</h1>
 		<p>
 			<br>
-			Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> efter skatt per månad.
+			Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
 		</p>
 	</div>
 
@@ -90,10 +90,10 @@
 	</div>
 
 	<div class="section" id="section5">
-			<h1>Vad tjänar du idag?</h1>
+			<h1>Hur mycket tjänar du idag?</h1>
 			<p>
 				<br>
-				Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;"> per månad efter skatt.
+				Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
 			</p>
 	</div>
 
@@ -123,7 +123,7 @@
 		<h1>En dag blir du pensionär</h1>
 		<p>
 			<br>
-			Med ett sparande på <span id="sparande_i_mening"></span> kronor i månaden kan du välja på nedanstående <br>
+			Med ett sparande på <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden kan du välja på nedanstående <br>
 			ungefärliga kombination av pensioneringsålder och pension: <br>
 			<br>
 		</p>
@@ -137,61 +137,17 @@
 		</div>
 	</div>
 
-	<div class="section" id="section8">
-		<h1>Förändrar detta din syn på sparande?</h1>
-		<p>
-			<br>
-			Med denna information skulle du vilja ändra ditt angivna sparande?
-		</p>
-		<div class="radioLeft col-md-4 col-md-offset-4">
-			<p>
-				<br>
-				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
-				<input checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
-			</p>
-		</div>
-		<div class="col-md-10 col-md-offset-1">
-			<p> <br>
-				Hur mycket? <input type="text" name = "sparande_efter" placeholder="Ange kronor" style="width: 160px;text-align: center;"> per månad.
-			</p>
-		</div>
-	</div>
-
-	<div class="section" id="section9">
-		<h1>Med ditt nya sparande har du dessa valmöjligheter</h1>
-		<p>	Med ett sparande på <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;">
-			 	kronor i månaden kan du välja på nedanstående <br>
-				ungefärliga kombination av pensioneringsålder och pension: <br>
-				<br>
-		</p>
-		<div id="x11" class = "col-md-10 col-md-offset-1">
-			<p> Pensionsålder <input type="text" name = "final_slider_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
-		</div>
-		<div class = "col-md-10 col-md-offset-1">
-			<p> Pension <input type="text" name = "final_slider_inkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr efter skatt</p>
-		</div>
-		<div id="x22" class = "col-md-10 col-md-offset-1">
-		</div>
-	</div>
-
-	<div class="section" id="section10">
-		<h1>Tack för ditt medverkande!</h1>
-	</div>
-
 </div>
 
 </body>
 
 <script>
 	var s1 = slider2(55,75,"alder"), s2 = slider2(0,30000,"utbet"), s3 = slider2(0,25000, "income");
-	var s11 = slider2(55,75,"alder"), s22 = slider2(0,100,"utbet"), s33 = slider2(0,100, "income");
 
 	var slider11 = d3.select("#x1").append("svg").call(s1);
 	var slider22 = d3.select("#x2").append("svg").call(s2);
 	var slider33 = d3.select("#x3").append("svg").call(s3);
 
-	var slider111 = d3.select("#x11").append("svg").call(s11);
-	var slider222 = d3.select("#x22").append("svg").call(s22);
 
 	s1.callback(function(){
 

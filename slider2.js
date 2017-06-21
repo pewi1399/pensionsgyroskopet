@@ -123,7 +123,14 @@ if(type == "income"){
        .attr("class","tickmarks")
        .attr("x", x)
        .attr("text-anchor", "middle")
-       .text(function(d) { return d; });
+       .text(function(d) { 
+         if(type == "alder"){
+           return d + " år";  
+         }else{
+           return d + " kr"; 
+         }
+         }
+         );
 
    var handle = slider.insert("circle", ".track-overlay")
        .attr("class", "handle")
