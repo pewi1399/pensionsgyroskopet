@@ -133,7 +133,7 @@ Delningstal = delningstal.X65
           var sparande = src.value()*12;
 
           $('input[name=test_slider_sparande]').val(Math.round(sparande/12))
-          document.getElementById('sparande_i_mening').innerHTML= Math.round(sparande/12)
+          $("input[name='sparande_final_valfritt']").val(Math.round(sparande/12))
 
           if(sparande > 50*10000)
           {

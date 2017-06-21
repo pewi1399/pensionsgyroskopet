@@ -21,7 +21,7 @@ function slider2(d1,d2, type)
         //brush.extent([[0, 0], [width, height]])
         //     .on("brush", brushed);
 
-// income svg needs to be alittle bit bigger since it contains two sliders
+// income svg needs to be a little bit bigger since it contains two sliders
 if(type == "income"){
   var svg = el
     .attr("preserveAspectRatio", "xMinYMin meet")
