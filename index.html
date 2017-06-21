@@ -31,23 +31,25 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '3thPage'],
+			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage', '7thPage', '8thPage'],
 				sectionsColor: ['#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke', '#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke'],
 			navigation: true,
 			navigationPosition: 'right',
 			navigationTooltips: ['First page', 'Second page', 'Third', '4', '5', '6', '7', '8']
 		});
 	});
+
+//scroll button
 	</script>
 </head>
 <body>
 
 <div id="fullpage">
-	<div class="section active" id="section0" data-anchor = "firstPage">
+	<div class="section active" id="section0">
 		<h1>Hur ser din drömpension ut?</h1>
 	</div>
 
-	<div class="section" id="section1" data-anchor = "secondPage">
+	<div class="section" id="section1">
 		<h1>Om du fick välja fritt?</h1>
 		<p>
 			<br>
@@ -79,7 +81,7 @@
 		</p>
 	</div>
 
-	<div class="section" id="section4">
+	<div class="section" id="section4" >
 		<h1> Pensionen påverkas av flera faktorer</h1>
 		<p>
 			<br>
@@ -93,7 +95,7 @@
 		</ol>
 	</div>
 
-	<div class="section" id="section5">
+	<div class="section" id="section5" >
 			<h1>Hur mycket tjänar du idag?</h1>
 			<p>
 				<br>
@@ -101,7 +103,7 @@
 			</p>
 	</div>
 
-	<div class="section" id="section6">
+	<div class="section" id="section6" >
 		<h1>Hur ser du på att spara?</h1>
 		<p>
 			<br>
@@ -123,13 +125,16 @@
 		</div>
 	</div>
 
-	<div class="section" id="section7">
+	<div class="section" id="section7" >
 		<h1>En dag blir du pensionär</h1>
 		<p>
 			<br>
-			Med ett sparande på <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden kan du välja på nedanstående <br>
-			ungefärliga kombination av pensioneringsålder och pension: <br>
+	Du kan välja på nedanstående ungefärliga kombination av pensioneringsålder och pension: <br>
 			<br>
+			Jag sparar <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden
+			<br>
+			<br>
+
 		</p>
 		<div id="x1" class = "col-md-10 col-md-offset-1">
 			<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
@@ -141,16 +146,6 @@
 		</div>
 	</div>
 
-</div>
-
-<div id="fp-nav" class="right" style="margin-top: -33.5px;">
-  <ul><li><a href="#firstPage" class="active"><span></span></a>
-    <div class="fp-tooltip right">First page</div>
-  </li><li><a href="#secondPage" class=""><span></span></a>
-    <div class="fp-tooltip right">Second page</div>
-  </li><li><a href="#3rdPage" class=""><span></span></a>
-    <div class="fp-tooltip right">Third and last page</div>
-  </li></ul>
 </div>
 
 </body>
