@@ -31,19 +31,23 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke', '#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke', '#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke']
-			});
+			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '3thPage'],
+				sectionsColor: ['#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke', '#f2f2f2', '#ff6600', '#ff9900', 'whitesmoke'],
+			navigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['First page', 'Second page', 'Third', '4', '5', '6', '7', '8']
 		});
+	});
 	</script>
 </head>
 <body>
 
 <div id="fullpage">
-	<div class="section active" id="section0">
+	<div class="section active" id="section0" data-anchor = "firstPage">
 		<h1>Hur ser din drömpension ut?</h1>
 	</div>
 
-	<div class="section" id="section1">
+	<div class="section" id="section1" data-anchor = "secondPage">
 		<h1>Om du fick välja fritt?</h1>
 		<p>
 			<br>
@@ -137,6 +141,16 @@
 		</div>
 	</div>
 
+</div>
+
+<div id="fp-nav" class="right" style="margin-top: -33.5px;">
+  <ul><li><a href="#firstPage" class="active"><span></span></a>
+    <div class="fp-tooltip right">First page</div>
+  </li><li><a href="#secondPage" class=""><span></span></a>
+    <div class="fp-tooltip right">Second page</div>
+  </li><li><a href="#3rdPage" class=""><span></span></a>
+    <div class="fp-tooltip right">Third and last page</div>
+  </li></ul>
 </div>
 
 </body>
