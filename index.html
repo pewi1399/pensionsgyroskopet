@@ -111,6 +111,14 @@ h1 {
 <div id="fullpage">
 	<div class="section active" id="section0">
 		<h1>Hur ser din drömpension ut?</h1>
+		<p>
+			Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja <br> 
+			– om de fick välja fritt   – mellan hur länge de vill arbeta innan pensionen, <br>
+			pengar i pension och pengar att leva för idag.
+			<br>
+			<br>
+			Du har blivit slumpmässigt utvald att delta i projektet och ditt deltagande är garanterat anonymt.
+		</p>
 	</div>
 
 	<div class="section" id="section1">
@@ -138,13 +146,15 @@ h1 {
 				<br>
 		  	<input checked="checked" name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
 		   	<input checked="checked" name="CalendarType" value="2" type="radio"> Att få en hög pension <br>
-		   	<input checked="checked"  name="CalendarType" value="3" type="radio"> Annat / Vet ej<br>
+		   	<input checked="checked"  name="CalendarType" value="3" type="radio"> Vet ej<br>
+
+		   	Annat: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
 	 		</p>
 		</div>
 	</div>
 
 	<div class="section" id="section3">
-		<h1>Vid vilken ålder skulle du vilja gå i pension?</h1>
+		<h1>Om du kunde välja fritt, vid vilken ålder skulle du vilja gå i pension?</h1>
 		<p>
 			<br>
 			Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år gammal.
@@ -152,7 +162,7 @@ h1 {
 	</div>
 
 	<div class="section" id="section4">
-		<h1>Hur mycket skulle du helst vilja ha i pension?</h1>
+		<h1>Om du kunde välja fritt, hur mycket skulle du vilja ha i pension per månad?</h1>
 		<p>
 			<br>
 			Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
@@ -163,13 +173,13 @@ h1 {
 		<h1> Pensionen påverkas av flera faktorer</h1>
 		<p>
 			<br>
-			Något förenklat beror din framtida pension på två faktorer: <br>
-			Hur länge du arbetar och hur mycket pengar du sätter av till pensionen <br>
+			Tillbaka till verkligheten. Något förenklat beror din framtida pension framför allt på två saker<br>
+			Hur många år du arbetar och hur mycket pengar du drar av från din lön till pensionen<br>
 			<br>
 		</p>
 		<ol>
 		  <li><p>1. Jobbar du längre får du en högre pension <br></p></li>
-		  <li><p>2. Är du beredd att sätta av mer av din lön idag blir din pension högre imorgon</p></li>
+		  <li><p>2. Är du beredd att dra av pengar från din lön idag blir din pension högre imorgon</p></li>
 		</ol>
 	</div>
 
@@ -191,8 +201,9 @@ h1 {
 			</p>
 		</div>
 		<div class="col-md-10 col-md-offset-1" id = "x3text">
+			<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
 			<p> <br>
-				Hur mycket kan du tänka dig avvara idag/spara? <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad.
+				Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor mer per månad.
 			</p>
 		</div>
 		<div id="x3" class = "col-md-10 col-md-offset-1">
@@ -203,8 +214,14 @@ h1 {
 		<h1>Välj en ålder, pension och ett pensionssparande som passar dig</h1>
 		<p>
 			<br>
-			Du kan välja på nedanstående ungefärliga kombination av pensioneringsålder och pension.<br>
-			Justera pensionsålder, pension och pensionssparande så att du kommer fram till den kombination som passar dig bäst.<br>
+			Nu ska du få laborera mellan önskad pensionsålder och hur mycket du vill ha i pension utifrån din situation. <br>
+			Fyll i en av rutorna eller dra i reglaget för att se hur den andra påverkas. <br>
+			Längst ned kan också ändra det belopp du väljer att dra av från din lön idag för att se hur det påverkar din framtida pension. <br>
+			När du känner dig nöjd med dina val klickar du på knappen längst ned för att gå vidare <br>
+			<br>
+			Observera att det bara är ett experiment för att visa hur de olika sakerna påverkar varandra <br>
+			och ingen exakt prognos över hur det kommer att se ut när du går i pension”
+			<br>
 			<br>
 		</p>
 		<div id="x1" class = "col-md-10 col-md-offset-1">
@@ -218,7 +235,7 @@ h1 {
 		<div class = "col-md-10 col-md-offset-1">
 		<p>
 			<br>
-			Jag sparar <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden
+			Jag väljer att dra av <input type="text" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
 		</div>
 	</div>
 
