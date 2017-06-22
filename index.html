@@ -35,11 +35,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage', '7thPage', '8thPage', '9thPage', '10thPage'],
+			  anchors: ['1/10', '2/10', '3/10', '4/10', '5/10', '6/10', '7/10', '8/10', '9/10', '10/10'],
 				sectionsColor: ['whitesmoke', 	'#b9b1a9', 'whitesmoke', 	'#b9b1a9', 'whitesmoke', 	'#b9b1a9', 'whitesmoke', '#b9b1a9', 'whitesmoke', '#b9b1a9'],
 			navigation: true,
 			navigationPosition: 'right',
-			navigationTooltips: ['First page', 'Second page', 'Third', '4', '5', '6', '7', '8', '9','10']
+			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Frågestallning','Mer pengar idag?']
 		});
 		$("#x3").hide();
   		$("#x3text").hide();
@@ -82,6 +82,21 @@ div {
 
 h1 {
     font-family: Pensio;
+}
+
+#fp-nav ul li .fp-tooltip {
+    position: absolute;
+    top: -2px;
+    color: black;
+    font-size: 14px;
+    font-family: arial, helvetica, sans-serif;
+    white-space: nowrap;
+    max-width: 220px;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
+    width: 0;
+    cursor: pointer;
 }
 </style>
 
