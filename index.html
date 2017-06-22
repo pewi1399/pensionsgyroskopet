@@ -15,10 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="src/fullPage.js-master/examples/examples.css" />
 
+	<!-- PM fonter etc -->
 	<link rel="stylesheet" href="https://www.pensionsmyndigheten.se/etc/clientlibs/pm-framework.40433ce8c29a09bb9496c4a6c555bd77.css" type="text/css">
 	<script type="text/javascript" src="https://www.pensionsmyndigheten.se/etc/clientlibs/pm-modernizr.319f35cfb78f704d1547680c7318ead7.js"></script>
 	<link rel="stylesheet" href="https://www.pensionsmyndigheten.se/etc/clientlibs/pm-mainsite.f69f79a0acf3afa62dce624d26d560d7.css" type="text/css">
 
+	<!-- knappar -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="src/gyro_style.css" />
 
 	<script src="src/jquery-3.1.1.min.js"></script>
@@ -29,14 +32,15 @@
 	<script src="slider2.js"></script>
 	<script src="plot.js"></script>
 	<script src="src/delningstal.js"></script>
-	<script src="modell.js"></script>
+	<!--<script src="modell.js"></script>-->
 	<script src="src/sliderCallbacks.js"></script>
+	<script src="src/bootstrap.3.3.7/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 			  anchors: ['1/11', '2/11', '3/11', '4/11', '5/11', '6/11', '7/11', '8/11', '9/11', '10/11', '11/11'],
-				sectionsColor: ['whitesmoke', 	'#b9b1a9', 'whitesmoke', 	'#b9b1a9', 'whitesmoke', 	'#b9b1a9', 'whitesmoke', '#b9b1a9', 'whitesmoke', '#b9b1a9', 'whitesmoke'],
+				sectionsColor: ['whitesmoke', 	'#ddd9d5', 'whitesmoke', 	'#ddd9d5', 'whitesmoke', 	'#ddd9d5', 'whitesmoke', '#ddd9d5', 'whitesmoke', '#ddd9d5', 'whitesmoke'],
 			navigation: true,
 			navigationPosition: 'right',
 			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Frågestallning','Mer pengar idag?', 'Tack!']
@@ -102,6 +106,79 @@ h1 {
     width: 0;
     cursor: pointer;
 }
+
+
+label.btn span {
+  font-size: 1.5em ;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #333333;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+    color: #ef8200;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+color: #ef8200;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-square-o{
+    color: #333333;    display: inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+    color: #ef8200;    display: inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+color: #ef8200;
+}
+
+div[data-toggle="buttons"] label.active{
+    color: #ef8200;
+}
+
+div[data-toggle="buttons"] label {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 2em;
+text-align: left;
+white-space: nowrap;
+vertical-align: top;
+cursor: pointer;
+background-color: none;
+border: 0px solid 
+#333333;
+border-radius: 3px;
+color: #333333;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+color: #ef8200;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
 </style>
 
 
@@ -133,9 +210,17 @@ h1 {
 			<br>
 			<br>
 			Jag är en:
-				<input checked="checked" name="sex" value="0" type="radio"> Kvinna 
-				<input checked="checked" name="sex" value="1" type="radio"> Man 
-				<input checked="checked" name="sex" value="2" type="radio"> Annat / Vill ej svara
+		<div class="btn-group" data-toggle="buttons">
+        	<label class="btn active">
+          		<input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Man</span>
+        	</label>
+	        <label class="btn">
+	          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Kvinna</span>
+	        </label>
+	       	<label class="btn">
+	          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat / Vill ej svara</span>
+	        </label>
+      	</div>
 		</p>
 	</div>
 
@@ -147,13 +232,23 @@ h1 {
 		</p>
 		<div class="radioLeft col-md-4 col-md-offset-4">
 			<p>
-				<br>
-		  	<input  name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
-		   	<input  name="CalendarType" value="2" type="radio"> Att få en hög pension <br>
-		   	<input  name="CalendarType" value="3" type="radio"> Vet ej<br>
-		   	<input  name="CalendarType" value="3" type="radio" class = "radioAnnat"> Annat<br>
+			<br>
+			 <div class="btn-group btn-group-vertical" data-toggle="buttons">
+	        	<label class="btn active">
+	          		<input type="radio" name='viktigast' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
+	        	</label>
+		        <label class="btn">
+		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Att få en hög pension</span>
+		        </label>
+		       	<label class="btn">
+		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Vet ej</span>
+		        </label>
+		        <label class="btn">
+		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat</span>
+		        </label>
+	      	</div>
 		   	<div id = "viktigastAnnat" >
-		   	Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
+		   		Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
 		   </div>
 	 		</p>
 		</div>
@@ -202,8 +297,14 @@ h1 {
 		<div class="radioLeft col-md-1 col-md-offset-6">
 			<p>
 				<br>
-				<input class = "sparaNej" checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
-				<input class = "sparaJa" name="spara_janej" value="2" type="radio"> Ja <br>
+				<div class="btn-group btn-group-vertical" data-toggle="buttons">
+		        	<label class="btn active sparaNej">
+		          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej </span>
+		        	</label>
+			        <label class="btn sparaJa">
+			          	<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja </span>
+			        </label>
+	      		</div>
 			</p>
 		</div>
 		<div class="col-md-10 col-md-offset-1" id = "x3text">
@@ -253,14 +354,17 @@ h1 {
 			Om du kunde välja, skulle du då välja att få en lägre allmän pension och istället få ut mer lön att leva för idag? <br>
 			<br>
 		</p>
-		<div class="radioLeft col-md-5 col-md-offset-4">
-			<p>
-				<br>
-				<input checked="checked" name="sparaMindre" value="1" type="radio"> Nej <br>
-				<input checked="checked" name="sparaMindre" value="2" type="radio"> Ja <br>
-				<input checked="checked" name="sparaMindre" value="2" type="radio"> Ej aktuellt /jag har ingen arbetsgivare/ jag är egenföretagare <br>
-			</p>
-		</div>
+		<div class="btn-group btn-group-vertical" data-toggle="buttons">
+	        	<label class="btn active">
+	          		<input type="radio" name='spara_mindre' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej </span>
+	        	</label>
+		        <label class="btn">
+		          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja </span>
+		        </label>
+		        <label class="btn">
+		          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ej aktuellt /jag har ingen arbetsgivare/ jag är egenföretagare  </span>
+		        </label>
+      	</div>
 	</div>
 
 	<div class="section" id="section10">
