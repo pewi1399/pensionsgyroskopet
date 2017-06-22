@@ -45,6 +45,7 @@
 			navigationPosition: 'right',
 			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Frågestallning','Mer pengar idag?', 'Tack!']
 		});
+		// hide/show text and slider on page with savings 
 		$("#x3").hide();
   		$("#x3text").hide();
   		$(".sparaJa").click(function() {
@@ -55,16 +56,30 @@
   			$("#x3").hide("slow");
   			$("#x3text").hide("slow");
 		});
+		// hide/show alternative "other" text-input
 		$("#viktigastAnnat").hide();
 		$(".radioAnnat").click(function() {
-  			$("#viktigastAnnat").show("slow");
+  			$("#viktigastAnnat").show("slow");	
 		});
+		$('input[name=test_slider_sparande]').change(function(){
+			s3.value($('input[name=test_slider_sparande]').val());
+			$("input[name='sparande_final_valfritt']").val($('input[name=test_slider_sparande]').val())
+		})
+		$('input[name=sparande_final_valfritt]').change(function(){
+			s3.value($('input[name=sparande_final_valfritt]').val());
+			$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
+			s1.value($('input[name=test_slider_pensionsalder]').val());
+			pension(s1,s2,s3);
+		})
+		$('input[name=test_slider_pensionsalder]').change(function(){
+			s1.value($('input[name=test_slider_pensionsalder]').val());
+			pension(s1,s2,s3);
+		})
+		$('input[name=test_slider_pensionsinkomst]').change(function(){
+			s2.value($('input[name=test_slider_pensionsinkomst]').val());
+			behallning(s2,s1,s3);
+		})
 	});
-
-  // hide savings slider
-
-
-  //scroll button
 	</script>
 
 <style>
