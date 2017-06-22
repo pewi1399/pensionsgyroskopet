@@ -51,6 +51,10 @@
   			$("#x3").hide("slow");
   			$("#x3text").hide("slow");
 		});
+		$("#viktigastAnnat").hide();
+		$(".radioAnnat").click(function() {
+  			$("#viktigastAnnat").show("slow");
+		});
 	});
 
   // hide savings slider
@@ -144,11 +148,13 @@ h1 {
 		<div class="radioLeft col-md-4 col-md-offset-4">
 			<p>
 				<br>
-		  	<input checked="checked" name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
-		   	<input checked="checked" name="CalendarType" value="2" type="radio"> Att få en hög pension <br>
-		   	<input checked="checked"  name="CalendarType" value="3" type="radio"> Vet ej<br>
-
-		   	Annat: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
+		  	<input  name="CalendarType" value="1" type="radio"> Att gå i pension vid en särskild ålder <br>
+		   	<input  name="CalendarType" value="2" type="radio"> Att få en hög pension <br>
+		   	<input  name="CalendarType" value="3" type="radio"> Vet ej<br>
+		   	<input  name="CalendarType" value="3" type="radio" class = "radioAnnat"> Annat<br>
+		   	<div id = "viktigastAnnat" >
+		   	Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
+		   </div>
 	 		</p>
 		</div>
 	</div>
@@ -203,7 +209,7 @@ h1 {
 		<div class="col-md-10 col-md-offset-1" id = "x3text">
 			<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
 			<p> <br>
-				Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor mer per månad.
+				Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
 			</p>
 		</div>
 		<div id="x3" class = "col-md-10 col-md-offset-1">
@@ -220,7 +226,7 @@ h1 {
 			När du känner dig nöjd med dina val klickar du på knappen längst ned för att gå vidare <br>
 			<br>
 			Observera att det bara är ett experiment för att visa hur de olika sakerna påverkar varandra <br>
-			och ingen exakt prognos över hur det kommer att se ut när du går i pension”
+			och ingen exakt prognos över hur det kommer att se ut när du går i pension
 			<br>
 			<br>
 		</p>
@@ -228,7 +234,7 @@ h1 {
 			<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
 		</div>
 		<div class = "col-md-10 col-md-offset-1">
-			<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr efter skatt</p>
+			<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr före skatt</p>
 		</div>
 		<div id="x2" class = "col-md-10 col-md-offset-1">
 		</div>
