@@ -124,6 +124,7 @@ Delningstal = delningstal.X65
           redraw(income="f")
         }
 
+
 //------------------------------------------------------------------------------
 
         function sparande(src,x,y)

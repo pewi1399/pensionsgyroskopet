@@ -41,8 +41,16 @@
 			navigationPosition: 'right',
 			navigationTooltips: ['First page', 'Second page', 'Third', '4', '5', '6', '7', '8', '9','10']
 		});
-	$("#x3").hide();
-  $("#x3text").hide();
+		$("#x3").hide();
+  		$("#x3text").hide();
+  		$(".sparaJa").click(function() {
+  			$("#x3").show("slow");
+  			$("#x3text").show("slow");
+		});
+		$(".sparaNej").click(function() {
+  			$("#x3").hide("slow");
+  			$("#x3text").hide("slow");
+		});
 	});
 
   // hide savings slider
@@ -163,8 +171,8 @@ h1 {
 		<div class="radioLeft col-md-1 col-md-offset-6">
 			<p>
 				<br>
-				<input checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
-				<input id = "#target" checked="checked" name="spara_janej" value="2" type="radio"> Ja <br>
+				<input class = "sparaNej" checked="checked" name="spara_janej" value="1" type="radio"> Nej <br>
+				<input class = "sparaJa" name="spara_janej" value="2" type="radio"> Ja <br>
 			</p>
 		</div>
 		<div class="col-md-10 col-md-offset-1" id = "x3text">
@@ -177,7 +185,7 @@ h1 {
 	</div>
 
 	<div class="section" id="section8" >
-		<h1>Välj en ålder, pension och eventuellt pensionssparande som passar dig</h1>
+		<h1>Välj en ålder, pension och ett pensionssparande som passar dig</h1>
 		<p>
 			<br>
 			Du kan välja på nedanstående ungefärliga kombination av pensioneringsålder och pension.<br>
@@ -193,7 +201,9 @@ h1 {
 		<div id="x2" class = "col-md-10 col-md-offset-1">
 		</div>
 		<div class = "col-md-10 col-md-offset-1">
-		<p>Jag sparar <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden
+		<p>
+			<br>
+			Jag sparar <input type="text" name = "sparande_final_valfritt" placeholder="1000" style="width: 140px;text-align: center;"> kronor i månaden
 		</div>
 	</div>
 
