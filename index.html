@@ -40,7 +40,7 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 			  anchors: ['1/11', '2/11', '3/11', '4/11', '5/11', '6/11', '7/11', '8/11', '9/11', '10/11', '11/11'],
-				sectionsColor: ['whitesmoke', 	'#ddd9d5', 'whitesmoke', 	'#ddd9d5', 'whitesmoke', 	'#ddd9d5', 'whitesmoke', '#ddd9d5', 'whitesmoke', '#ddd9d5', 'whitesmoke'],
+				sectionsColor: ['whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke'],
 			navigation: true,
 			navigationPosition: 'right',
 			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Frågestallning','Mer pengar idag?', 'Tack!']
@@ -107,6 +107,10 @@ h1 {
     font-family: Pensio;
 }
 
+p{
+	color: #181818;
+}
+
 #fp-nav ul li .fp-tooltip {
     position: absolute;
     top: -2px;
@@ -128,7 +132,7 @@ label.btn span {
 }
 
 label input[type="radio"] ~ i.fa.fa-circle-o{
-    color: #333333;    display: inline;
+    color: #181818;    display: inline;
 }
 label input[type="radio"] ~ i.fa.fa-dot-circle-o{
     display: none;
@@ -137,14 +141,14 @@ label input[type="radio"]:checked ~ i.fa.fa-circle-o{
     display: none;
 }
 label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
-    color: #ef8200;    display: inline;
+    color: #181818;    display: inline;
 }
 label:hover input[type="radio"] ~ i.fa {
-color: #ef8200;
+color: #181818;
 }
 
 label input[type="checkbox"] ~ i.fa.fa-square-o{
-    color: #333333;    display: inline;
+    color: #181818;    display: inline;
 }
 label input[type="checkbox"] ~ i.fa.fa-check-square-o{
     display: none;
@@ -153,14 +157,14 @@ label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
     display: none;
 }
 label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
-    color: #ef8200;    display: inline;
+    color: #181818;    display: inline;
 }
 label:hover input[type="checkbox"] ~ i.fa {
-color: #ef8200;
+color: #181818;
 }
 
 div[data-toggle="buttons"] label.active{
-    color: #ef8200;
+    color:#181818;
 }
 
 div[data-toggle="buttons"] label {
@@ -176,9 +180,9 @@ vertical-align: top;
 cursor: pointer;
 background-color: none;
 border: 0px solid 
-#333333;
+#181818;
 border-radius: 3px;
-color: #333333;
+color: #181818;
 -webkit-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
@@ -187,7 +191,7 @@ user-select: none;
 }
 
 div[data-toggle="buttons"] label:hover {
-color: #ef8200;
+color: #181818;
 }
 
 div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
