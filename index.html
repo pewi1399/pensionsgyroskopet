@@ -29,6 +29,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="src/fullPage.js-master/vendors/scrolloverflow.js"></script>
 	<script type="text/javascript" src="src/fullPage.js-master/jquery.fullPage.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 	<script src="src/d3v4/d3.min.js"></script>
 	<script src="slider2.js"></script>
 	<script src="plot.js"></script>
@@ -226,34 +227,8 @@ box-shadow: none;
 }
 #myBar {
     width: 1%;
-    height: 20px;
-    background-color: green;
-}
-
-.KW_progressContainer {
-  left:0;
-  width: 100%;
-  height: 0.4em;
-  margin-bottom: 0px;
-  position: fixed;
-  bottom: 0px;
-  overflow: hidden;
-  background-color: white;
-  content: "";
-	display: table;
-	table-layout: fixed;
-}
-
-.KW_progressBar {
-  width: 0%;
-  float: left;
-  height: 100%;
-  z-index:99;
-  max-width: 100%;
-  background-color:orange;
-  -webkit-transition: width .6s ease;
-  -o-transition: width .6s ease;
-  transition: width .6s ease;
+    height: 5px;
+    background-color: #FFB70F;
 }
 </style>
 
@@ -288,121 +263,136 @@ box-shadow: none;
 	</div>
 
 	<div class="section" id="section1">
-		<h1>Först några frågor om dig</h1>
-		<p>
-			<br>
-			Jag är född: <input type="text" name = "onskad_alder" placeholder="Ange födelseår" style="width: 200px;text-align: center;">
-			<br>
-			<br>
-			Jag är en:
-		<div class="btn-group btn-group-vertical" data-toggle="buttons">
-        	<label class="btn active">
-          		<input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Man</span>
-        	</label>
-	        <label class="btn">
-	          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Kvinna</span>
-	        </label>
-	       	<label class="btn">
-	          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat / Vill ej svara</span>
-	        </label>
-      	</div>
-		</p>
+		<div class = "col-md-10 col-md-offset-1">
+			<h1>Först några frågor om dig</h1>
+			<p>
+				<br>
+				Jag är född: <input type="text" name = "fodelsear" placeholder="Ange födelseår" style="width: 200px;text-align: center;">
+				<br>
+				<br>
+				Jag är en:
+			<div class="btn-group btn-group-vertical" data-toggle="buttons">
+	        	<label class="btn active">
+	          		<input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Man</span>
+	        	</label>
+		        <label class="btn">
+		          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Kvinna</span>
+		        </label>
+		       	<label class="btn">
+		          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat / Vill ej svara</span>
+		        </label>
+	      	</div>
+			</p>
+	    </div>
 	</div>
 
 	<div class="section" id="section2">
+		<div class = "col-md-10 col-md-offset-1">
 		<h1>Om du fick välja fritt?</h1>
 		<p>
 			<br>
 			När det gäller din pension vad är viktigast för dig?
 		</p>
-		<div class="radioLeft col-md-4 col-md-offset-4">
-			<p>
-			<br>
-			 <div class="btn-group btn-group-vertical" data-toggle="buttons">
-	        	<label class="btn active">
-	          		<input type="radio" name='viktigast' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
-	        	</label>
-		        <label class="btn">
-		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Att få en hög pension</span>
-		        </label>
-		       	<label class="btn">
-		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Vet ej</span>
-		        </label>
-		        <label class="btn">
-		          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat</span>
-		        </label>
-	      	</div>
-		   	<div id = "viktigastAnnat" >
-		   		Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
-		   </div>
-	 		</p>
-		</div>
+			<div class="radioLeft col-md-4 col-md-offset-4">
+				<p>
+				<br>
+				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
+		        	<label class="btn active">
+		          		<input type="radio" name='viktigast' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
+		        	</label>
+			        <label class="btn">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Att få en hög pension</span>
+			        </label>
+			       	<label class="btn">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Vet ej</span>
+			        </label>
+			        <label class="btn">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat</span>
+			        </label>
+		      	</div>
+			   	<div id = "viktigastAnnat" >
+			   		Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
+			   </div>
+		 		</p>
+			</div>
+	    </div>
 	</div>
 
 	<div class="section" id="section3">
-		<h1>Om du kunde välja fritt, vid vilken ålder skulle du vilja gå i pension?</h1>
-		<p>
-			<br>
-			Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år gammal.
-		</p>
+		<div class = "col-md-10 col-md-offset-1">
+			<h1>Om du kunde välja fritt, vid vilken ålder skulle du vilja gå i pension?</h1>
+			<p>
+				<br>
+				Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år gammal.
+			</p>
+	    </div>
 	</div>
 
 	<div class="section" id="section4">
-		<h1>Om du kunde välja fritt, hur mycket skulle du vilja ha i pension per månad?</h1>
-		<p>
-			<br>
-			Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
-		</p>
+		<div class = "col-md-10 col-md-offset-1">
+			<h1>Om du kunde välja fritt, hur mycket skulle du vilja ha i pension per månad?</h1>
+			<p>
+				<br>
+				Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
+			</p>
+	    </div>
 	</div>
 
-	<div class="section" id="section5" >
-		<h1> Pensionen påverkas av flera faktorer</h1>
-		<p>
-			<br>
-			Tillbaka till verkligheten. Något förenklat beror din framtida pension framför allt på två saker.<br>
-			Hur många år du arbetar och hur mycket pengar du drar av från din lön till pensionen.<br>
-			<br>
-		</p>
-		<ol>
-		  <li><p>1. Ju fler år du jobbar och har en inkomst, desto högre pension får du.  <br></p></li>
-		  <li><p>2. Är du beredd att dra av pengar från din lön idag blir din pension högre imorgon.</p></li>
-		</ol>
+	<div class="section" id="section5" >		
+		<div class = "col-md-10 col-md-offset-1">
+			<h1> Pensionen påverkas av flera faktorer</h1>
+			<p>
+				<br>
+				Tillbaka till verkligheten. Något förenklat beror din framtida pension framför allt på två saker.<br>
+				Hur många år du arbetar och hur mycket pengar du drar av från din lön till pensionen.<br>
+				<br>
+			</p>
+			<ol>
+			  <li><p>1. Ju fler år du jobbar och har en inkomst, desto högre pension får du.  <br></p></li>
+			  <li><p>2. Är du beredd att dra av pengar från din lön idag blir din pension högre imorgon.</p></li>
+			</ol>
+		</div>
 	</div>
 
 	<div class="section" id="section6" >
+		<div class = "col-md-10 col-md-offset-1">
 			<h1>Hur mycket tjänar du idag?</h1>
 			<p>
 				<br>
 				Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
 			</p>
+	    </div>
 	</div>
 
 	<div class="section" id="section7" >
+		<div class = "col-md-10 col-md-offset-1">
 		<h1>Kan du tänka dig att leva på mindre pengar idag för att få en högre pension i framtiden?</h1>
-		<div class="radioLeft col-md-6 col-md-offset-3">
-			<p>
-				<br>
-				<div class="btn-group btn-group-vertical" data-toggle="buttons">
-		        	<label class="btn active sparaNej">
-		          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
-		        	</label>
-			        <label class="btn sparaJa">
-			          	<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag är beredd att leva på mindre pengar varje månad, för att få en högre pension. </span>
-			        </label>
-	      		</div>
-			</p>
-		</div>
-		<div class="col-md-10 col-md-offset-1" id = "x3text">
-			<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
-			<p> <br>
-				Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
-			</p>
-		</div>
-		<div id="x3" class = "col-md-10 col-md-offset-1">
+			<div class="radioLeft col-md-6 col-md-offset-3">
+				<p>
+					<br>
+					<div class="btn-group btn-group-vertical" data-toggle="buttons">
+			        	<label class="btn active sparaNej">
+			          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
+			        	</label>
+				        <label class="btn sparaJa">
+				          	<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag är beredd att leva på mindre pengar varje månad, för att få en högre pension. </span>
+				        </label>
+		      		</div>
+				</p>
+			</div>
+			<div class="col-md-10 col-md-offset-1" id = "x3text">
+				<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
+				<p> <br>
+					Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
+				</p>
+			</div>
+			<div id="x3" class = "col-md-10 col-md-offset-1">
+			</div>
 		</div>
 	</div>
 
 	<div class="section" id="section8" >
+		<div class = "col-md-10 col-md-offset-1">
 		<h1>Välj en ålder, pension och ett pensionssparande som passar dig</h1>
 		<p>
 			<br>
@@ -416,44 +406,49 @@ box-shadow: none;
 			<br>
 			<br>
 		</p>
-		<div id="x1" class = "col-md-10 col-md-offset-1">
-			<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
-		</div>
-		<div class = "col-md-10 col-md-offset-1">
-			<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr före skatt</p>
-		</div>
-		<div id="x2" class = "col-md-10 col-md-offset-1">
-		</div>
-		<div class = "col-md-10 col-md-offset-1">
-		<p>
-			<br>
-			Jag väljer att dra av <input type="text" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
+			<div id="x1" class = "col-md-10 col-md-offset-1">
+				<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
+			</div>
+			<div class = "col-md-10 col-md-offset-1">
+				<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr före skatt</p>
+			</div>
+			<div id="x2" class = "col-md-10 col-md-offset-1">
+			</div>
+			<div class = "col-md-10 col-md-offset-1">
+			<p>
+				<br>
+				Jag väljer att dra av <input type="text" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
+			</div>
 		</div>
 	</div>
 
 	<div class="section" id="section9" >
-	<h1>Vill du istället ha mer pengar idag och mindre i pension?</h1>
-		<p>
-			<br>
-			Idag betalar din arbetsgivare enligt lag en pensionsavgift utöver din lön till din allmänna pension. <br>
-			Om du kunde välja, skulle du då välja att få en lägre allmän pension och istället få ut mer lön att leva för idag? <br>
-			<br>
-		</p>
-		<div class="btn-group btn-group-vertical" data-toggle="buttons">
-	        	<label class="btn active">
-	          		<input type="radio" name='spara_mindre' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag är nöjd med att arbetsgivaren betalar in pengar till min pension. </span>
-	        	</label>
-		        <label class="btn">
-		          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag vill hellre få en högre lön istället. </span>
-		        </label>
-		        <label class="btn">
-		          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ej aktuellt /jag har ingen arbetsgivare/ jag är egenföretagare.  </span>
-		        </label>
-      	</div>
+		<div class = "col-md-10 col-md-offset-1">
+			<h1>Vill du istället ha mer pengar idag och mindre i pension?</h1>
+			<p>
+				<br>
+				Idag betalar din arbetsgivare enligt lag en pensionsavgift utöver din lön till din allmänna pension. <br>
+				Om du kunde välja, skulle du då välja att få en lägre allmän pension och istället få ut mer lön att leva för idag? <br>
+				<br>
+			</p>
+			<div class="btn-group btn-group-vertical" data-toggle="buttons">
+		        	<label class="btn active">
+		          		<input type="radio" name='spara_mindre' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag är nöjd med att arbetsgivaren betalar in pengar till min pension. </span>
+		        	</label>
+			        <label class="btn">
+			          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag vill hellre få en högre lön istället. </span>
+			        </label>
+			        <label class="btn">
+			          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ej aktuellt /jag har ingen arbetsgivare/ jag är egenföretagare.  </span>
+			        </label>
+	      	</div>
+		</div>
 	</div>
 
 	<div class="section" id="section10">
-		<h1>Tack för din medverkan!</h1>
+		<div class = "col-md-10 col-md-offset-1">
+			<h1>Tack för din medverkan!</h1>
+		</div>
 	</div>
 </body>
 
@@ -477,6 +472,124 @@ box-shadow: none;
 	//s2.value(10000);
 	//s3.value(0);
 
+// input controls and data validation
+	$('input[name^="fodelsear"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value)) || (thisYear - Number(this.value)) < 0 || (thisYear - Number(this.value)) > 75){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange fyrsiffrigt födelseår  \n \n Exempel: 1965",
+	          type: "warning"})
+	  }
+
+	});
+
+	$('input[name^="onskad_alder"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value)) || Number(this.value) > 99 || Number(this.value) < 50){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange pensionsålder med två siffror i intervallet 50 - 99 år\n \n Exempel: 67",
+	          type: "warning"})
+	  }
+
+	});
+
+	$('input[name^="onskad_pension"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value))){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange önskad pension med siffror utan mellanslag eller skiljetecken\n \n Exempel: 20000",
+	          type: "warning"})
+	  }
+
+	});
+
+
+	$('input[name^="inkomst_efter_skatt"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value))){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange din inkomst med siffror utan mellanslag eller skiljetecken\n \n Exempel: 20000",
+	          type: "warning"})
+	  }
+
+	});
+
+	$('input[name^="test_slider_sparande"]').change(function() {
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value))){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange din inkomst med siffror utan mellanslag eller skiljetecken\n \n Exempel: 20000",
+	          type: "warning"})
+	  }else if(Number(this.value) > Number($('input[name^="inkomst_efter_skatt"]').val())){
+  		swal({title: "För högt värde angivet",
+	          text:"Ditt sparande överstiger din inkomst, vänligen välj ett lägre värde.",
+	          type: "warning"})
+	  }
+
+	});
+
+
+	$('input[name^="test_slider_pensionsalder"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value)) || Number(this.value) > 99 || Number(this.value) < 50){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange pensionsålder med två siffror i intervallet 50 - 99 år\n \n Exempel: 67",
+	          type: "warning"})
+	  }
+
+	});
+
+	$('input[name^="test_slider_pensionsinkomst"]').change(function() {
+	  //alert( "Handler for .change() called." );
+	  var d = new Date();
+	  var thisYear = Number(d.getFullYear());
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value))){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange önskad pension med siffror utan mellanslag eller skiljetecken\n \n Exempel: 20000",
+	          type: "warning"})
+	  }
+
+	});
+
+	$('input[name^="sparande_final_valfritt"]').change(function() {
+
+	  //cannot be too young cannot be older than min of scale
+	  if(isNaN(Number(this.value))){
+	    swal({title: "Fel format",
+	          text:"Vänligen ange din inkomst med siffror utan mellanslag eller skiljetecken\n \n Exempel: 20000",
+	          type: "warning"})
+	  }else if(Number(this.value) > Number($('input[name^="inkomst_efter_skatt"]').val())){
+  		swal({title: "För högt värde angivet",
+	          text:"Ditt sparande överstiger din inkomst, vänligen välj ett lägre värde.",
+	          type: "warning"})
+	  }
+
+	});
+
+	
 
 </script>
 
