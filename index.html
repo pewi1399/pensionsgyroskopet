@@ -99,7 +99,13 @@
 			s2.value($('input[name=test_slider_pensionsinkomst]').val());
 			behallning(s2,s1,s3);
 		})
+
+		var testHeight = $("#section0").height();
+		$( "#nextButton" ).css("margin-top", testHeight*0.97);
 	});
+
+	
+
 	</script>
 
 <style>
@@ -225,11 +231,25 @@ box-shadow: none;
     position:relative;
     background-color: lightgrey;
 }
+
 #myBar {
     width: 1%;
     height: 5px;
     background-color: #FFB70F;
 }
+
+#nextButton {
+    width: 100%;
+    z-index:1000;
+    position:absolute;
+    margin-top: 647px;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
 </style>
 
 
@@ -242,6 +262,12 @@ box-shadow: none;
 
 <div id="myProgress">
 	  <div id="myBar"></div>
+</div>
+
+<div id="nextButton">
+	<div>
+		<a href="#" class="next col-md-offset-10 col-md-1", onclick = "$.fn.fullpage.moveSectionDown();">Nästa fråga &raquo;</a>
+	</div>
 </div>
 
 <div id="fullpage">
