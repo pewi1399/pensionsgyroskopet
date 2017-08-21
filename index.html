@@ -41,12 +41,12 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-			  anchors: ['1/11', '2/11', '3/11', '4/11', '5/11', '6/11', '7/11', '8/11', '9/11', '10/11', '11/11'],
-				sectionsColor: ['whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke'],
+			  anchors: ['1/12', '2/12', '3/12', '4/12', '5/12', '6/12', '7/12', '8/12', '9/12', '10/12', '11/12', '12/12'],
+				sectionsColor: ['whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', 	'#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke', '#E8E8E8', 'whitesmoke', '#E8E8E8'],
 			navigation: false,
 			navigationPosition: 'bottom',
 			slidesNavPosition: 'bottom',
-			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Frågestallning','Mer pengar idag?', 'Tack!'],
+			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Infotext', 'Frågestallning','Mer pengar idag?', 'Tack!'],
 			    afterLoad: function(anchorLink, index){
 			    	$('#callbacksDiv').append('<p>afterLoad - anchorLink:' + anchorLink + " index:" + index + '</p>');
 					deleteLog = true;
@@ -54,7 +54,7 @@
 					console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index );
 
 					var elem = document.getElementById("myBar");
-					var width = (index-1)/10*100 
+					var width = (index-1)/11*100 
 					
 					if(index == 1){
 						elem.style.width = 0
@@ -366,7 +366,7 @@ box-shadow: none;
 			<h1> Pensionen påverkas av flera faktorer</h1>
 			<p>
 				<br>
-				Tillbaka till verkligheten. Något förenklat beror din framtida pension framför allt på två saker.<br>
+				Något förenklat beror din framtida pension framför allt på två saker.<br>
 				Hur många år du arbetar och hur mycket pengar du drar av från din lön till pensionen.<br>
 				<br>
 			</p>
@@ -417,18 +417,23 @@ box-shadow: none;
 	<div class="section" id="section8" >
 		<div class = "col-md-10 col-md-offset-1">
 		<h1>Välj en ålder, pension och ett pensionssparande som passar dig</h1>
-		<p>
-			<br>
-			Nu ska du få laborera mellan önskad pensionsålder och hur mycket du vill ha i pension utifrån din situation. <br>
-			Fyll i en av rutorna eller dra i reglaget för att se hur den andra påverkas. <br>
-			Längst ned kan också ändra det belopp du väljer att dra av från din lön idag för att se hur det påverkar din framtida pension. <br>
-			När du känner dig nöjd med dina val klickar du på knappen längst ned för att gå vidare. <br>
-			<br>
-			Observera att det bara är ett experiment för att visa hur de olika sakerna påverkar varandra <br>
-			och ingen exakt prognos över hur det kommer att se ut när du går i pension.
-			<br>
-			<br>
-		</p>
+			<p>
+				<br>
+				Nu ska du få laborera mellan önskad pensionsålder och hur mycket du vill ha i pension utifrån din situation. <br>
+				Fyll i en av rutorna eller dra i reglaget för att se hur den andra påverkas. <br>
+				Längst ned kan också ändra det belopp du väljer att dra av från din lön idag för att se hur det påverkar din framtida pension. <br>
+				När du känner dig nöjd med dina val klickar du på knappen längst ned för att gå vidare. <br>
+				<br>
+				Observera att det bara är ett experiment för att visa hur de olika sakerna påverkar varandra <br>
+				och ingen exakt prognos över hur det kommer att se ut när du går i pension.
+				<br>
+				<br>
+			</p>
+		</div>
+	</div>
+	
+	<div class="section" id="section9" >
+		<div class = "col-md-10 col-md-offset-1">
 			<div id="x1" class = "col-md-10 col-md-offset-1">
 				<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
 			</div>
@@ -445,7 +450,7 @@ box-shadow: none;
 		</div>
 	</div>
 
-	<div class="section" id="section9" >
+	<div class="section" id="section10" >
 		<div class = "col-md-10 col-md-offset-1">
 			<h1>Vill du istället ha mer pengar idag och mindre i pension?</h1>
 			<p>
@@ -468,7 +473,7 @@ box-shadow: none;
 		</div>
 	</div>
 
-	<div class="section" id="section10">
+	<div class="section" id="section11">
 		<div class = "col-md-10 col-md-offset-1">
 			<h1>Tack för din medverkan!</h1>
 		</div>
