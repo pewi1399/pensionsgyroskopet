@@ -31,7 +31,7 @@ if(type == "income"){
 }else{
   var svg = el
     .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox","0 5 " + (width + 50)  + " " + height+100)
+      .attr("viewBox","0 5 " + (width + 50)  + " " + (height+50))
       //class to make it responsive
       .classed("svg-content-responsive", true)
 }
