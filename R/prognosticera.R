@@ -11,17 +11,64 @@ names(dat)
 
 # Önskad pseudomodell
 # Bruttopension ~ Årslön + födelseår + går i pension vid ålder
-model1 <- glm(Bruttopension ~ arslon + 
+model1 <- glm(Bruttopension~ arslon + 
                 fodar + 
                 pensionar+ 
                 arslon^2 + 
                 fodar^2 + 
-                pensionar^2, 
+                pensionar^2 +
+                pensionar*arslon +
+                pensionar*fodar*arslon,
               data = dat)
 
-gg <- predict(model1)
+p1 <- predict(model1)
 
-plot(gg, dat$Bruttopension, col = "peachpuff")
+plot(p1, dat$Bruttopension, col = "peachpuff")
+plot(model1)
+
+coefs <- coef(model1)
+
+lon = 25000*12
+fodar = 1975
+pensionar = 63
+
+coefs["(Intercept)"] + 
+lon * coefs["arslon"] +
+fodar * coefs["fodar"] +
+pensionar * coefs["pensionar"] +
+lon * pensionar * coefs["arslon:pensionar"] +
+fodar * pensionar * coefs["fodar:pensionar"] +
+lon * fodar * coefs["arslon:fodar"] +
+lon * fodar * pensionar *coefs["arslon:fodar:pensionar"]
+
+tst <-
+dat %>% 
+  filter(fodar == 1975 & pensionar == 63)
+
+
+# testa additiv modell
+model2 <- gam(log(Bruttopension) ~ ti(arslon) + 
+              ti(fodar) + 
+              ti(pensionar)+
+              ti(arslon, pensionar) + 
+              ti(arslon, pensionar, fodar) + 
+              arslon + 
+              fodar + 
+              pensionar, 
+            data = dat)
+
+p2 <- predict(model2)
+
+plot(p2, log(dat$Bruttopension), col = "purple")
+plot(model2)
+
+
+summary(model2)
+
+
+
+Xp <- predict(model2, type="lpmatrix")
+
 
 ## see also examples in ?gam.models (e.g. 'by' variables, 
 ## random effects and tricks for large binary datasets)
