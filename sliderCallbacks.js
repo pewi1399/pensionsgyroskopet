@@ -9,6 +9,18 @@ mu = 1
 // D delningstal
 Delningstal = delningstal.X65
 
+
+var a = -113221862.219793
+var b_lon = 444.395597171495
+var b_fodar = 57422.8552482823 
+var b_pensionar = 2081369.38215545 
+var b_lon_pensionar = -8.23367405408878 
+var b_fodar_pensionar = -1055.75823031998 
+var b_lon_fodar = -0.227976205379907
+var b_lon_fodar_pensionar = 0.00422301483112778
+
+
+
 //--------------------------- sliderfunctions ----------------------------------
 
         function pension(src, y, z)
@@ -16,22 +28,22 @@ Delningstal = delningstal.X65
           // maxvärde 67 år
           // minvärde 55 år
             var unlocked = $('input[name=choice]:checked').val()
-            var pensionsar = Math.round(src.value());
-            var arbetstid = pensionsar - 23
+            var pensionar = Math.round(src.value());
+            var arbetstid = pensionar - 23
             window.time = arbetstid
 
-          $('input[name=pensionartext]').val(Math.round(pensionsar))
+          $('input[name=pensionartext]').val(Math.round(pensionar))
 
-            if(pensionsar <61){
+            if(pensionar <61){
               delningsar = 61
-            }else if(pensionsar >110){
+            }else if(pensionar >110){
               delningsar = 110
             }else{
-              delningsar = pensionsar
+              delningsar = pensionar
             }
-            window.Delningstal = delningstal["X"+ delningsar]
+            //window.Delningstal = delningstal["X"+ delningsar]
 
-            if(pensionsar > 75)
+            if(pensionar > 75)
             {
                 var a = 0
                 y.value(a);
@@ -39,12 +51,18 @@ Delningstal = delningstal.X65
             }
             else if ( unlocked ==  "sparande" )
             {
-                var x =  src.value()///100;
 
 
-                //z.value()*(x - alpha) / (67 - x + 10)
-                // räkna ut behållning via z = Avgift och src = pensionsar
-                var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
+                var lon = z.value()
+                var behallning = 
+                  a + 
+                  lon * b_lon +
+                  fodar * b_fodar +
+                  pensionar * b_pensionar +
+                  lon * pensionar * b_lon_pensionar+
+                  fodar * pensionar * b_fodar_pensionar+
+                  lon * fodar * b_lon_fodar +
+                  lon * fodar * pensionar * b_lon_fodar_pensionar
 
                 y.value(behallning);
                 $('input[name=behallningtext]').val(Math.round(behallning))
@@ -52,19 +70,40 @@ Delningstal = delningstal.X65
             }
             else if ( unlocked ==  "behallning" )
             {
-                var x =  src.value()///100;
 
-
-                //y.value()*(67 - x +10)/(x - alpha)
                 // räkna ut avgift via y = utbetalning och src = pensionsar
-                var avgift = ((y.value()*12*Delningstal*-ranta)/mu/(Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)))/12;
+                var behallning = y.value()
 
-                z.value(avgift);
-                $('input[name=sparandetext]').val(Math.round(avgift))
+                var lon =(
+                          pred -
+                            (
+                              a + 
+                              fodar * b_fodar +
+                              pensionar * b_pensionar +
+                              fodar * pensionar * b_fodar_pensionar
+                            )
+                          )/
+                        (
+                          b_lon + 
+                          pensionar * b_lon_pensionar+  
+                          fodar * b_lon_fodar + 
+                          fodar * pensionar * b_lon_fodar_pensionar
+                          )
+
+                z.value(lon);
+                $('input[name=sparandetext]').val(Math.round(lon))
 
                                 //z.value()*(x - alpha) / (67 - x + 10)
                 // räkna ut behållning via z = Avgift och src = pensionsar
-                var behallning = (((z.value()*12) * Math.exp((ranta*arbetstid))*(Math.exp((-ranta*arbetstid)) - 1)) * mu)/-ranta/Delningstal/12
+                var behallning = 
+                  a + 
+                  lon * b_lon +
+                  fodar * b_fodar +
+                  pensionar * b_pensionar +
+                  lon * pensionar * b_lon_pensionar+
+                  fodar * pensionar * b_fodar_pensionar+
+                  lon * fodar * b_lon_fodar +
+                  lon * fodar * pensionar * b_lon_fodar_pensionar
 
                 y.value(behallning);
                 $('input[name=behallningtext]').val(Math.round(behallning))
