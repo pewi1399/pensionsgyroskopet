@@ -28,10 +28,11 @@ plot(model1)
 
 coefs <- coef(model1)
 
-lon = 25000*12
-fodar = 1975
-pensionar = 63
-
+lon = 28000*12
+fodar = 1935
+pensionar = 65
+#------------------------------------ del 1 ------------------------------------
+pred <- 
 coefs["(Intercept)"] + 
 lon * coefs["arslon"] +
 fodar * coefs["fodar"] +
@@ -40,6 +41,41 @@ lon * pensionar * coefs["arslon:pensionar"] +
 fodar * pensionar * coefs["fodar:pensionar"] +
 lon * fodar * coefs["arslon:fodar"] +
 lon * fodar * pensionar *coefs["arslon:fodar:pensionar"]
+
+pred/12
+#-------------------------------------------------------------------------------
+
+#------------------------------------ del 2 lön  -------------------------------
+lon 
+(
+  pred -
+    (coefs["(Intercept)"] + 
+  fodar * coefs["fodar"] +
+  pensionar * coefs["pensionar"] +
+  fodar * pensionar * coefs["fodar:pensionar"]
+  )
+)/
+(
+  coefs["arslon"] + 
+  pensionar * coefs["arslon:pensionar"] +  
+  fodar * coefs["arslon:fodar"] + 
+  fodar * pensionar *coefs["arslon:fodar:pensionar"]
+  )
+#-------------------------------------------------------------------------------
+
+#----------------------------- del 3 pensionsar  -------------------------------
+pensionar
+
+(pred -  (coefs["(Intercept)"] + 
+  lon * coefs["arslon"] +
+  fodar * coefs["fodar"] +
+  lon * fodar * coefs["arslon:fodar"]))/
+  (coefs["pensionar"] +
+     lon * coefs["arslon:pensionar"] +
+     fodar * coefs["fodar:pensionar"] +
+     lon * fodar * coefs["arslon:fodar:pensionar"])
+#-------------------------------------------------------------------------------
+
 
 tst <-
 dat %>% 
