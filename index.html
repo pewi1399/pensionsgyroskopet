@@ -35,7 +35,7 @@
 	<script src="plot.js"></script>
 	<script src="src/delningstal.js"></script>
 	<!--<script src="modell.js"></script>-->
-	<script src="src/sliderCallbacks.js"></script>
+	<script src="sliderCallbacks.js"></script>
 	<script src="src/bootstrap.3.3.7/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
@@ -489,11 +489,7 @@ box-shadow: none;
 	var slider33 = d3.select("#x3").append("svg").call(s3);
 
 
-	s1.callback(function(){
-
-		pension(s1,s2,s3);}
-
-	)
+	s1.callback(function(){pension(s1,s2,s3);})
 	s2.callback(function(){behallning(s2,s1,s3);})
 	s3.callback(function(){sparande(s3,s1,s2);})
 
