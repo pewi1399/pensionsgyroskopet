@@ -28,19 +28,31 @@ plot(model1)
 
 coefs <- coef(model1)
 
-lon = 28000*12
-fodar = 1935
+lon = 25000*12
+fodar = 1965
 pensionar = 65
+
+#---------------------------------- parameters ---------------------------------
+a <- coefs["(Intercept)"]
+b_lon <-  coefs["arslon"] 
+b_fodar <- coefs["fodar"]
+b_pensionar  <-  coefs["pensionar"]
+b_lon_pensionar <- coefs["arslon:pensionar"]
+b_fodar_pensionar <-  coefs["fodar:pensionar"]
+b_lon_fodar <- coefs["arslon:fodar"]
+b_lon_fodar_pensionar <- coefs["arslon:fodar:pensionar"]
+#-------------------------------------------------------------------------------
+
 #------------------------------------ del 1 ------------------------------------
 pred <- 
-coefs["(Intercept)"] + 
-lon * coefs["arslon"] +
-fodar * coefs["fodar"] +
-pensionar * coefs["pensionar"] +
-lon * pensionar * coefs["arslon:pensionar"] +
-fodar * pensionar * coefs["fodar:pensionar"] +
-lon * fodar * coefs["arslon:fodar"] +
-lon * fodar * pensionar *coefs["arslon:fodar:pensionar"]
+a + 
+lon * b_lon +
+fodar * b_fodar +
+pensionar * b_pensionar +
+lon * pensionar * b_lon_pensionar+
+fodar * pensionar * b_fodar_pensionar+
+lon * fodar * b_lon_fodar +
+lon * fodar * pensionar * b_lon_fodar_pensionar
 
 pred/12
 #-------------------------------------------------------------------------------
@@ -49,98 +61,51 @@ pred/12
 lon 
 (
   pred -
-    (coefs["(Intercept)"] + 
-  fodar * coefs["fodar"] +
-  pensionar * coefs["pensionar"] +
-  fodar * pensionar * coefs["fodar:pensionar"]
+    (a + 
+  fodar * b_fodar +
+  pensionar * b_pensionar +
+  fodar * pensionar * b_fodar_pensionar
   )
 )/
 (
-  coefs["arslon"] + 
-  pensionar * coefs["arslon:pensionar"] +  
-  fodar * coefs["arslon:fodar"] + 
-  fodar * pensionar *coefs["arslon:fodar:pensionar"]
+  b_lon + 
+  pensionar * b_lon_pensionar+  
+  fodar * b_lon_fodar + 
+  fodar * pensionar * b_lon_fodar_pensionar
   )
 #-------------------------------------------------------------------------------
 
 #----------------------------- del 3 pensionsar  -------------------------------
 pensionar
 
-(pred -  (coefs["(Intercept)"] + 
-  lon * coefs["arslon"] +
-  fodar * coefs["fodar"] +
-  lon * fodar * coefs["arslon:fodar"]))/
-  (coefs["pensionar"] +
-     lon * coefs["arslon:pensionar"] +
-     fodar * coefs["fodar:pensionar"] +
-     lon * fodar * coefs["arslon:fodar:pensionar"])
+(pred -  (a + 
+  lon * b_lon +
+  fodar * b_fodar +
+  lon * fodar * b_lon_fodar))/
+  (b_pensionar +
+     lon * b_lon_pensionar+
+     fodar * b_fodar_pensionar+
+     lon * fodar * b_lon_fodar_pensionar)
 #-------------------------------------------------------------------------------
-
-
-tst <-
-dat %>% 
-  filter(fodar == 1975 & pensionar == 63)
-
-
-# testa additiv modell
-model2 <- gam(log(Bruttopension) ~ ti(arslon) + 
-              ti(fodar) + 
-              ti(pensionar)+
-              ti(arslon, pensionar) + 
-              ti(arslon, pensionar, fodar) + 
-              arslon + 
-              fodar + 
-              pensionar, 
-            data = dat)
-
-p2 <- predict(model2)
-
-plot(p2, log(dat$Bruttopension), col = "purple")
-plot(model2)
-
-
-summary(model2)
-
-
-
-Xp <- predict(model2, type="lpmatrix")
-
-
-## see also examples in ?gam.models (e.g. 'by' variables, 
-## random effects and tricks for large binary datasets)
-
-library(mgcv)
-set.seed(2) ## simulate some data... 
-dat <- gamSim(1,n=400,dist="normal",scale=2)
-b <- gam(y~s(x0)+s(x1)+s(x2)+s(x3),data=dat)
-summary(b)
-plot(b,pages=1,residuals=TRUE)  ## show partial residuals
-plot(b,pages=1,seWithMean=TRUE) ## `with intercept' CIs
-## run some basic model checks, including checking
-## smoothing basis dimensions...
-gam.check(b)
-
-## same fit in two parts .....
-G <- gam(y~s(x0)+s(x1)+s(x2)+s(x3),fit=FALSE,data=dat)
-b <- gam(G=G)
-print(b)
-
-## 2 part fit enabling manipulation of smoothing parameters...
-G <- gam(y~s(x0)+s(x1)+s(x2)+s(x3),fit=FALSE,data=dat,sp=b$sp)
-G$lsp0 <- log(b$sp*10) ## provide log of required sp vec
-gam(G=G) ## it's smoother
-
-## change the smoothness selection method to REML
-b0 <- gam(y~s(x0)+s(x1)+s(x2)+s(x3),data=dat,method="REML")
-## use alternative plotting scheme, and way intervals include
-## smoothing parameter uncertainty...
-plot(b0,pages=1,scheme=1,unconditional=TRUE) 
-
-## Would a smooth interaction of x0 and x1 be better?
-## Use tensor product smooth of x0 and x1, basis 
-## dimension 49 (see ?te for details, also ?t2).
-bt <- gam(y~te(x0,x1,k=7)+s(x2)+s(x3),data=dat,
-          method="REML")
-plot(bt,pages=1) 
-plot(bt,pages=1,scheme=2) ## alternative visualization
-AIC(b0,bt) ## interaction worse than additive
+# 
+# 
+# tst <-
+# dat %>% 
+#   filter(fodar == 1975 & pensionar == 63)
+# 
+# 
+# # testa additiv modell
+# model2 <- gam(log(Bruttopension) ~ ti(arslon) + 
+#               ti(fodar) + 
+#               ti(pensionar)+
+#               ti(arslon, pensionar) + 
+#               ti(arslon, pensionar, fodar) + 
+#               arslon + 
+#               fodar + 
+#               pensionar, 
+#             data = dat)
+# 
+# p2 <- predict(model2)
+# 
+# plot(p2, log(dat$Bruttopension), col = "purple")
+# plot(model2)

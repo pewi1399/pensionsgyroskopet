@@ -35,7 +35,7 @@
 	<script src="plot.js"></script>
 	<script src="src/delningstal.js"></script>
 	<!--<script src="modell.js"></script>-->
-	<script src="src/sliderCallbacks.js"></script>
+	<script src="sliderCallbacks.js"></script>
 	<script src="src/bootstrap.3.3.7/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
@@ -420,7 +420,7 @@ box-shadow: none;
 					<br>
 					<div class="btn-group btn-group-vertical" data-toggle="buttons">
 			        	<label class="btn active sparaNej">
-			          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
+			          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span class = "mytags"> Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
 			        	</label>
 				        <label class="btn sparaJa">
 				          	<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag är beredd att leva på mindre pengar varje månad, för att få en högre pension. </span>
@@ -514,11 +514,7 @@ box-shadow: none;
 	var slider33 = d3.select("#x3").append("svg").call(s3);
 
 
-	s1.callback(function(){
-
-		pension(s1,s2,s3);}
-
-	)
+	s1.callback(function(){pension(s1,s2,s3);})
 	s2.callback(function(){behallning(s2,s1,s3);})
 	s3.callback(function(){sparande(s3,s1,s2);})
 
