@@ -1,21 +1,21 @@
 // ----------------------------- constants -------------------------------------
-var alpha = 25.3
+//var alpha = 25.3
 var beta = 600000.3
 var IBB = 61500
 // r = ränta
-ranta = 0.017
+//ranta = 0.017
 // mu = arvsvinster
-mu = 1
+//mu = 1
 // D delningstal
-Delningstal = delningstal.X65
+//Delningstal = delningstal.X65
 
 
 var alpha = -113221862.219793
 var b_lon = 444.395597171495
-var b_fodar = 57422.8552482823 
-var b_pensionar = 2081369.38215545 
-var b_lon_pensionar = -8.23367405408878 
-var b_fodar_pensionar = -1055.75823031998 
+var b_fodar = 57422.8552482823
+var b_pensionar = 2081369.38215545
+var b_lon_pensionar = -8.23367405408878
+var b_fodar_pensionar = -1055.75823031998
 var b_lon_fodar = -0.227976205379907
 var b_lon_fodar_pensionar = 0.00422301483112778
 
@@ -55,8 +55,8 @@ var b_lon_fodar_pensionar = 0.00422301483112778
 
 
                 var lon = lon + (z.value()*100/18)*12
-                var behallning = 
-                  alpha + 
+                var behallning =
+                  alpha +
                   lon * b_lon +
                   fodar * b_fodar +
                   pensionar * b_pensionar +
@@ -99,7 +99,7 @@ var b_lon_fodar_pensionar = 0.00422301483112778
 
             var lon = lon + (z.value()*100/18)*12
 
-            var pensionar = (behallning -  (alpha + 
+            var pensionar = (behallning -  (alpha +
                 lon * b_lon +
                 fodar * b_fodar +
                 lon * fodar * b_lon_fodar))/
@@ -133,7 +133,7 @@ var b_lon_fodar_pensionar = 0.00422301483112778
               x.value(a);
               y.value(a);
           }
-          
+
           redraw(income="t")
         }
 //------------------------------------------------------------------------------

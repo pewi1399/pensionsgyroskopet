@@ -259,7 +259,11 @@ box-shadow: none;
     width: 100%;
     text-align: right;
     font-size: 0.9em;
-    padding: 8px 0 35px 0;
+    padding: 8px 0 45px 0;
+}
+
+#input{
+	type: "number"
 }
 
 </style>
@@ -315,7 +319,7 @@ box-shadow: none;
 			<h1>Först några frågor om dig (2/12)</h1>
 			<p>
 				<br>
-				Jag är född: <input type="text" name = "fodelsear" placeholder="Ange födelseår" style="width: 200px;text-align: center;">
+				Jag är född: <input type="number" min="1900" max="2000" name = "fodelsear" placeholder="Ange födelseår" style="width: 200px;text-align: center;">
 				<br>
 				<br>
 				Jag är en:
@@ -345,16 +349,16 @@ box-shadow: none;
 				<p>
 				<br>
 				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
-		        	<label class="btn active">
+		        	<label class="btn active" style="margin-bottom:4px;white-space:normal;">
 		          		<input type="radio" name='viktigast' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
 		        	</label>
-			        <label class="btn">
+			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Att få en hög pension</span>
 			        </label>
-			       	<label class="btn">
+			       	<label class="btn" style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Vet ej</span>
 			        </label>
-			        <label class="btn">
+			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Annat</span>
 			        </label>
 		      	</div>
@@ -371,7 +375,7 @@ box-shadow: none;
 			<h1>Om du kunde välja fritt, vid vilken ålder skulle du vilja gå i pension? (4/12)</h1>
 			<p>
 				<br>
-				Jag skulle vilja gå när jag är <input type="text" name = "onskad_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år gammal.
+				Jag skulle vilja gå när jag är <input type="number" min="0" max="100" name = "onskad_alder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år gammal.
 			</p>
 	    </div>
 	</div>
@@ -381,7 +385,7 @@ box-shadow: none;
 			<h1>Om du kunde välja fritt, hur mycket skulle du vilja ha i pension per månad? (5/12)</h1>
 			<p>
 				<br>
-				Jag skulle vilja ha en pension på <input type="text" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
+				Jag skulle vilja ha en pension på <input type="number" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
 			</p>
 	    </div>
 	</div>
@@ -407,7 +411,7 @@ box-shadow: none;
 			<h1>Hur mycket tjänar du idag? (7/12)</h1>
 			<p>
 				<br>
-				Idag tjänar jag <input type="text" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
+				Idag tjänar jag <input type="number" min = "0" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
 			</p>
 	    </div>
 	</div>
@@ -431,7 +435,7 @@ box-shadow: none;
 			<div class="col-md-10 col-md-offset-1" id = "x3text">
 				<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
 				<p> <br>
-					Jag är beredd att dra av <input type="text" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
+					Jag är beredd att dra av <input type="number" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
 				</p>
 			</div>
 			<div id="x3" class = "col-md-10 col-md-offset-1">
@@ -461,17 +465,17 @@ box-shadow: none;
 		<div class = "col-md-10 col-md-offset-1">
 			<h1>Välj en ålder, pension och ett pensionssparande som passar dig (10/12)</h1>
 			<div id="x1" class = "col-md-10 col-md-offset-1">
-			<p> Pensionsålder <input type="text" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
+			<p> Pensionsålder <input type="number" name = "test_slider_pensionsalder" placeholder="Ange ålder" style="width: 150px;text-align: center;"> år </p>
 			</div>
 			<div class = "col-md-10 col-md-offset-1">
-				<p> Pension <input type="text" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr före skatt</p>
+				<p> Pension <input type="number" name = "test_slider_pensionsinkomst" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kr före skatt</p>
 			</div>
 			<div id="x2" class = "col-md-10 col-md-offset-1">
 			</div>
 			<div class = "col-md-10 col-md-offset-1">
 			<p>
 				<br>
-				Jag väljer att dra av <input type="text" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
+				Jag väljer att dra av <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
 			</div>
 		</div>
 	</div>
