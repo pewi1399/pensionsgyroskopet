@@ -4,10 +4,10 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Pensionsgyroskopet</title>
+	<title>Min idealpension</title>
 	<meta name="author" content="perwim" />
-	<meta name="description" content="Pensionsgyroskopet" />
-	<meta name="keywords"  content="Pensionsgyroskopet" />
+	<meta name="description" content="Min idealpension" />
+	<meta name="keywords"  content="Min idealpension" />
 	<meta name="Resource-type" content="Document" />
 
 	<link rel="stylesheet" href="src/bootstrap.3.3.7/css/bootstrap.min.css">
@@ -307,7 +307,7 @@ box-shadow: none;
 		<div class = "col-md-10 col-md-offset-1">
 
 
-			<h1> Hur ser din drömpension ut? (1/12)</h1>
+			<h1> Hur ser din idealpension ut? (1/12)</h1>
 			<p>
 				Pensionsmyndigheten genomför ett projekt för att se hur människor skulle välja <br>
 				– om de fick välja fritt   – mellan hur länge de vill arbeta innan pensionen, <br>
@@ -329,8 +329,8 @@ box-shadow: none;
 				<br>
 				Jag är en:
 			<div class="btn-group btn-group-vertical" data-toggle="buttons">
-	        	<label class="btn active">
-	          		<input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Man</span>
+	        	<label class="btn">
+	          		<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Man</span>
 	        	</label>
 		        <label class="btn">
 		          	<input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Kvinna</span>
@@ -354,8 +354,8 @@ box-shadow: none;
 				<p>
 				<br>
 				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
-		        	<label class="btn active" style="margin-bottom:4px;white-space:normal;">
-		          		<input type="radio" name='viktigast' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
+		        	<label class="btn" style="margin-bottom:4px;white-space:normal;">
+		          		<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Att gå i pension vid en särskild ålder </span>
 		        	</label>
 			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Att få en hög pension</span>
@@ -428,8 +428,8 @@ box-shadow: none;
 				<p>
 					<br>
 					<div class="btn-group btn-group-vertical" data-toggle="buttons">
-			        	<label class="btn active sparaNej" style="margin-bottom:4px;white-space:normal;">
-			          		<input type="radio" name='spara_janej' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span>Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
+			        	<label class="btn sparaNej" style="margin-bottom:4px;white-space:normal;">
+			          		<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span>Nej, jag vill/behöver använda hela min inkomst idag istället. </span>
 			        	</label>
 				        <label class="btn sparaJa" style="margin-bottom:4px;white-space:normal;">
 				          	<input type="radio" name='spara_janej'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span>Ja, jag är beredd att leva på mindre pengar varje månad, för att få en högre pension. </span>
@@ -495,8 +495,8 @@ box-shadow: none;
 				<br>
 			</p>
 			<div class="btn-group btn-group-vertical" data-toggle="buttons">
-		        	<label class="btn active"  style="margin-bottom:4px;white-space:normal;">
-		          		<input type="radio" name='spara_mindre' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag är nöjd med att arbetsgivaren betalar in pengar till min pension. </span>
+		        	<label class="btn"  style="margin-bottom:4px;white-space:normal;">
+		          		<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span> Nej, jag är nöjd med att arbetsgivaren betalar in pengar till min pension. </span>
 		        	</label>
 			        <label class="btn"  style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='spara_mindre'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Ja, jag vill hellre få en högre lön istället. </span>
@@ -653,22 +653,24 @@ box-shadow: none;
 next = function(){
 
 	if(index == 2){
-		if($('input[name = fodelsear]').val() != ""){
+		if($('input[name = fodelsear]').val() != "" & $("input[name = gender1]").val() != ""){
 			$.fn.fullpage.moveSectionDown()
 		} else {
-			alert("Fill in!")
+			//alert("Fill in!")
 		}
 	} else if(index == 4){
 			if($("input[name = onskad_alder]").val() != ""){
 				$.fn.fullpage.moveSectionDown()
 			} else {
-				alert("Fill in!")
+				//alert("Fill in!")
 			}
 	} else if(index == 7){
 			if($("input[name = inkomst_efter_skatt]").val() != ""){
-				$.fn.fullpage.moveSectionDown()
+				$.fn.fullpage.moveSectionDown();
+				s2.x(Number($('input[name^="inkomst_efter_skatt"]').val()));
+				s3.x(Number($('input[name^="inkomst_efter_skatt"]').val())*0.30);
 			} else {
-				alert("Fill in!")
+				//alert("Fill in!")
 			}
 	} else {
 		$.fn.fullpage.moveSectionDown()
