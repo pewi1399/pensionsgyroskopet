@@ -239,7 +239,7 @@ box-shadow: none;
 
 #myBar {
     width: 1%;
-    height: 5px;
+    height: 8px;
     background-color: #FFB70F;
 }
 
@@ -295,7 +295,7 @@ box-shadow: none;
 	<ul>
         <!--<li><a href="https://alvarotrigo.com/fullPage/utils/wordpress.html">Wordpress theme</a></li>
         <li><a href="https://github.com/alvarotrigo/fullPage.js/archive/master.zip">Download</a></li>-->
-				<li> 	<button type="button" class="btn btn-info" onclick = "$.fn.fullpage.moveSectionDown();">Nästa fråga</button> </li>
+				<li> 	<button type="button" class="btn btn-info" onclick = "next();">Nästa fråga</button> </li>
 						<!--<a href="#" class="next col-md-offset-10 col-md-1", onclick = "$.fn.fullpage.moveSectionDown();">Nästa fråga &raquo;</a>-->
 		</ul>
 </div>
@@ -652,9 +652,27 @@ box-shadow: none;
 // next knapp
 next = function(){
 
-if(index == 2 & $("#fodelsear").value == null)
-	$.fn.fullpage.moveSectionDown()
-
+	if(index == 2){
+		if($('input[name = fodelsear]').val() != ""){
+			$.fn.fullpage.moveSectionDown()
+		} else {
+			alert("Fill in!")
+		}
+	} else if(index == 4){
+			if($("input[name = onskad_alder]").val() != ""){
+				$.fn.fullpage.moveSectionDown()
+			} else {
+				alert("Fill in!")
+			}
+	} else if(index == 7){
+			if($("input[name = inkomst_efter_skatt]").val() != ""){
+				$.fn.fullpage.moveSectionDown()
+			} else {
+				alert("Fill in!")
+			}
+	} else {
+		$.fn.fullpage.moveSectionDown()
+	}
 }
 </script>
 
