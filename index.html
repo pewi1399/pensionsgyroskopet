@@ -52,6 +52,7 @@
 					deleteLog = true;
 					console.log('===============');
 					console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index );
+					window.index = index
 
 					var elem = document.getElementById("myBar");
 					var width = (index-1)/11*100
@@ -411,7 +412,7 @@ box-shadow: none;
 			<h1>Hur mycket tjänar du idag? (7/12)</h1>
 			<p>
 				<br>
-				Idag tjänar jag <input type="number" min = "0" name = "inkomst_efter_skatt" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
+				Idag tjänar jag <input type="number" min = "0" name = "inkomst_efter_skatt" default = "25000" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
 			</p>
 	    </div>
 	</div>
@@ -644,7 +645,13 @@ box-shadow: none;
 	});
 
 
+// next knapp
+next = function(){
 
+if(index == 2 & $("#fodelsear").value == null)
+	$.fn.fullpage.moveSectionDown()
+
+}
 </script>
 
 

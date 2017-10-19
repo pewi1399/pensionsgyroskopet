@@ -1,5 +1,5 @@
 // ----------------------------- constants -------------------------------------
-//var alpha = 25.3
+var alpha = 25.3
 var beta = 600000.3
 var IBB = 61500
 // r = ränta
@@ -18,6 +18,11 @@ var b_lon_pensionar = -8.23367405408878
 var b_fodar_pensionar = -1055.75823031998
 var b_lon_fodar = -0.227976205379907
 var b_lon_fodar_pensionar = 0.00422301483112778
+
+//var lon = lon + (z.value()*100/18)*12
+//var lon = 25000*12
+//var fodar = 1965
+//var pensionar = 65
 
 //--------------------------- sliderfunctions ----------------------------------
 
@@ -53,8 +58,13 @@ var b_lon_fodar_pensionar = 0.00422301483112778
             else if ( unlocked ==  "sparande" )
             {
 
-
+                //var lon = lon + (z.value()*100/18)*12
+                //var lon = 25000*12
+                //var fodar = 1965
+                //var pensionar = 65
                 var lon = lon + (z.value()*100/18)*12
+
+
                 var behallning =
                   alpha +
                   lon * b_lon +
@@ -94,8 +104,9 @@ var b_lon_fodar_pensionar = 0.00422301483112778
           else if ( unlocked ==  "sparande" )
           {
 
-            //(z.value()*alpha + 67*y + 10*y) / (z.value() + y)
-            // räkna ut tid utifrån z = Avgift och src = behallning
+            // var lon = 25000*12
+            // var fodar = 1965
+            // var behallning = 20147*12
 
             var lon = lon + (z.value()*100/18)*12
 
