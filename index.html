@@ -222,7 +222,7 @@ user-select: none;
 }
 
 div[data-toggle="buttons"] label:hover {
-color: #f20404;
+color: #125687;
 }
 
 div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
@@ -271,6 +271,14 @@ box-shadow: none;
 	type: "number"
 }
 
+.btn-next {
+    color: #fff;
+    background-color: #125687;
+    border-color: #125687;
+}
+
+
+
 </style>
 
 
@@ -295,7 +303,7 @@ box-shadow: none;
 	<ul>
         <!--<li><a href="https://alvarotrigo.com/fullPage/utils/wordpress.html">Wordpress theme</a></li>
         <li><a href="https://github.com/alvarotrigo/fullPage.js/archive/master.zip">Download</a></li>-->
-				<li> 	<button type="button" class="btn btn-info" onclick = "next();">Nästa fråga</button> </li>
+				<li> 	<button type="button" class="btn btn-next" onclick = "next();">Nästa fråga</button> </li>
 						<!--<a href="#" class="next col-md-offset-10 col-md-1", onclick = "$.fn.fullpage.moveSectionDown();">Nästa fråga &raquo;</a>-->
 		</ul>
 </div>
@@ -390,7 +398,7 @@ box-shadow: none;
 			<h1>Om du kunde välja fritt, hur mycket skulle du vilja ha i pension per månad? (5/12)</h1>
 			<p>
 				<br>
-				Jag skulle vilja ha en pension på <input type="number" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad.
+				Jag skulle vilja ha en pension på <input type="number" name = "onskad_pension" placeholder="Ange kronor" style="width: 160px;text-align: center;"> före skatt per månad i dagens penningvärde.
 			</p>
 	    </div>
 	</div>
@@ -438,7 +446,6 @@ box-shadow: none;
 				</p>
 			</div>
 			<div class="col-md-10 col-md-offset-1" id = "x3text">
-				<h1>Hur mycket är du beredd att dra av från din lön idag för att få mer i pension sedan?</h1>
 				<p> <br>
 					Jag är beredd att dra av <input type="number" name = "test_slider_sparande" placeholder="Ange kronor" style="width: 160px;text-align: center;"> kronor före skatt per månad.
 				</p>
@@ -672,6 +679,19 @@ next = function(){
 			} else {
 				//alert("Fill in!")
 			}
+	} else if(index == 12){
+		var answers = {
+			pension: s2.value(),
+			sparande: s3.value(),
+			pensionsalder: s1.value(),
+			onskadalder: $("input[name = onskad_alder]").val(),
+			fodelsear: $('input[name = fodelsear]').val(), 
+			sex: $('input[name = gender1]').val() ,
+			extrasparande: $('input[name = spara_mindre]:checked').nextAll('span:first').text()
+		}
+
+		window.answers = JSON.stringify(answers)
+		}
 	} else {
 		$.fn.fullpage.moveSectionDown()
 	}
