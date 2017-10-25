@@ -86,12 +86,14 @@
 		$('input[name=test_slider_sparande]').change(function(){
 			s3.value($('input[name=test_slider_sparande]').val());
 			$("input[name='sparande_final_valfritt']").val($('input[name=test_slider_sparande]').val())
+			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())))
 		})
 		$('input[name=sparande_final_valfritt]').change(function(){
 			s3.value($('input[name=sparande_final_valfritt]').val());
 			$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
 			s1.value($('input[name=test_slider_pensionsalder]').val());
 			pension(s1,s2,s3);
+			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));
 		})
 		$('input[name=test_slider_pensionsalder]').change(function(){
 			s1.value($('input[name=test_slider_pensionsalder]').val());
@@ -103,6 +105,7 @@
 		})
 		$('input[name=inkomst_efter_skatt]').change(function(){
 			$('#avsattning').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20))
+			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())))
 			//behallning(s2,s1,s3);
 		})
 
@@ -493,7 +496,7 @@ box-shadow: none;
 			<div class = "col-md-10 col-md-offset-1">
 			<p>
 				<br>
-				Baserat på din angivna inkomst betalar din arbetsgivare in ungefärligen <input type="number" id = "avsattning" style="width: 140px;text-align: center;" disabled> kr till din pension. Du har angett att du är beredd att dra av ytterligare <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av din månadslön till in framtida pension
+				Baserat på din angivna inkomst betalar din arbetsgivare in ungefärligen <input type="number" id = "avsattning" style="width: 140px;text-align: center;" disabled> kr till din pension. Du har angett att du är beredd att dra av ytterligare <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av din månadslön till in framtida pension. Det ger ett sammanlagt sparande på <input type="number" id = "spar_tot" style="width: 140px;text-align: center;" disabled>
 			</div>
 		</div>
 	</div>
