@@ -101,6 +101,10 @@
 			s2.value($('input[name=test_slider_pensionsinkomst]').val());
 			behallning(s2,s1,s3);
 		})
+		$('input[name=inkomst_efter_skatt]').change(function(){
+			$('#avsattning').text(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20))
+			//behallning(s2,s1,s3);
+		})
 
 		var testHeight = $("#section0").height();
 		$( "#nextButton" ).css("margin-top", testHeight*0.97);
@@ -487,7 +491,7 @@ box-shadow: none;
 			<div class = "col-md-10 col-md-offset-1">
 			<p>
 				<br>
-				Jag väljer att dra av <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
+				Din arbetsgivare betalar in ungefärligen <span id = "avsattning">0</span>  kr till din pension. Jag väljer att dra av <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av min månadslön till min framtida pension
 			</div>
 		</div>
 	</div>
@@ -691,7 +695,6 @@ next = function(){
 		}
 
 		window.answers = JSON.stringify(answers)
-		}
 	} else {
 		$.fn.fullpage.moveSectionDown()
 	}
