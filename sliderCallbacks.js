@@ -80,6 +80,12 @@ var b_lon_fodar_pensionar = 0.00422301483112778
 
             }
 
+            var life_left = (65 + life_expectancy.filter(function(d){
+              return d.cohort==Number($('input[name = fodelsear]').val());
+            })[0].E_x) - pensionar
+            
+            $(".life_expectancy").text(Math.round(life_left))
+
             redraw(income="f")
         }
 
@@ -124,6 +130,12 @@ var b_lon_fodar_pensionar = 0.00422301483112778
             $('input[name=test_slider_pensionsalder]').val(Math.round(pensionar))
 
           }
+
+            var life_left = (65 + life_expectancy.filter(function(d){
+              return d.cohort==Number($('input[name = fodelsear]').val());
+            })[0].E_x) - pensionar
+            
+            $(".life_expectancy").text(Math.round(life_left))
 
           redraw(income="f")
         }
