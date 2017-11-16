@@ -102,7 +102,7 @@ if(type == "income"){
         );
 
     if(type == "alder"){
-      var tickmarks = [55, 75]
+      var tickmarks = [61, 75]
 
     } else if(type == "income") {
 

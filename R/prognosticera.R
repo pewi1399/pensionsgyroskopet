@@ -6,7 +6,7 @@ require(dplyr)
 library(caret)
 
 # bygg prognos 
-dat <- openxlsx::read.xlsx("data/typfallsdata_med_simulering.xlsx", sheet = 2)
+dat <- openxlsx::read.xlsx("data/typfallsdata_med_simulering.xlsx")
 names(dat)
 
 # Önskad pseudomodell
@@ -28,12 +28,12 @@ plot(model1)
 
 coefs <- coef(model1)
 
-lon = 25000*12
-fodar = 1965
-pensionar = 65
+lon = 9999*12
+fodar = 1976
+pensionar = 69
 
 #---------------------------------- parameters ---------------------------------
-a <- coefs["(Intercept)"]
+alpha <- coefs["(Intercept)"]
 b_lon <-  coefs["arslon"] 
 b_fodar <- coefs["fodar"]
 b_pensionar  <-  coefs["pensionar"]
@@ -41,11 +41,32 @@ b_lon_pensionar <- coefs["arslon:pensionar"]
 b_fodar_pensionar <-  coefs["fodar:pensionar"]
 b_lon_fodar <- coefs["arslon:fodar"]
 b_lon_fodar_pensionar <- coefs["arslon:fodar:pensionar"]
+
+# test
+alpha = -22797340.0545776
+b_lon = 24.2116069556377
+b_fodar = 11394.1880519317
+b_pensionar = 478346.349925474
+b_lon_pensionar = -0.672919275782119
+b_fodar_pensionar = -239.7697
+b_lon_fodar = -0.0129248006725873
+b_lon_fodar_pensionar = 0.000354919013935786
+
+alpha +
+  lon * b_lon +
+  fodar * b_fodar +
+  pensionar * b_pensionar +
+  lon * pensionar * b_lon_pensionar+
+  fodar * pensionar * b_fodar_pensionar+
+  lon * fodar * b_lon_fodar +
+  lon * fodar * pensionar * b_lon_fodar_pensionar
+
+
 #-------------------------------------------------------------------------------
 
 #------------------------------------ del 1 ------------------------------------
 pred <- 
-a + 
+alpha + 
 lon * b_lon +
 fodar * b_fodar +
 pensionar * b_pensionar +
@@ -53,6 +74,16 @@ lon * pensionar * b_lon_pensionar+
 fodar * pensionar * b_fodar_pensionar+
 lon * fodar * b_lon_fodar +
 lon * fodar * pensionar * b_lon_fodar_pensionar
+
+
+alpha +
+  lon * b_lon +
+  fodar * b_fodar +
+  pensionar * b_pensionar +
+  lon * pensionar * b_lon_pensionar+
+  fodar * pensionar * b_fodar_pensionar+
+  lon * fodar * b_lon_fodar +
+  lon * fodar * pensionar * b_lon_fodar_pensionar
 
 pred/12
 #-------------------------------------------------------------------------------

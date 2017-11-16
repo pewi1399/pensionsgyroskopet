@@ -10,14 +10,14 @@ var IBB = 61500
 //Delningstal = delningstal.X65
 
 
-var alpha = -113221862.219793
-var b_lon = 444.395597171495
-var b_fodar = 57422.8552482823
-var b_pensionar = 2081369.38215545
-var b_lon_pensionar = -8.23367405408878
-var b_fodar_pensionar = -1055.75823031998
-var b_lon_fodar = -0.227976205379907
-var b_lon_fodar_pensionar = 0.00422301483112778
+var alpha = -22797340.0545776
+var b_lon = 24.2116069556377
+var b_fodar = 11394.1880519317
+var b_pensionar = 478346.349925474
+var b_lon_pensionar = -0.672919275782119
+var b_fodar_pensionar = -239.7697
+var b_lon_fodar = -0.0129248006725873
+var b_lon_fodar_pensionar = 0.000354919013935786
 
 //var lon = lon + (z.value()*100/18)*12
 //var lon = 25000*12

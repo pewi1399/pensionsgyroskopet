@@ -47,6 +47,7 @@
 			navigation: false,
 			navigationPosition: 'bottom',
 			slidesNavPosition: 'bottom',
+			//scrolloverflow: true,
 			navigationTooltips: ['Startsida', 'Bakgrundsfrågor', 'Prioriteringar', 'Pensionsålder', 'Pension', 'Information', 'Lön', 'Sparande', 'Infotext', 'Frågestallning', 'Tack!'],
 			    afterLoad: function(anchorLink, index){
 			    	$('#callbacksDiv').append('<p>afterLoad - anchorLink:' + anchorLink + " index:" + index + '</p>');
@@ -294,6 +295,9 @@ box-shadow: none;
     border-color: #125687;
 }
 
+html{
+	font-size: 50%
+}
 
 
 </style>
@@ -370,33 +374,11 @@ box-shadow: none;
 
 	<div class="section" id="section2">
 		<div class = "col-md-10 col-md-offset-1">
-		<h1>Om du fick välja fritt?</h1>
-		<p>
-			<br>
-			När det gäller din pension vad är viktigast för dig?
-		</p>
-			<div class="radioLeft col-md-4 col-md-offset-4">
-				<p>
+			<h1>Hur mycket tjänar du idag?</h1>
+			<p>
 				<br>
-				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
-		        	<label class="btn" style="margin-bottom:4px;white-space:normal;">
-		          		<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span class = 'viktigast'> Att gå i pension vid en särskild ålder </span>
-		        	</label>
-			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
-			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Att få en hög pension</span>
-			        </label>
-			       	<label class="btn" style="margin-bottom:4px;white-space:normal;">
-			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Vet ej</span>
-			        </label>
-			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
-			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Annat</span>
-			        </label>
-		      	</div>
-			   	<div id = "viktigastAnnat" >
-			   		Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
-			   </div>
-		 		</p>
-			</div>
+				Idag tjänar jag <input type="number" min = "0" name = "inkomst_efter_skatt" default = "25000" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
+			</p>
 	    </div>
 	</div>
 
@@ -438,19 +420,42 @@ box-shadow: none;
 
 	<div class="section" id="section6" >
 		<div class = "col-md-10 col-md-offset-1">
-			<h1>Hur mycket tjänar du idag?</h1>
-			<p>
+		<h1>Om du fick välja fritt?</h1>
+		<p>
+			<br>
+			När det gäller din pension vad är viktigast för dig?
+		</p>
+			<div class="radioLeft col-md-4 col-md-offset-4">
+				<p>
 				<br>
-				Idag tjänar jag <input type="number" min = "0" name = "inkomst_efter_skatt" default = "25000" placeholder="Ange kronor" style="width: 160px;text-align: center;">kronor per månad före skatt.
-			</p>
+				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
+		        	<label class="btn" style="margin-bottom:4px;white-space:normal;">
+		          		<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span class = 'viktigast'> Att gå i pension vid en särskild ålder </span>
+		        	</label>
+			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Att min pension uppnår en viss ersättningsnivå.</span>
+			        </label>
+			       	<label class="btn" style="margin-bottom:4px;white-space:normal;">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Vet ej</span>
+			        </label>
+			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x radioAnnat"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Annat</span>
+			        </label>
+		      	</div>
+			   	<div id = "viktigastAnnat" >
+			   		Vilket?: <input type="text" name = "viktigtAnnat" placeholder="" style="width: 200px;text-align: center;">
+			   </div>
+		 		</p>
+			</div>
 	    </div>
 	</div>
 
 	<div class="section" id="section7" >
 		<div class = "col-md-10 col-md-offset-1">
-		<h1>Kan du tänka dig att leva på mindre pengar idag för att få en högre pension i framtiden? </h1>
+		<h1> Baserat på din angivna inkomst betalar din arbetsgivare in ungefärligen <input type="number" id = "avsattning" style="width: 140px;text-align: center;" disabled> kr till din pension. </h1>
 			<div class="radioLeft col-md-11 col-md-offset-1">
 				<p>
+					Kan du tänka dig att leva på mindre pengar idag för att få en högre pension i framtiden? 
 					<br>
 					<div class="btn-group btn-group-vertical" data-toggle="buttons">
 			        	<label class="btn sparaNej" style="margin-bottom:4px;white-space:normal;">
@@ -480,7 +485,6 @@ box-shadow: none;
 				På nästa sida skall du få laborera mellan önskad pensionsålder och hur mycket du vill ha i pension utifrån din situation. <br>
 				Fyll i en av rutorna eller dra i reglagen för att se hur den andra påverkas. <br>
 				Längst ned kan också ändra det belopp du väljer att dra av från din lön idag för att se hur det påverkar din framtida pension. <br>
-				När du känner dig nöjd med dina val klickar du på knappen längst ned för att gå vidare. <br>
 				<br>
 				Observera att det bara är ett experiment för att visa hur de olika sakerna påverkar varandra <br>
 				och ingen exakt prognos över hur det kommer att se ut när du går i pension.
@@ -506,7 +510,7 @@ box-shadow: none;
 			<div class = "col-md-10 col-md-offset-1">
 			<p>
 				<br>
-				Baserat på din angivna inkomst betalar din arbetsgivare in ungefärligen <input type="number" id = "avsattning" style="width: 140px;text-align: center;" disabled> kr till din pension. Du har angett att du är beredd att dra av ytterligare <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;"> kronor av din månadslön till in framtida pension. Det ger ett sammanlagt sparande på <input type="number" id = "spar_tot" style="width: 140px;text-align: center;" disabled>
+				Extra månadssparande till pension: <input type="number" name = "sparande_final_valfritt" placeholder="0" style="width: 140px;text-align: center;">  Sammanlagt sparande: <input type="number" id = "spar_tot" style="width: 140px;text-align: center;" disabled>
 			</div>
 		</div>
 	</div>
@@ -519,7 +523,7 @@ box-shadow: none;
 </body>
 
 <script>
-	var s1 = slider2(55,75,"alder"), s2 = slider2(0,30000,"utbet"), s3 = slider2(0,25000, "income");
+	var s1 = slider2(61,75,"alder"), s2 = slider2(0,30000,"utbet"), s3 = slider2(0,25000, "income");
 
 	var slider11 = d3.select("#x1").append("svg").call(s1);
 	var slider22 = d3.select("#x2").append("svg").call(s2);
@@ -672,8 +676,10 @@ next = function(){
 			//alert("Fill in!")
 		}
 	} else if(index == 3){
-		if($(".btn.active .viktigast").text() != ""){
-			$.fn.fullpage.moveSectionDown()
+		if($("input[name = inkomst_efter_skatt]").val() != ""){
+			$.fn.fullpage.moveSectionDown();
+			s2.x(Number($('input[name^="inkomst_efter_skatt"]').val()));
+			s3.x(Number($('input[name^="inkomst_efter_skatt"]').val())*0.30);
 		} else {
 			//alert("Fill in!")
 		}
@@ -690,13 +696,12 @@ next = function(){
 				//alert("Fill in!")
 			}
 	} else if(index == 7){
-			if($("input[name = inkomst_efter_skatt]").val() != ""){
-				$.fn.fullpage.moveSectionDown();
-				s2.x(Number($('input[name^="inkomst_efter_skatt"]').val()));
-				s3.x(Number($('input[name^="inkomst_efter_skatt"]').val())*0.30);
-			} else {
-				//alert("Fill in!")
-			}
+		if($(".btn.active .viktigast").text() != ""){
+			$.fn.fullpage.moveSectionDown()
+		} else {
+			//alert("Fill in!")
+		}
+
 	} else if(index == 8){
 			if($(".btn.active .spara_janej").text() != ""){
 				$.fn.fullpage.moveSectionDown()

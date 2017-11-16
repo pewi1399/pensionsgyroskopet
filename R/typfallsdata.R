@@ -1,6 +1,6 @@
 library(dplyr)
 n = 100
-lonsteg = seq(180000, 1420000, by = 20000)
+lonsteg = seq(180000, 1420000, by = 10000)
 pensionsaldrar = 61:75
 fodelsear = 1960:1995
 
@@ -9,9 +9,9 @@ data <- data.frame(
   arbetsstart = 21,
   pensionar = rep(pensionsaldrar,length(lonsteg)*length(fodelsear)),
   arslon = rep(lonsteg, length(fodelsear)*length(pensionsaldrar)),
-  inflation = 0.02,
-  realtillvaxt = 0.018,
-  fondavkastning = 0.035,
+  inflation = 0.0,
+  realtillvaxt = 0.0,
+  fondavkastning = 0.0,
   egenlon = 0,
   privatsparande = 0,
   tjanstepension = 5
