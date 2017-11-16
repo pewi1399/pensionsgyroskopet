@@ -109,6 +109,110 @@
 			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())))
 			//behallning(s2,s1,s3);
 		})
+		$(".viktigast").click(function(){
+
+			var ink_efter_skatt = Number($('input[name=inkomst_efter_skatt]').val());
+			var fodar =  Number($('input[name=fodelsear]').val());
+			var lon =  ink_efter_skatt*12;
+			var onskad_pension = Number($("input[name = onskad_pension]").val())
+			var onskad_alder = Number($("input[name = onskad_alder]").val())
+
+			if(onskad_pension > lon){
+				onskad_pension = lon
+			}
+			if(onskad_alder < 61){
+				onskad_alder = 61
+			}
+			if(onskad_alder > 75){
+				onskad_alder = 75
+			}
+
+
+
+			if(this.innerText == "Att min pension uppnår en viss ersättningsnivå"){
+				s2.value(onskad_pension)
+
+		        var behallning = s2.value()*12;
+	            var lon = lon + (s3.value()*100/18)*12
+
+	            var pensionar = (behallning -  (alpha +
+	                lon * b_lon +
+	                fodar * b_fodar +
+	                lon * fodar * b_lon_fodar))/
+	                (b_pensionar +
+	                   lon * b_lon_pensionar+
+	                   fodar * b_fodar_pensionar+
+	                   lon * fodar * b_lon_fodar_pensionar)
+
+	              s1.value(pensionar);
+
+			}else if(this.innerText == "Att gå i pension vid en särskild ålder"){
+				s1.value(onskad_alder)
+
+				var pensionar = Math.round(s1.value());
+                var lon = lon + (s3.value()*100/18)*12
+
+
+                var behallning =
+                  alpha +
+                  lon * b_lon +
+                  fodar * b_fodar +
+                  pensionar * b_pensionar +
+                  lon * pensionar * b_lon_pensionar+
+                  fodar * pensionar * b_fodar_pensionar+
+                  lon * fodar * b_lon_fodar +
+                  lon * fodar * pensionar * b_lon_fodar_pensionar
+
+                s2.value(behallning/12);
+
+
+
+			}else if(Math.random() < 0.5){
+				s2.value(onskad_pension)
+
+				var behallning = s2.value()*12;
+	            var lon = lon + (s3.value()*100/18)*12
+
+	            var pensionar = (behallning -  (alpha +
+	                lon * b_lon +
+	                fodar * b_fodar +
+	                lon * fodar * b_lon_fodar))/
+	                (b_pensionar +
+	                   lon * b_lon_pensionar+
+	                   fodar * b_fodar_pensionar+
+	                   lon * fodar * b_lon_fodar_pensionar)
+
+	              s1.value(pensionar);
+
+			} else {
+				s1.value(onskad_alder)
+
+				var pensionar = Math.round(s1.value());
+                var lon = lon + (s3.value()*100/18)*12;
+
+
+                var behallning =
+                  alpha +
+                  lon * b_lon +
+                  fodar * b_fodar +
+                  pensionar * b_pensionar +
+                  lon * pensionar * b_lon_pensionar+
+                  fodar * pensionar * b_fodar_pensionar+
+                  lon * fodar * b_lon_fodar +
+                  lon * fodar * pensionar * b_lon_fodar_pensionar
+
+                s2.value(behallning/12);
+			}
+
+	 	$('input[name=test_slider_pensionsinkomst]').val(Math.round(s2.value()))
+	 	$('input[name=test_slider_pensionsalder]').val(Math.round(s1.value()))
+
+		var life_left = (65 + life_expectancy.filter(function(d){
+              return d.cohort==Number($('input[name = fodelsear]').val());
+            })[0].E_x) - s1.value()
+            
+            $(".life_expectancy").text(Math.round(life_left))
+		})
 
 		var testHeight = $("#section0").height();
 		$( "#nextButton" ).css("margin-top", testHeight*0.97);
@@ -430,10 +534,10 @@ html{
 				<br>
 				 <div class="btn-group btn-group-vertical" data-toggle="buttons">
 		        	<label class="btn" style="margin-bottom:4px;white-space:normal;">
-		          		<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span class = 'viktigast'> Att gå i pension vid en särskild ålder </span>
+		          		<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span class = 'viktigast'>Att gå i pension vid en särskild ålder </span>
 		        	</label>
 			        <label class="btn" style="margin-bottom:4px;white-space:normal;">
-			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Att min pension uppnår en viss ersättningsnivå.</span>
+			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'>Att min pension uppnår en viss ersättningsnivå</span>
 			        </label>
 			       	<label class="btn" style="margin-bottom:4px;white-space:normal;">
 			          	<input type="radio" name='viktigast'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span class = 'viktigast'> Vet ej</span>

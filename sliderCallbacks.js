@@ -35,27 +35,11 @@ var b_lon_fodar_pensionar = 0.000354919013935786
             var lon =  Number($('input[name=inkomst_efter_skatt]').val())*12
             var fodar =  Number($('input[name=fodelsear]').val())
 
-            var arbetstid = pensionar - 23
-            window.time = arbetstid
 
            $('input[name=test_slider_pensionsalder]').val(Math.round(pensionar));
 
-            if(pensionar <61){
-              delningsar = 61
-            }else if(pensionar >110){
-              delningsar = 110
-            }else{
-              delningsar = pensionar
-            }
-            //window.Delningstal = delningstal["X"+ delningsar]
 
-            if(pensionar > 75)
-            {
-                var a = 0
-                y.value(a);
-                z.value(a);
-            }
-            else if ( unlocked ==  "sparande" )
+           if ( unlocked ==  "sparande" )
             {
 
                 //var lon = lon + (z.value()*100/18)*12
@@ -101,13 +85,7 @@ var b_lon_fodar_pensionar = 0.000354919013935786
 
           $('input[name=test_slider_pensionsinkomst]').val(Math.round(behallning/12))
 
-          if(behallning > 500*1000)
-          {
-              var a = 0
-              x.value(a);
-              z.value(a);
-          }
-          else if ( unlocked ==  "sparande" )
+        if ( unlocked ==  "sparande" )
           {
 
             // var lon = 25000*12
