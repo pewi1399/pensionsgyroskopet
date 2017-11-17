@@ -60,7 +60,6 @@ alpha +
   fodar * pensionar * b_fodar_pensionar+
   lon * fodar * b_lon_fodar +
   lon * fodar * pensionar * b_lon_fodar_pensionar
-
 #-------------------------------------------------------------------------------
 
 #------------------------------------ del 1 ------------------------------------
