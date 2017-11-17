@@ -70,7 +70,7 @@ var b_lon_fodar_pensionar = 0.000354919013935786
             
             $(".life_expectancy").text(Math.round(life_left))
 
-            redraw(income="f")
+            //redraw(income="f")
         }
 
 //------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ var b_lon_fodar_pensionar = 0.000354919013935786
             
             $(".life_expectancy").text(Math.round(life_left))
 
-          redraw(income="f")
+          //redraw(income="f")
         }
 
 //------------------------------------------------------------------------------
@@ -128,13 +128,7 @@ var b_lon_fodar_pensionar = 0.000354919013935786
           $('input[name=test_slider_sparande]').val(Math.round(sparande/12))
           $("input[name='sparande_final_valfritt']").val(Math.round(sparande/12))
 
-          if(sparande > 50*10000)
-          {
-              var a = 0
-              x.value(a);
-              y.value(a);
-          }
 
-          redraw(income="t")
+          //redraw(income="t")
         }
 //------------------------------------------------------------------------------

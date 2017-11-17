@@ -90,19 +90,41 @@
 			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())))
 		})
 		$('input[name=sparande_final_valfritt]').change(function(){
-			s3.value($('input[name=sparande_final_valfritt]').val());
-			$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
-			s1.value($('input[name=test_slider_pensionsalder]').val());
-			pension(s1,s2,s3);
-			$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));
+			if( $(".viktigast").innerText == "Att min pension uppnår en viss ersättningsnivå"){
+				s3.value($('input[name=sparande_final_valfritt]').val());
+				$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
+				s1.value($('input[name=test_slider_pensionsalder]').val());
+				pension(s1,s2,s3);
+				$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));
+			} else if ($(".viktigast").innerText == "Att gå i pension vid en särskild ålder"){
+				s3.value($('input[name=sparande_final_valfritt]').val());
+				$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
+				s2.value($('input[name=test_slider_pensionsinkomst]').val());
+				behallning(s2,s1,s3);
+				$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));
+			} else if(Math.random() < 0.5){
+				s3.value($('input[name=sparande_final_valfritt]').val());
+				$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
+				s1.value($('input[name=test_slider_pensionsalder]').val());
+				pension(s1,s2,s3);
+				$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));
+			} else {
+				s3.value($('input[name=sparande_final_valfritt]').val());
+				$("input[name='test_slider_sparande']").val($('input[name=sparande_final_valfritt]').val());
+				s2.value($('input[name=test_slider_pensionsinkomst]').val());
+				behallning(s2,s1,s3);
+				$('#spar_tot').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20 + Number($('input[name=sparande_final_valfritt]').val())));	
+			}
 		})
 		$('input[name=test_slider_pensionsalder]').change(function(){
 			s1.value($('input[name=test_slider_pensionsalder]').val());
 			pension(s1,s2,s3);
 		})
 		$('input[name=test_slider_pensionsinkomst]').change(function(){
-			s2.value($('input[name=test_slider_pensionsinkomst]').val());
-			behallning(s2,s1,s3);
+
+				s2.value($('input[name=test_slider_pensionsinkomst]').val());
+				behallning(s2,s1,s3);
+
 		})
 		$('input[name=inkomst_efter_skatt]').change(function(){
 			$('#avsattning').val(Math.round(Number($('input[name=inkomst_efter_skatt]').val())*0.20))
